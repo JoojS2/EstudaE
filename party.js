@@ -124,8 +124,8 @@ function readySelector() {
   const selected = party.room?.topics || [];
   return `<div class="card"><h2>📚 Escolha as matérias da Party</h2>
     <p class="mu">O sistema sorteará ${party.room.amount} perguntas e dividirá igualmente entre as matérias escolhidas. Se não houver divisão exata, uma ou mais matérias terão uma questão extra, também por sorteio.</p>
-    ${topics.map(t => `<label class="catalog-option"><input type="checkbox" data-topic="${h(t)}" ${selected.includes(t)?'checked':''}> <span><b>${h(t)}</b><span class="mu">50 questões disponíveis</span></span></label>`).join('')}
-    <p class="mu">Se escolher 60 questões de uma única matéria, 10 perguntas precisarão se repetir, pois o banco possui 50 por matéria.</p>
+    ${topics.map(t => `<label class="catalog-option"><input type="checkbox" data-topic="${h(t)}" ${selected.includes(t)?'checked':''}> <span><b>${h(t)}</b><span class="mu">${catalog[t].length} questões disponíveis</span></span></label>`).join('')}
+    <p class="mu">Para evitar repetições, selecione matérias suficientes para a quantidade desejada.</p>
     <button class="pri" data-a="generateReadyQuestions">🎲 Sortear questões</button>
     ${party.room.questions.length ? `<p class="mu">${party.room.questions.length} perguntas sorteadas. Clique novamente para sortear outra seleção.</p>` : ''}
   </div>`;

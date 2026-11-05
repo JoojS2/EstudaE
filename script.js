@@ -23,6 +23,28 @@ function save() { try {
 }
 catch (e) { } }
 let S = load(), V = 'home', R = null, RS = false;
+let sharedBank = {}, revisionTopics = [], revisionCount = 20, recentReviewIds = [];
+try { recentReviewIds = JSON.parse(localStorage.getItem('estudae:recent-revision-ids') || '[]'); } catch (_) {}
+fetch('question-bank.json').then(r => { if (!r.ok) throw Error('Banco indisponível'); return r.json(); }).then(data => {
+    sharedBank = data; if (!revisionTopics.length) revisionTopics = Object.keys(data);
+    render();
+}).catch(() => { console.warn('Banco de questões indisponível para revisão.'); });
+const shuffle = arr => { const a = [...arr]; for (let i=a.length-1;i>0;i--) { const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
+function reviewPool() {
+    const ready = Object.entries(sharedBank).filter(([topic]) => revisionTopics.includes(topic)).flatMap(([topic,qs]) => qs.map(q => ({ id:'bank:'+q.id, a:'bank:'+topic, t:q.text, alts:q.options, c:q.correct, l:0 })));
+    const custom = S.q.filter(q => revisionTopics.includes('Minhas questões') || revisionTopics.includes(nomeA(q.a)));
+    const unique = new Map();
+    for (const q of [...ready,...custom]) unique.set(q.t.trim().toLocaleLowerCase('pt-BR'),q);
+    const pool=[...unique.values()];
+    return [...shuffle(pool.filter(q=>!recentReviewIds.includes(q.id))),...shuffle(pool.filter(q=>recentReviewIds.includes(q.id)))].slice(0,revisionCount);
+}
+function revisionSetup() {
+    const topics = [...Object.keys(sharedBank),...(S.q.length ? ['Minhas questões'] : [])];
+    return `<div class="eyebrow">REVISÃO PERSONALIZADA</div><h1 class="page-title">O que vamos estudar hoje?</h1><p class="subtitle">As questões da revisão também fazem parte das Partys. Escolha uma ou várias matérias e pratique no seu ritmo.</p>
+      <div class="card review-setup"><div class="section-head"><h2>Escolha seus temas</h2><span class="mu">${revisionTopics.length} selecionados</span></div><div class="topic-grid">${topics.map(t=>`<label class="topic-choice"><input type="checkbox" data-revision-topic="${esc(t)}" ${revisionTopics.includes(t)?'checked':''}><span><strong>${esc(t)}</strong><small>${t==='Minhas questões'?S.q.length:sharedBank[t].length} questões</small></span></label>`).join('')}</div>
+      <div class="review-controls"><label>Quantidade de questões<select id="revisionAmount">${[10,20,30,45,60].map(n=>`<option value="${n}" ${revisionCount===n?'selected':''}>${n} questões</option>`).join('')}</select></label><button class="pri" data-a="startReview" ${!topics.length?'disabled':''}>Iniciar revisão →</button></div><p class="mu">O sistema prioriza perguntas não vistas recentemente e evita repetições na mesma revisão.</p></div>`;
+}
+
 const prio = a => (S.des[a] && S.des[a].p) || 'media';
 const nomeA = id => (S.assuntos.find(a => a.id === id) || { nome: '?' }).nome;
 /* Algoritmo: média ponderada das últimas N sessões (pesos N..1) + faixa configurável */
@@ -64,31 +86,32 @@ function fin() {
     let h = '<h2>Resultado da revisão</h2>';
     Object.keys(g).forEach(a => {
         const x = g[a], pct = x.ac / x.tot * 100;
-        S.res.push({ a, tot: x.tot, ac: x.ac, pct, t: Date.now() });
-        const ch = atual(a), d = S.des[a];
-        h += `<div class="card row"><div><b>${esc(nomeA(a))}</b><div class="mu">${x.ac}/${x.tot} acertos (${pct.toFixed(0)}%)${d ? ' · ajustado ' + d.aj.toFixed(0) + '%' : ' · poucos dados para reclassificar'}</div></div><span class="b ${prio(a)}">${ch ? NOME[ch[0]] + ' → ' : ''}${NOME[prio(a)]}</span></div>`;
+        if (!a.startsWith('bank:')) S.res.push({ a, tot: x.tot, ac: x.ac, pct, t: Date.now() });
+        const ch = a.startsWith('bank:') ? null : atual(a), d = a.startsWith('bank:') ? null : S.des[a];
+        h += `<div class="card row"><div><b>${esc(a.startsWith('bank:')?a.slice(5):nomeA(a))}</b><div class="mu">${x.ac}/${x.tot} acertos (${pct.toFixed(0)}%)${d ? ' · ajustado ' + d.aj.toFixed(0) + '%' : (a.startsWith('bank:')?'':' · poucos dados para reclassificar')}</div></div><span class="b ${prio(a)}">${ch ? NOME[ch[0]] + ' → ' : ''}${a.startsWith('bank:')?'Praticado':NOME[prio(a)]}</span></div>`;
     });
     save();
-    R.fim = h + '<button class="pri" data-a="go" data-v="home">Voltar ao início</button>';
+    R.fim = h + '<button class="pri" data-a="newReview">Nova revisão</button>';
+    recentReviewIds = [...new Set([...R.qs.map(q=>q.id),...recentReviewIds])].slice(0,120); localStorage.setItem('estudae:recent-revision-ids',JSON.stringify(recentReviewIds));
 }
 // ===== TELAS E COMPONENTES DA INTERFACE =====
 function home() {
     const done = S.res.length, correct = S.res.reduce((n, r) => n + r.ac, 0), total = S.res.reduce((n, r) => n + r.tot, 0);
     const icons = ['📐', '📜', '🌎', '📖', '🧪'];
-    return `<div class="eyebrow">BEM-VINDO AO SEU ESPAÇO</div><h1 class="page-title">Seu aprendizado começa aqui 👋</h1><p class="subtitle">Organize seus estudos, acompanhe sua evolução e aprenda com amigos.</p><div class="hero"><div><div style="font-size:11px;letter-spacing:2px;font-weight:800">✦ EVOLUA A CADA DIA</div><h2>Pronto para aprender algo novo?</h2><p>Um pouco de dedicação hoje faz toda a diferença amanhã. Vamos começar?</p><button data-a="start">Começar revisão →</button></div><div class="hero-art">📚</div></div><div class="stats"><div class="stat"><div class="stat-icon">📚</div><div class="num">${S.assuntos.length}</div><div class="mu">Matérias cadastradas</div></div><div class="stat"><div class="stat-icon">✍️</div><div class="num">${S.q.length}</div><div class="mu">Questões disponíveis</div></div><div class="stat"><div class="stat-icon">🎯</div><div class="num">${total ? Math.round(correct / total * 100) : 0}%</div><div class="mu">Taxa geral de acertos</div></div></div><div class="section-head"><h2>📖 Suas matérias</h2><button class="lk" data-a="go" data-v="man">Gerenciar questões →</button></div>${[...S.assuntos].sort((a, b) => RANK[prio(a.id)] - RANK[prio(b.id)]).map((a, i) => { let d = S.des[a.id], p = prio(a.id), n = S.q.filter(q => q.a === a.id).length; return `<div class="card row"><div class="subject-row"><span class="subject-icon">${icons[i % icons.length]}</span><div><b>${esc(a.nome)}</b><div class="mu">${n} questões · ${d ? d.aj.toFixed(0) + '% de aproveitamento' : 'Comece uma revisão'}</div></div></div><span class="b ${p}">${NOME[p]} prioridade</span></div>`; }).join('')}<div class="section-head"><h2>🤝 Estude com amigos</h2></div><div class="card row"><div><b>Partys de estudo</b><div class="mu">Crie um quiz e desafie seus colegas em tempo real.</div></div><button class="pri" data-a="go" data-v="party">Explorar partys</button></div>`;
+    return `<div class="eyebrow">BEM-VINDO AO SEU ESPAÇO</div><h1 class="page-title">Seu aprendizado começa aqui 👋</h1><p class="subtitle">Organize seus estudos, acompanhe sua evolução e aprenda com amigos.</p><div class="hero"><div><div style="font-size:11px;letter-spacing:2px;font-weight:800">✦ EVOLUA A CADA DIA</div><h2>Pronto para aprender algo novo?</h2><p>Um pouco de dedicação hoje faz toda a diferença amanhã. Vamos começar?</p><button data-a="go" data-v="rev">Escolher temas →</button></div><div class="hero-art">📚</div></div><div class="stats"><div class="stat"><div class="stat-icon">📚</div><div class="num">${Object.keys(sharedBank).length}</div><div class="mu">Matérias para estudar</div></div><div class="stat"><div class="stat-icon">✍️</div><div class="num">${Object.values(sharedBank).reduce((sum,qs)=>sum+qs.length,0)+S.q.length}</div><div class="mu">Questões disponíveis</div></div><div class="stat"><div class="stat-icon">🎯</div><div class="num">${total ? Math.round(correct / total * 100) : 0}%</div><div class="mu">Taxa geral de acertos</div></div></div><div class="section-head"><h2>📖 Temas para revisar</h2><button class="lk" data-a="go" data-v="man">Gerenciar questões →</button></div>${Object.keys(sharedBank).map((name,i)=>({id:'bank:'+name,nome:name})).map((a, i) => { let d = S.des[a.id], p = prio(a.id), n = sharedBank[a.nome]?.length || 0; return `<div class="card row"><div class="subject-row"><span class="subject-icon">${icons[i % icons.length]}</span><div><b>${esc(a.nome)}</b><div class="mu">${n} questões · ${d ? d.aj.toFixed(0) + '% de aproveitamento' : 'Disponível para revisão'}</div></div></div><span class="b baixa">Praticar</span></div>`; }).join('')}<div class="section-head"><h2>🤝 Estude com amigos</h2></div><div class="card row"><div><b>Partys de estudo</b><div class="mu">Crie um quiz e desafie seus colegas em tempo real.</div></div><button class="pri" data-a="go" data-v="party">Explorar partys</button></div>`;
 }
 function rev() {
-    if (!R || !R.qs.length)
-        return '<p>Não há questões cadastradas.</p>';
+    if (!R) return revisionSetup();
+    if (!R.qs.length) return revisionSetup();
     if (R.fim)
         return R.fim;
     const q = R.qs[R.i];
-    return `<div class="mu">Questão ${R.i + 1} de ${R.qs.length} · ${esc(nomeA(q.a))}</div><h2>${esc(q.t)}</h2>` + q.alts.map((t, i) => { let c = 'opt'; if (R.fb !== null) {
+    return `<div class="review-question card"><div class="mu">Questão ${R.i + 1} de ${R.qs.length} · ${esc(q.a.startsWith('bank:')?q.a.slice(5):nomeA(q.a))}</div><h2>${esc(q.t)}</h2>` + q.alts.map((t, i) => { let c = 'opt'; if (R.fb !== null) {
         if (i === q.c)
             c += ' ok';
         else if (i === R.fb)
             c += ' no';
-    } return `<button class="${c}" data-a="ans" data-i="${i}" ${R.fb !== null ? 'disabled' : ''}>${esc(t)}</button>`; }).join('') + (R.fb !== null ? `<button class="pri" data-a="next">${R.i + 1 < R.qs.length ? 'Próxima' : 'Finalizar'}</button>` : '');
+    } return `<button class="${c}" data-a="ans" data-i="${i}" ${R.fb !== null ? 'disabled' : ''}>${esc(t)}</button>`; }).join('') + (R.fb !== null ? `<button class="pri" data-a="next">${R.i + 1 < R.qs.length ? 'Próxima' : 'Finalizar'}</button>` : '') + '</div>';
 }
 function man() {
     const o = S.assuntos.map(a => `<option value="${a.id}">${esc(a.nome)}</option>`).join('');
@@ -107,8 +130,10 @@ function render() {
 }
 // ===== AÇÕES DO USUÁRIO =====
 const ACT = {
-    go: d => { V = d.v; RS = false; },
-    start: () => { R = { qs: montar(), i: 0, fb: null, resp: [] }; V = 'rev'; },
+    go: d => { V = d.v; if(V==='rev') R=null; RS = false; },
+    start: () => { V='rev'; R=null; },
+    newReview: () => { R=null; V='rev'; },
+    startReview: () => { const selected=[...document.querySelectorAll('[data-revision-topic]:checked')].map(el=>el.dataset.revisionTopic); if(!selected.length) { alert('Selecione ao menos uma matéria.'); return; } revisionTopics=selected; revisionCount=Number(document.getElementById('revisionAmount').value); const qs=reviewPool(); if(!qs.length) { alert('Nenhuma questão disponível para os temas escolhidos.'); return; } R={qs,i:0,fb:null,resp:[]}; V='rev'; },
     ans: d => { const q = R.qs[R.i], i = +d.i, ok = i === q.c; R.fb = i; R.resp.push({ a: q.a, ok }); q.l = ok ? 2 : 1; save(); },
     next: () => { if (R.i + 1 < R.qs.length) {
         R.i++;
@@ -138,6 +163,7 @@ const ACT = {
     } S = seed(); R = null; RS = false; V = 'home'; save(); }
 };
 // ===== EVENTOS DE CLIQUE =====
+document.addEventListener('change', e => { if (e.target.matches('[data-revision-topic]')) { const t=e.target.dataset.revisionTopic; revisionTopics=e.target.checked?[...new Set([...revisionTopics,t])]:revisionTopics.filter(x=>x!==t); } });
 document.addEventListener('click', e => { const b = e.target.closest('[data-a]'); if (!b)
     return; if (ACT[b.dataset.a])
     ACT[b.dataset.a](b.dataset); render(); });

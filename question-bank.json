@@ -25,282 +25,6 @@
       "difficulty": "easy"
     },
     {
-      "text": "Quanto é 8 × 24?",
-      "options": [
-        "216",
-        "240",
-        "184",
-        "192"
-      ],
-      "correct": 3,
-      "id": "0-2",
-      "difficulty": "easy"
-    },
-    {
-      "text": "Quanto é 9 × 8?",
-      "options": [
-        "80",
-        "63",
-        "72",
-        "88"
-      ],
-      "correct": 2,
-      "id": "0-3",
-      "difficulty": "easy"
-    },
-    {
-      "text": "Quanto é 10 × 15?",
-      "options": [
-        "165",
-        "140",
-        "180",
-        "150"
-      ],
-      "correct": 3,
-      "id": "0-4",
-      "difficulty": "easy"
-    },
-    {
-      "text": "Quanto é 11 × 22?",
-      "options": [
-        "264",
-        "286",
-        "231",
-        "242"
-      ],
-      "correct": 3,
-      "id": "0-5",
-      "difficulty": "easy"
-    },
-    {
-      "text": "Quanto é 12 × 6?",
-      "options": [
-        "60",
-        "78",
-        "72",
-        "84"
-      ],
-      "correct": 2,
-      "id": "0-6",
-      "difficulty": "easy"
-    },
-    {
-      "text": "Quanto é 13 × 13?",
-      "options": [
-        "182",
-        "195",
-        "169",
-        "156"
-      ],
-      "correct": 2,
-      "id": "0-7",
-      "difficulty": "easy"
-    },
-    {
-      "text": "Quanto é 14 × 20?",
-      "options": [
-        "280",
-        "266",
-        "300",
-        "320"
-      ],
-      "correct": 0,
-      "id": "0-8",
-      "difficulty": "easy"
-    },
-    {
-      "text": "Quanto é 15 × 4?",
-      "options": [
-        "45",
-        "68",
-        "60",
-        "64"
-      ],
-      "correct": 2,
-      "id": "0-9",
-      "difficulty": "easy"
-    },
-    {
-      "text": "Quanto é 16 × 11?",
-      "options": [
-        "160",
-        "187",
-        "198",
-        "176"
-      ],
-      "correct": 3,
-      "id": "0-10",
-      "difficulty": "easy"
-    },
-    {
-      "text": "Quanto é 17 × 18?",
-      "options": [
-        "342",
-        "289",
-        "324",
-        "306"
-      ],
-      "correct": 3,
-      "id": "0-11",
-      "difficulty": "easy"
-    },
-    {
-      "text": "Quanto é 18 × 25?",
-      "options": [
-        "500",
-        "475",
-        "450",
-        "432"
-      ],
-      "correct": 2,
-      "id": "0-12",
-      "difficulty": "easy"
-    },
-    {
-      "text": "Quanto é 19 × 9?",
-      "options": [
-        "152",
-        "189",
-        "180",
-        "171"
-      ],
-      "correct": 3,
-      "id": "0-13",
-      "difficulty": "easy"
-    },
-    {
-      "text": "Quanto é 20 × 16?",
-      "options": [
-        "320",
-        "336",
-        "352",
-        "300"
-      ],
-      "correct": 0,
-      "id": "0-14",
-      "difficulty": "easy"
-    },
-    {
-      "text": "Quanto é 21 × 23?",
-      "options": [
-        "529",
-        "483",
-        "462",
-        "506"
-      ],
-      "correct": 1,
-      "id": "0-15",
-      "difficulty": "easy"
-    },
-    {
-      "text": "Quanto é 22 × 7?",
-      "options": [
-        "161",
-        "168",
-        "132",
-        "154"
-      ],
-      "correct": 3,
-      "id": "0-16",
-      "difficulty": "easy"
-    },
-    {
-      "text": "Quanto é 23 × 14?",
-      "options": [
-        "336",
-        "350",
-        "322",
-        "299"
-      ],
-      "correct": 2,
-      "id": "0-17",
-      "difficulty": "easy"
-    },
-    {
-      "text": "Quanto é 24 × 21?",
-      "options": [
-        "546",
-        "480",
-        "525",
-        "504"
-      ],
-      "correct": 3,
-      "id": "0-18",
-      "difficulty": "easy"
-    },
-    {
-      "text": "Quanto é 25 × 5?",
-      "options": [
-        "125",
-        "130",
-        "100",
-        "135"
-      ],
-      "correct": 0,
-      "id": "0-19",
-      "difficulty": "easy"
-    },
-    {
-      "text": "Quanto é 26 × 12?",
-      "options": [
-        "312",
-        "286",
-        "336",
-        "324"
-      ],
-      "correct": 0,
-      "id": "0-20",
-      "difficulty": "easy"
-    },
-    {
-      "text": "Quanto é 27 × 19?",
-      "options": [
-        "513",
-        "551",
-        "486",
-        "532"
-      ],
-      "correct": 0,
-      "id": "0-21",
-      "difficulty": "easy"
-    },
-    {
-      "text": "Quanto é 28 × 3?",
-      "options": [
-        "87",
-        "90",
-        "56",
-        "84"
-      ],
-      "correct": 3,
-      "id": "0-22",
-      "difficulty": "easy"
-    },
-    {
-      "text": "Quanto é 29 × 10?",
-      "options": [
-        "261",
-        "310",
-        "290",
-        "300"
-      ],
-      "correct": 2,
-      "id": "0-23",
-      "difficulty": "easy"
-    },
-    {
-      "text": "Quanto é 30 × 17?",
-      "options": [
-        "480",
-        "510",
-        "527",
-        "544"
-      ],
-      "correct": 1,
-      "id": "0-24",
-      "difficulty": "easy"
-    },
-    {
       "text": "Quanto é 93 + 48?",
       "options": [
         "144",
@@ -322,42 +46,6 @@
       ],
       "correct": 3,
       "id": "0-26",
-      "difficulty": "easy"
-    },
-    {
-      "text": "Quanto é 99 + 30?",
-      "options": [
-        "132",
-        "134",
-        "129",
-        "127"
-      ],
-      "correct": 2,
-      "id": "0-27",
-      "difficulty": "easy"
-    },
-    {
-      "text": "Quanto é 102 + 44?",
-      "options": [
-        "151",
-        "149",
-        "146",
-        "144"
-      ],
-      "correct": 2,
-      "id": "0-28",
-      "difficulty": "easy"
-    },
-    {
-      "text": "Quanto é 105 + 12?",
-      "options": [
-        "117",
-        "120",
-        "115",
-        "122"
-      ],
-      "correct": 0,
-      "id": "0-29",
       "difficulty": "easy"
     },
     {
@@ -385,162 +73,6 @@
       "difficulty": "medium"
     },
     {
-      "text": "Uma compra de R$ 100 teve desconto de 15%. Qual o preço final?",
-      "options": [
-        "R$ 85.00",
-        "R$ 80.00",
-        "R$ 90.00",
-        "R$ 75.00"
-      ],
-      "correct": 0,
-      "id": "0-32",
-      "difficulty": "medium"
-    },
-    {
-      "text": "Uma compra de R$ 110 teve desconto de 15%. Qual o preço final?",
-      "options": [
-        "R$ 93.50",
-        "R$ 88.00",
-        "R$ 99.00",
-        "R$ 82.50"
-      ],
-      "correct": 0,
-      "id": "0-33",
-      "difficulty": "medium"
-    },
-    {
-      "text": "Uma compra de R$ 120 teve desconto de 15%. Qual o preço final?",
-      "options": [
-        "R$ 102.00",
-        "R$ 96.00",
-        "R$ 108.00",
-        "R$ 90.00"
-      ],
-      "correct": 0,
-      "id": "0-34",
-      "difficulty": "medium"
-    },
-    {
-      "text": "Uma compra de R$ 130 teve desconto de 15%. Qual o preço final?",
-      "options": [
-        "R$ 110.50",
-        "R$ 104.00",
-        "R$ 117.00",
-        "R$ 97.50"
-      ],
-      "correct": 0,
-      "id": "0-35",
-      "difficulty": "medium"
-    },
-    {
-      "text": "Uma compra de R$ 140 teve desconto de 15%. Qual o preço final?",
-      "options": [
-        "R$ 119.00",
-        "R$ 112.00",
-        "R$ 126.00",
-        "R$ 105.00"
-      ],
-      "correct": 0,
-      "id": "0-36",
-      "difficulty": "medium"
-    },
-    {
-      "text": "Uma compra de R$ 150 teve desconto de 15%. Qual o preço final?",
-      "options": [
-        "R$ 127.50",
-        "R$ 120.00",
-        "R$ 135.00",
-        "R$ 112.50"
-      ],
-      "correct": 0,
-      "id": "0-37",
-      "difficulty": "medium"
-    },
-    {
-      "text": "Uma compra de R$ 160 teve desconto de 15%. Qual o preço final?",
-      "options": [
-        "R$ 136.00",
-        "R$ 128.00",
-        "R$ 144.00",
-        "R$ 120.00"
-      ],
-      "correct": 0,
-      "id": "0-38",
-      "difficulty": "medium"
-    },
-    {
-      "text": "Uma compra de R$ 170 teve desconto de 15%. Qual o preço final?",
-      "options": [
-        "R$ 144.50",
-        "R$ 136.00",
-        "R$ 153.00",
-        "R$ 127.50"
-      ],
-      "correct": 0,
-      "id": "0-39",
-      "difficulty": "medium"
-    },
-    {
-      "text": "Uma compra de R$ 180 teve desconto de 15%. Qual o preço final?",
-      "options": [
-        "R$ 153.00",
-        "R$ 144.00",
-        "R$ 162.00",
-        "R$ 135.00"
-      ],
-      "correct": 0,
-      "id": "0-40",
-      "difficulty": "medium"
-    },
-    {
-      "text": "Uma compra de R$ 190 teve desconto de 15%. Qual o preço final?",
-      "options": [
-        "R$ 161.50",
-        "R$ 152.00",
-        "R$ 171.00",
-        "R$ 142.50"
-      ],
-      "correct": 0,
-      "id": "0-41",
-      "difficulty": "medium"
-    },
-    {
-      "text": "Uma compra de R$ 200 teve desconto de 15%. Qual o preço final?",
-      "options": [
-        "R$ 170.00",
-        "R$ 160.00",
-        "R$ 180.00",
-        "R$ 150.00"
-      ],
-      "correct": 0,
-      "id": "0-42",
-      "difficulty": "medium"
-    },
-    {
-      "text": "Uma compra de R$ 210 teve desconto de 15%. Qual o preço final?",
-      "options": [
-        "R$ 178.50",
-        "R$ 168.00",
-        "R$ 189.00",
-        "R$ 157.50"
-      ],
-      "correct": 0,
-      "id": "0-43",
-      "difficulty": "medium"
-    },
-    {
-      "text": "Uma compra de R$ 220 teve desconto de 15%. Qual o preço final?",
-      "options": [
-        "R$ 187.00",
-        "R$ 176.00",
-        "R$ 198.00",
-        "R$ 165.00"
-      ],
-      "correct": 0,
-      "id": "0-44",
-      "difficulty": "medium"
-    },
-    {
       "text": "Uma aplicação de R$ 1000 rende juros compostos de 10% ao ano por 2 anos. Qual o montante?",
       "options": [
         "R$ 1210.00",
@@ -565,39 +97,723 @@
       "difficulty": "hard"
     },
     {
-      "text": "Uma aplicação de R$ 1400 rende juros compostos de 10% ao ano por 2 anos. Qual o montante?",
+      "id": "v7-0-0",
+      "text": "Qual fração representa metade de um inteiro?",
       "options": [
-        "R$ 1694.00",
-        "R$ 1680.00",
-        "R$ 1540.00",
-        "R$ 1708.00"
+        "2/3",
+        "1/4",
+        "1/3",
+        "1/2"
+      ],
+      "correct": 3,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-0-1",
+      "text": "Um triângulo tem quantos lados?",
+      "options": [
+        "6",
+        "4",
+        "5",
+        "3"
+      ],
+      "correct": 3,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-0-2",
+      "text": "Qual é o perímetro de um quadrado de lado 5 cm?",
+      "options": [
+        "10 cm",
+        "20 cm",
+        "15 cm",
+        "25 cm"
+      ],
+      "correct": 1,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-0-3",
+      "text": "Quanto é 25% de 80?",
+      "options": [
+        "20",
+        "40",
+        "25",
+        "15"
       ],
       "correct": 0,
-      "id": "0-47",
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-0-4",
+      "text": "Qual número é primo?",
+      "options": [
+        "21",
+        "13",
+        "15",
+        "27"
+      ],
+      "correct": 1,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-0-5",
+      "text": "Quanto mede um ângulo reto?",
+      "options": [
+        "60°",
+        "180°",
+        "90°",
+        "45°"
+      ],
+      "correct": 2,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-0-6",
+      "text": "Qual é a média de 4, 6 e 8?",
+      "options": [
+        "8",
+        "7",
+        "5",
+        "6"
+      ],
+      "correct": 3,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-0-7",
+      "text": "Quanto é 2 elevado à quinta potência?",
+      "options": [
+        "16",
+        "32",
+        "10",
+        "25"
+      ],
+      "correct": 1,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-0-8",
+      "text": "Qual é o resultado de 3/4 + 1/4?",
+      "options": [
+        "2",
+        "3/8",
+        "1/2",
+        "1"
+      ],
+      "correct": 3,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-0-9",
+      "text": "Qual a área de um retângulo de 7 m por 3 m?",
+      "options": [
+        "21 m²",
+        "20 m²",
+        "42 m²",
+        "10 m²"
+      ],
+      "correct": 0,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-0-10",
+      "text": "Se x + 9 = 17, quanto vale x?",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "26"
+      ],
+      "correct": 1,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-0-11",
+      "text": "Qual o valor absoluto de -12?",
+      "options": [
+        "12",
+        "24",
+        "0",
+        "-12"
+      ],
+      "correct": 0,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-0-12",
+      "text": "Quantos graus tem a soma dos ângulos internos de um triângulo?",
+      "options": [
+        "270°",
+        "90°",
+        "180°",
+        "360°"
+      ],
+      "correct": 2,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-0-13",
+      "text": "Uma moeda justa tem qual probabilidade de dar cara?",
+      "options": [
+        "100%",
+        "50%",
+        "75%",
+        "25%"
+      ],
+      "correct": 1,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-0-14",
+      "text": "Qual a forma decimal de 3/5?",
+      "options": [
+        "0,3",
+        "0,6",
+        "0,5",
+        "1,5"
+      ],
+      "correct": 1,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-0-15",
+      "text": "Qual é a raiz cúbica de 27?",
+      "options": [
+        "4",
+        "3",
+        "9",
+        "6"
+      ],
+      "correct": 1,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-0-16",
+      "text": "Qual a unidade usual de volume no SI?",
+      "options": [
+        "Segundo",
+        "Metro cúbico",
+        "Metro quadrado",
+        "Quilograma"
+      ],
+      "correct": 1,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-0-17",
+      "text": "Qual é a mediana de 2, 3, 10, 11 e 20?",
+      "options": [
+        "11",
+        "3",
+        "9",
+        "10"
+      ],
+      "correct": 3,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-0-18",
+      "text": "Qual é o mínimo múltiplo comum de 4 e 6?",
+      "options": [
+        "2",
+        "10",
+        "24",
+        "12"
+      ],
+      "correct": 3,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-0-19",
+      "text": "Qual é o máximo divisor comum de 18 e 24?",
+      "options": [
+        "6",
+        "9",
+        "12",
+        "3"
+      ],
+      "correct": 0,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-0-20",
+      "text": "Qual é o valor de 5! (fatorial de cinco)?",
+      "options": [
+        "120",
+        "100",
+        "60",
+        "25"
+      ],
+      "correct": 0,
       "difficulty": "hard"
     },
     {
-      "text": "Uma aplicação de R$ 1600 rende juros compostos de 10% ao ano por 2 anos. Qual o montante?",
+      "id": "v7-0-21",
+      "text": "Uma função f(x)=2x+1 tem f(4) igual a quanto?",
       "options": [
-        "R$ 1936.00",
-        "R$ 1920.00",
-        "R$ 1760.00",
-        "R$ 1952.00"
+        "7",
+        "10",
+        "8",
+        "9"
       ],
-      "correct": 0,
-      "id": "0-48",
+      "correct": 3,
       "difficulty": "hard"
     },
     {
-      "text": "Uma aplicação de R$ 1800 rende juros compostos de 10% ao ano por 2 anos. Qual o montante?",
+      "id": "v7-0-22",
+      "text": "Qual a inclinação de uma reta horizontal?",
       "options": [
-        "R$ 2178.00",
-        "R$ 2160.00",
-        "R$ 1980.00",
-        "R$ 2196.00"
+        "Negativa",
+        "Infinita",
+        "Um",
+        "Zero"
+      ],
+      "correct": 3,
+      "difficulty": "hard"
+    },
+    {
+      "id": "v7-0-23",
+      "text": "Em uma PA de razão 3, após 2 vem qual termo?",
+      "options": [
+        "8",
+        "4",
+        "5",
+        "6"
+      ],
+      "correct": 2,
+      "difficulty": "hard"
+    },
+    {
+      "id": "v7-0-24",
+      "text": "Quantos centímetros há em 2,5 metros?",
+      "options": [
+        "25",
+        "205",
+        "2500",
+        "250"
+      ],
+      "correct": 3,
+      "difficulty": "hard"
+    },
+    {
+      "id": "v7-0-25",
+      "text": "Qual é a solução de 2x = 14?",
+      "options": [
+        "16",
+        "7",
+        "12",
+        "28"
+      ],
+      "correct": 1,
+      "difficulty": "hard"
+    },
+    {
+      "id": "v7-0-26",
+      "text": "Um desconto de R$ 15 em R$ 60 equivale a quantos por cento?",
+      "options": [
+        "15%",
+        "40%",
+        "25%",
+        "20%"
+      ],
+      "correct": 2,
+      "difficulty": "hard"
+    },
+    {
+      "id": "v7-0-27",
+      "text": "Qual é o oposto aditivo de 7?",
+      "options": [
+        "1/7",
+        "7",
+        "0",
+        "-7"
+      ],
+      "correct": 3,
+      "difficulty": "hard"
+    },
+    {
+      "id": "v7-0-28",
+      "text": "Qual figura possui todos os pontos à mesma distância do centro?",
+      "options": [
+        "Triângulo",
+        "Trapézio",
+        "Retângulo",
+        "Circunferência"
+      ],
+      "correct": 3,
+      "difficulty": "hard"
+    },
+    {
+      "id": "v7-0-29",
+      "text": "Qual é o produto de dois números negativos?",
+      "options": [
+        "Zero",
+        "Positivo",
+        "Negativo",
+        "Indefinido"
+      ],
+      "correct": 1,
+      "difficulty": "hard"
+    },
+    {
+      "id": "v7-0-30",
+      "text": "Qual a área de um círculo de raio 2, usando π=3,14?",
+      "options": [
+        "25,12",
+        "12,56",
+        "4",
+        "6,28"
+      ],
+      "correct": 1,
+      "difficulty": "hard"
+    },
+    {
+      "id": "v7-0-31",
+      "text": "Qual é o coeficiente angular de y=3x-2?",
+      "options": [
+        "-2",
+        "2",
+        "-3",
+        "3"
+      ],
+      "correct": 3,
+      "difficulty": "hard"
+    },
+    {
+      "id": "v7-0-32",
+      "text": "Quanto é 0,2 × 0,3?",
+      "options": [
+        "0,006",
+        "0,5",
+        "0,06",
+        "0,6"
+      ],
+      "correct": 2,
+      "difficulty": "hard"
+    },
+    {
+      "id": "v7-0-33",
+      "text": "Qual número é irracional?",
+      "options": [
+        "√2",
+        "-7",
+        "0,5",
+        "3/4"
       ],
       "correct": 0,
-      "id": "0-49",
+      "difficulty": "hard"
+    },
+    {
+      "id": "v7-0-34",
+      "text": "Qual a probabilidade de tirar um 6 em um dado honesto?",
+      "options": [
+        "1/3",
+        "1/4",
+        "1/2",
+        "1/6"
+      ],
+      "correct": 3,
+      "difficulty": "hard"
+    },
+    {
+      "id": "v7-math-extra-0",
+      "text": "Qual é o valor de 10³?",
+      "options": [
+        "1000",
+        "30",
+        "100",
+        "300"
+      ],
+      "correct": 0,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-math-extra-1",
+      "text": "Qual é a soma dos primeiros cinco números naturais positivos?",
+      "options": [
+        "25",
+        "10",
+        "15",
+        "20"
+      ],
+      "correct": 2,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-math-extra-2",
+      "text": "Quantas diagonais tem um quadrado?",
+      "options": [
+        "6",
+        "4",
+        "8",
+        "2"
+      ],
+      "correct": 3,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-math-extra-3",
+      "text": "Qual é o complemento de um ângulo de 35°?",
+      "options": [
+        "145°",
+        "35°",
+        "65°",
+        "55°"
+      ],
+      "correct": 3,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-math-extra-4",
+      "text": "Qual é o suplemento de um ângulo de 110°?",
+      "options": [
+        "70°",
+        "90°",
+        "110°",
+        "80°"
+      ],
+      "correct": 0,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-math-extra-5",
+      "text": "Uma escala de 1:100 significa que 1 cm no desenho corresponde a:",
+      "options": [
+        "1 cm real",
+        "1 m real",
+        "100 m reais",
+        "10 m reais"
+      ],
+      "correct": 1,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-math-extra-6",
+      "text": "Qual é o volume de um cubo de aresta 3 cm?",
+      "options": [
+        "9 cm³",
+        "18 cm³",
+        "12 cm³",
+        "27 cm³"
+      ],
+      "correct": 3,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-math-extra-7",
+      "text": "Qual é a notação científica de 4500?",
+      "options": [
+        "45 × 10³",
+        "4,5 × 10³",
+        "4,5 × 10²",
+        "0,45 × 10³"
+      ],
+      "correct": 1,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-math-extra-8",
+      "text": "Qual é o valor de log₁₀(100)?",
+      "options": [
+        "1",
+        "2",
+        "10",
+        "100"
+      ],
+      "correct": 1,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-math-extra-9",
+      "text": "Qual é a soma das raízes de x² - 5x + 6 = 0?",
+      "options": [
+        "-6",
+        "5",
+        "6",
+        "-5"
+      ],
+      "correct": 1,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-math-extra-10",
+      "text": "Qual a distância entre os pontos (0,0) e (3,4)?",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "4"
+      ],
+      "correct": 0,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-math-extra-11",
+      "text": "Qual é o determinante da matriz [[1,2],[3,4]]?",
+      "options": [
+        "-10",
+        "2",
+        "10",
+        "-2"
+      ],
+      "correct": 3,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-math-extra-12",
+      "text": "Qual é o seno de 30°?",
+      "options": [
+        "0",
+        "1",
+        "1/2",
+        "√3/2"
+      ],
+      "correct": 2,
+      "difficulty": "hard"
+    },
+    {
+      "id": "v7-math-extra-13",
+      "text": "Qual é o cosseno de 0°?",
+      "options": [
+        "-1",
+        "1",
+        "0",
+        "1/2"
+      ],
+      "correct": 1,
+      "difficulty": "hard"
+    },
+    {
+      "id": "v7-math-extra-14",
+      "text": "Quantos subconjuntos possui um conjunto com 3 elementos?",
+      "options": [
+        "3",
+        "6",
+        "9",
+        "8"
+      ],
+      "correct": 3,
+      "difficulty": "hard"
+    },
+    {
+      "id": "v7-math-extra-15",
+      "text": "Qual é a razão da PG 2, 6, 18, 54?",
+      "options": [
+        "6",
+        "2",
+        "3",
+        "4"
+      ],
+      "correct": 2,
+      "difficulty": "hard"
+    },
+    {
+      "id": "v7-math-extra-16",
+      "text": "Se a taxa é 5% ao mês, qual é o juro simples de R$ 100 em um mês?",
+      "options": [
+        "R$ 105",
+        "R$ 50",
+        "R$ 5",
+        "R$ 10"
+      ],
+      "correct": 2,
+      "difficulty": "hard"
+    },
+    {
+      "id": "v7-math-extra-17",
+      "text": "Qual é a derivada de f(x)=x²?",
+      "options": [
+        "2",
+        "2x",
+        "x",
+        "x³"
+      ],
+      "correct": 1,
+      "difficulty": "hard"
+    },
+    {
+      "id": "v7-math-extra-18",
+      "text": "Qual é a integral indefinida de 2x em relação a x?",
+      "options": [
+        "x + C",
+        "x² + C",
+        "2x² + C",
+        "2 + C"
+      ],
+      "correct": 1,
+      "difficulty": "hard"
+    },
+    {
+      "id": "v7-math-extra-19",
+      "text": "Qual é o módulo do vetor (6,8)?",
+      "options": [
+        "7",
+        "48",
+        "14",
+        "10"
+      ],
+      "correct": 3,
+      "difficulty": "hard"
+    },
+    {
+      "id": "v7-math-extra-20",
+      "text": "Qual é a chance de obter número par em um dado justo?",
+      "options": [
+        "1/2",
+        "1/3",
+        "1/6",
+        "2/3"
+      ],
+      "correct": 0,
+      "difficulty": "hard"
+    },
+    {
+      "id": "v7-math-extra-21",
+      "text": "Qual o coeficiente de x² em 7x² - 3x + 1?",
+      "options": [
+        "2",
+        "-3",
+        "1",
+        "7"
+      ],
+      "correct": 3,
+      "difficulty": "hard"
+    },
+    {
+      "id": "v7-math-extra-22",
+      "text": "Qual é o domínio real de f(x)=1/x?",
+      "options": [
+        "Somente inteiros",
+        "Todos os reais exceto zero",
+        "Somente positivos",
+        "Todos os reais"
+      ],
+      "correct": 1,
+      "difficulty": "hard"
+    },
+    {
+      "id": "v7-math-extra-23",
+      "text": "Qual é a solução de |x| = 4?",
+      "options": [
+        "Somente x = 4",
+        "Somente x = -4",
+        "x = 4 ou x = -4",
+        "x = 0"
+      ],
+      "correct": 2,
+      "difficulty": "hard"
+    },
+    {
+      "id": "v7-math-extra-24",
+      "text": "Quantos graus possui um giro completo?",
+      "options": [
+        "90°",
+        "360°",
+        "180°",
+        "270°"
+      ],
+      "correct": 1,
       "difficulty": "hard"
     }
   ],
@@ -1201,6 +1417,186 @@
       "correct": 0,
       "id": "1-49",
       "difficulty": "hard"
+    },
+    {
+      "id": "v7-1-0",
+      "text": "Qual é a unidade de força no Sistema Internacional?",
+      "options": [
+        "Pascal",
+        "Newton",
+        "Watt",
+        "Joule"
+      ],
+      "correct": 1,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-1-1",
+      "text": "Qual instrumento mede corrente elétrica?",
+      "options": [
+        "Voltímetro",
+        "Barômetro",
+        "Termômetro",
+        "Amperímetro"
+      ],
+      "correct": 3,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-1-2",
+      "text": "O som se propaga no vácuo?",
+      "options": [
+        "Não",
+        "Sim",
+        "Apenas à noite",
+        "Somente em ondas de rádio"
+      ],
+      "correct": 0,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-1-3",
+      "text": "Qual é a velocidade aproximada da luz no vácuo?",
+      "options": [
+        "3 mil km/s",
+        "300 mil km/s",
+        "30 km/s",
+        "300 km/s"
+      ],
+      "correct": 1,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-1-4",
+      "text": "Qual fenômeno explica o arco-íris?",
+      "options": [
+        "Evaporação",
+        "Dispersão da luz",
+        "Magnetismo",
+        "Atrito"
+      ],
+      "correct": 1,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-1-5",
+      "text": "Qual grandeza é medida em joules?",
+      "options": [
+        "Temperatura",
+        "Velocidade",
+        "Corrente",
+        "Energia"
+      ],
+      "correct": 3,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-1-6",
+      "text": "Em um circuito aberto, a corrente elétrica ideal é:",
+      "options": [
+        "Infinita",
+        "Alternada",
+        "Zero",
+        "Máxima"
+      ],
+      "correct": 2,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-1-7",
+      "text": "O que é inércia?",
+      "options": [
+        "Atração magnética",
+        "Capacidade de emitir luz",
+        "Tendência de manter o estado de movimento",
+        "Mudança de temperatura"
+      ],
+      "correct": 2,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-1-8",
+      "text": "Qual é a unidade de frequência?",
+      "options": [
+        "Ohm",
+        "Newton",
+        "Hertz",
+        "Kelvin"
+      ],
+      "correct": 2,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-1-9",
+      "text": "Um corpo em repouso tem velocidade igual a:",
+      "options": [
+        "Dez",
+        "Zero",
+        "Um",
+        "Infinita"
+      ],
+      "correct": 1,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-1-10",
+      "text": "Qual é a relação entre peso e massa?",
+      "options": [
+        "São sempre iguais",
+        "Peso é medido em litros",
+        "Massa depende da altura",
+        "Peso depende da gravidade"
+      ],
+      "correct": 3,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-1-11",
+      "text": "Qual lente costuma corrigir a miopia?",
+      "options": [
+        "Plana sem grau",
+        "Divergente",
+        "Convergente",
+        "Espelhada"
+      ],
+      "correct": 1,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-1-12",
+      "text": "O calor flui espontaneamente de um corpo:",
+      "options": [
+        "Mais frio para um mais quente",
+        "Mais leve para mais pesado",
+        "Mais quente para um mais frio",
+        "Menor para maior"
+      ],
+      "correct": 2,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-1-13",
+      "text": "Qual é a unidade de resistência elétrica?",
+      "options": [
+        "Ampere",
+        "Watt",
+        "Volt",
+        "Ohm"
+      ],
+      "correct": 3,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-1-14",
+      "text": "O que um espelho plano produz?",
+      "options": [
+        "Imagem sem reflexão",
+        "Imagem virtual",
+        "Somente imagem real",
+        "Imagem sempre ampliada"
+      ],
+      "correct": 1,
+      "difficulty": "medium"
     }
   ],
   "Geografia": [
@@ -1803,6 +2199,186 @@
       "correct": 0,
       "id": "2-49",
       "difficulty": "hard"
+    },
+    {
+      "id": "v7-2-0",
+      "text": "Qual linha divide a Terra em hemisférios Norte e Sul?",
+      "options": [
+        "Greenwich",
+        "Círculo Polar Ártico",
+        "Trópico de Câncer",
+        "Equador"
+      ],
+      "correct": 3,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-2-1",
+      "text": "Qual é o maior continente em área?",
+      "options": [
+        "Ásia",
+        "Europa",
+        "Oceania",
+        "Antártida"
+      ],
+      "correct": 0,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-2-2",
+      "text": "O que é latitude?",
+      "options": [
+        "Profundidade do oceano",
+        "Distância angular ao Equador",
+        "Altitude acima do mar",
+        "Distância ao Sol"
+      ],
+      "correct": 1,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-2-3",
+      "text": "Qual bioma brasileiro é conhecido por árvores retorcidas e savanas?",
+      "options": [
+        "Caatinga",
+        "Cerrado",
+        "Pampa",
+        "Mata de Araucárias"
+      ],
+      "correct": 1,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-2-4",
+      "text": "Qual é a capital do Canadá?",
+      "options": [
+        "Ottawa",
+        "Toronto",
+        "Vancouver",
+        "Montreal"
+      ],
+      "correct": 0,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-2-5",
+      "text": "Qual é o principal gás do ar atmosférico?",
+      "options": [
+        "Oxigênio",
+        "Nitrogênio",
+        "Hidrogênio",
+        "Gás carbônico"
+      ],
+      "correct": 1,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-2-6",
+      "text": "Como se chama a passagem do campo para a cidade?",
+      "options": [
+        "Imigração marítima",
+        "Êxodo rural",
+        "Nomadismo",
+        "Transumância"
+      ],
+      "correct": 1,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-2-7",
+      "text": "Qual é a principal causa das estações do ano?",
+      "options": [
+        "Inclinação do eixo terrestre e translação",
+        "Marés",
+        "Rotação da Lua",
+        "Distância diária à Lua"
+      ],
+      "correct": 0,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-2-8",
+      "text": "Qual oceano banha a costa leste do Brasil?",
+      "options": [
+        "Índico",
+        "Pacífico",
+        "Atlântico",
+        "Ártico"
+      ],
+      "correct": 2,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-2-9",
+      "text": "Qual é a capital do Japão?",
+      "options": [
+        "Tóquio",
+        "Osaka",
+        "Quioto",
+        "Nagoya"
+      ],
+      "correct": 0,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-2-10",
+      "text": "O que é um aquífero?",
+      "options": [
+        "Tipo de vulcão",
+        "Camada de gelo polar",
+        "Corrente de ar",
+        "Reserva subterrânea de água"
+      ],
+      "correct": 3,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-2-11",
+      "text": "Qual é a camada externa sólida da Terra?",
+      "options": [
+        "Núcleo interno",
+        "Núcleo externo",
+        "Manto inferior",
+        "Crosta"
+      ],
+      "correct": 3,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-2-12",
+      "text": "Qual fonte energética é renovável?",
+      "options": [
+        "Solar",
+        "Gás natural",
+        "Carvão mineral",
+        "Petróleo"
+      ],
+      "correct": 0,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-2-13",
+      "text": "Qual é a vegetação típica de regiões muito secas?",
+      "options": [
+        "Manguezal",
+        "Xerófila",
+        "Higrófila",
+        "Hidrófila"
+      ],
+      "correct": 1,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-2-14",
+      "text": "O meridiano de Greenwich é referência para:",
+      "options": [
+        "Altitude",
+        "Precipitação",
+        "Latitude",
+        "Longitude"
+      ],
+      "correct": 3,
+      "difficulty": "medium"
     }
   ],
   "Biologia": [
@@ -2405,6 +2981,186 @@
       "correct": 0,
       "id": "3-49",
       "difficulty": "hard"
+    },
+    {
+      "id": "v7-3-0",
+      "text": "Qual organela realiza a fotossíntese?",
+      "options": [
+        "Ribossomo",
+        "Lisossomo",
+        "Mitocôndria",
+        "Cloroplasto"
+      ],
+      "correct": 3,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-3-1",
+      "text": "Qual molécula carrega a informação genética?",
+      "options": [
+        "Glicose",
+        "DNA",
+        "Amido",
+        "Colesterol"
+      ],
+      "correct": 1,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-3-2",
+      "text": "Qual é a unidade básica dos seres vivos?",
+      "options": [
+        "Órgão",
+        "Tecido",
+        "Célula",
+        "Sistema"
+      ],
+      "correct": 2,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-3-3",
+      "text": "Que órgão bombeia o sangue pelo corpo?",
+      "options": [
+        "Pulmão",
+        "Coração",
+        "Rim",
+        "Fígado"
+      ],
+      "correct": 1,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-3-4",
+      "text": "Qual é a função dos glóbulos vermelhos?",
+      "options": [
+        "Formar ossos",
+        "Digestionar gorduras",
+        "Transportar oxigênio",
+        "Produzir bile"
+      ],
+      "correct": 2,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-3-5",
+      "text": "Qual processo produz gametas?",
+      "options": [
+        "Fermentação",
+        "Mitose",
+        "Meiose",
+        "Osmose"
+      ],
+      "correct": 2,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-3-6",
+      "text": "O que é um ecossistema?",
+      "options": [
+        "Somente o clima",
+        "Apenas plantas",
+        "Seres vivos e ambiente em interação",
+        "Apenas animais"
+      ],
+      "correct": 2,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-3-7",
+      "text": "Qual reino inclui cogumelos?",
+      "options": [
+        "Plantae",
+        "Monera",
+        "Fungi",
+        "Animalia"
+      ],
+      "correct": 2,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-3-8",
+      "text": "Qual estrutura controla a entrada e saída de substâncias na célula?",
+      "options": [
+        "Parede celular de todos os animais",
+        "Centríolo",
+        "Nucléolo",
+        "Membrana plasmática"
+      ],
+      "correct": 3,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-3-9",
+      "text": "O que é seleção natural?",
+      "options": [
+        "Mudança intencional do DNA",
+        "Maior reprodução de características hereditárias favoráveis",
+        "Criação artificial de espécies",
+        "Crescimento de todos os indivíduos"
+      ],
+      "correct": 1,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-3-10",
+      "text": "Qual é a função dos rins?",
+      "options": [
+        "Bombear sangue",
+        "Filtrar o sangue e formar urina",
+        "Produzir insulina",
+        "Absorver luz"
+      ],
+      "correct": 1,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-3-11",
+      "text": "Qual pigmento torna muitas plantas verdes?",
+      "options": [
+        "Queratina",
+        "Melanina",
+        "Hemoglobina",
+        "Clorofila"
+      ],
+      "correct": 3,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-3-12",
+      "text": "Qual vitamina é sintetizada na pele com auxílio da luz solar?",
+      "options": [
+        "Vitamina K",
+        "Vitamina B12",
+        "Vitamina C",
+        "Vitamina D"
+      ],
+      "correct": 3,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-3-13",
+      "text": "Qual tipo de relação ecológica beneficia ambas as espécies?",
+      "options": [
+        "Mutualismo",
+        "Predação",
+        "Parasitismo",
+        "Competição"
+      ],
+      "correct": 0,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-3-14",
+      "text": "O que é uma cadeia alimentar?",
+      "options": [
+        "Rede de rios",
+        "Ciclo das rochas",
+        "Processo de evaporação",
+        "Sequência de transferência de energia entre seres vivos"
+      ],
+      "correct": 3,
+      "difficulty": "medium"
     }
   ],
   "História": [
@@ -3007,6 +3763,186 @@
       "correct": 0,
       "id": "4-49",
       "difficulty": "hard"
+    },
+    {
+      "id": "v7-4-0",
+      "text": "Qual civilização construiu as pirâmides de Gizé?",
+      "options": [
+        "Egípcia",
+        "Grega",
+        "Inca",
+        "Romana"
+      ],
+      "correct": 0,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-4-1",
+      "text": "Qual evento marcou 1789 na França?",
+      "options": [
+        "Independência do Brasil",
+        "Queda de Roma",
+        "Início da Revolução Francesa",
+        "Primeira Guerra Mundial"
+      ],
+      "correct": 2,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-4-2",
+      "text": "Qual povo desenvolveu a escrita cuneiforme?",
+      "options": [
+        "Sumérios",
+        "Maias",
+        "Vikings",
+        "Astecas"
+      ],
+      "correct": 0,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-4-3",
+      "text": "Em qual continente surgiu a Revolução Industrial?",
+      "options": [
+        "América do Sul",
+        "Oceania",
+        "Europa",
+        "África"
+      ],
+      "correct": 2,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-4-4",
+      "text": "Qual foi a principal atividade econômica do Brasil colonial no século XVI?",
+      "options": [
+        "Extração de petróleo",
+        "Tecnologia da informação",
+        "Indústria automobilística",
+        "Produção de açúcar"
+      ],
+      "correct": 3,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-4-5",
+      "text": "Qual evento ocorreu em 1888 no Brasil?",
+      "options": [
+        "Abolição legal da escravidão",
+        "Constituição de 1988",
+        "Proclamação da República",
+        "Independência"
+      ],
+      "correct": 0,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-4-6",
+      "text": "O que foi a Guerra Fria?",
+      "options": [
+        "Conflito entre Brasil e Argentina",
+        "Guerra direta entre Roma e Cartago",
+        "Disputa geopolítica entre EUA e URSS",
+        "Guerra medieval europeia"
+      ],
+      "correct": 2,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-4-7",
+      "text": "Qual civilização teve Atenas como importante cidade?",
+      "options": [
+        "Fenícia",
+        "Persa",
+        "Egípcia",
+        "Grega"
+      ],
+      "correct": 3,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-4-8",
+      "text": "Quem liderou a resistência não violenta pela independência da Índia?",
+      "options": [
+        "Winston Churchill",
+        "Napoleão Bonaparte",
+        "Mahatma Gandhi",
+        "Júlio César"
+      ],
+      "correct": 2,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-4-9",
+      "text": "Qual foi a primeira capital do Brasil colonial?",
+      "options": [
+        "São Paulo",
+        "Salvador",
+        "Belo Horizonte",
+        "Brasília"
+      ],
+      "correct": 1,
+      "difficulty": "easy"
+    },
+    {
+      "id": "v7-4-10",
+      "text": "O que eram feudos na Europa medieval?",
+      "options": [
+        "Fábricas mecanizadas",
+        "Estados nacionais",
+        "Domínios rurais de senhores",
+        "Portos modernos"
+      ],
+      "correct": 2,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-4-11",
+      "text": "Em que século começou a Primeira Guerra Mundial?",
+      "options": [
+        "Século XXI",
+        "Século XVIII",
+        "Século XVI",
+        "Século XX"
+      ],
+      "correct": 3,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-4-12",
+      "text": "Qual documento inglês de 1215 limitou poderes do rei?",
+      "options": [
+        "Carta da ONU",
+        "Tratado de Tordesilhas",
+        "Magna Carta",
+        "Código de Hamurábi"
+      ],
+      "correct": 2,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-4-13",
+      "text": "O que foi o Renascimento cultural?",
+      "options": [
+        "Expansão do feudalismo",
+        "Início da internet",
+        "Movimento de renovação artística e intelectual",
+        "Fim do Império Romano do Ocidente"
+      ],
+      "correct": 2,
+      "difficulty": "medium"
+    },
+    {
+      "id": "v7-4-14",
+      "text": "Qual movimento defendia ideias de razão e direitos no século XVIII?",
+      "options": [
+        "Mercantilismo",
+        "Feudalismo",
+        "Iluminismo",
+        "Absolutismo"
+      ],
+      "correct": 2,
+      "difficulty": "medium"
     }
   ]
 }
