@@ -2,6 +2,23 @@
 const socket = typeof io === 'function' ? io(window.SERVER_URL || location.origin, { reconnection: true }) : null;
 const OWNER_KEY = 'estudae:owner-token';
 const LIBRARY_KEY = 'estudae:my-questions';
+const SESSION_KEY = 'estudae:party-session';
+const PLAYER_KEY = 'estudae:player-session-key';
+function playerSessionKey() {
+  let key = localStorage.getItem(PLAYER_KEY);
+  if (!key || !/^[a-f0-9]{48}$/.test(key)) {
+    const bytes = new Uint8Array(24); crypto.getRandomValues(bytes);
+    key = [...bytes].map(b => b.toString(16).padStart(2, '0')).join('');
+    localStorage.setItem(PLAYER_KEY, key);
+  }
+  return key;
+}
+const sessionKey = playerSessionKey();
+function storedParty() { try { return JSON.parse(localStorage.getItem(SESSION_KEY) || 'null'); } catch { return null; } }
+function savePartySession(code) { localStorage.setItem(SESSION_KEY, JSON.stringify({ code, sessionKey })); }
+function clearPartySession() { localStorage.removeItem(SESSION_KEY); }
+function tryResumeParty() { const previous = storedParty(); if (previous?.code && socket?.connected) socket.emit('resumeRoom', previous); }
+
 function ownerToken() {
   let token = localStorage.getItem(OWNER_KEY);
   if (!token || !/^[a-f0-9]{48}$/.test(token)) {
@@ -17,6 +34,7 @@ try { savedQuestions = JSON.parse(localStorage.getItem(LIBRARY_KEY) || '[]'); } 
 if (!Array.isArray(savedQuestions)) savedQuestions = [];
 let catalog = {};
 
+let partyChoice = { key: '', choice: null };
 let party = { room: null, feedback: '', publicRooms: [], name: localStorage.getItem('estudae:player-name') || '', categories: ['Matemática', 'Física', 'Geografia', 'Biologia', 'História'] };
 function partyEmit(event, data = {}) {
   if (!socket?.connected) { party.feedback = 'Sem conexão com o servidor. Confira config.js e o Render.'; render(); return; }
@@ -24,9 +42,11 @@ function partyEmit(event, data = {}) {
 }
 function refreshParty() { if (V === 'party') render(); }
 if (socket) {
-  socket.on('connect', () => { party.feedback = ''; partyEmit('listPublicRooms'); partyEmit('getCatalog'); partyEmit('loadSavedQuestions', { owner }); refreshParty(); });
+  socket.on('connect', () => { party.feedback = ''; partyEmit('listPublicRooms'); partyEmit('getCatalog'); partyEmit('loadSavedQuestions', { owner }); tryResumeParty(); refreshParty(); });
   socket.on('catalog', data => { catalog = data; refreshParty(); });
-  socket.on('room', room => { party.room = room; party.feedback = ''; refreshParty(); });
+  socket.on('room', room => { party.room = room; savePartySession(room.code); party.feedback = ''; refreshParty(); });
+  socket.on('resumeFailed', message => { clearPartySession(); party.room = null; party.feedback = message; refreshParty(); });
+  socket.on('sessionReplaced', () => { party.room = null; party.feedback = 'Esta Party foi aberta em outra aba. Você pode voltar por lá.'; refreshParty(); });
   socket.on('publicRooms', rooms => { party.publicRooms = rooms; refreshParty(); });
   socket.on('savedQuestions', questions => {
     // Restaura o backup local quando um servidor sem banco reinicia vazio.
@@ -40,7 +60,7 @@ if (socket) {
   });
   socket.on('partyNotice', message => { party.feedback = message; refreshParty(); });
   socket.on('partyError', message => { party.feedback = message; refreshParty(); });
-  socket.on('disconnect', () => { party.feedback = 'Conexão perdida. Tentando reconectar...'; party.room = null; refreshParty(); });
+  socket.on('disconnect', () => { party.feedback = 'Conexão perdida. Reconectando à sua Party sem apagar seu progresso...'; refreshParty(); });
 }
 const h = value => esc(value ?? '');
 const input = (id, label, placeholder, max = 60) => `<label>${label}<input id="${id}" maxlength="${max}" placeholder="${placeholder}"></label>`;
@@ -49,6 +69,7 @@ function partyView() {
   let html = '<div class="eyebrow">ESTUDE EM GRUPO</div><h1 class="page-title">Study Partys ✨</h1><p class="subtitle">Crie uma sala pública ou privada e jogue quizzes com seus amigos.</p>';
   if (party.feedback) html += `<div class="notice">${h(party.feedback)}</div>`;
   if (!room) {
+    if (storedParty()) html += '<div class="card reconnect-card"><h2>↻ Voltar à sua Party</h2><p class="mu">Sua sessão foi preservada. Você pode tentar reconectar à mesma sala.</p><button class="pri" data-a="reconnectParty">Reconectar à Party</button></div>';
     html += `<div class="grid2"><div class="card party-card"><h2>🎉 Criar uma Party</h2>
       ${input('partyName','Seu nome','Como devemos chamar você?',28)}
       ${input('partyTitle','Nome da sala','Ex.: Revisão para a prova',60)}
@@ -68,7 +89,7 @@ function partyView() {
   const q = room.questions[room.index];
   html += `<div class="card"><div class="row"><div><div class="mu">${room.visibility === 'public' ? '🌍 SALA PÚBLICA' : '🔒 SALA PRIVADA'}</div><h2>${h(room.title)}</h2><div class="party-code">${h(room.code)}</div><div class="mu">${room.players.length} participantes · ${room.questions.length}/${room.amount} questões · ${room.secondsPerQuestion}s por pergunta · ${h(room.category)}</div></div><button data-a="copyCode">Copiar código</button></div></div>`;
   if (room.phase === 'lobby') {
-    html += `<div class="grid2"><div class="card"><h2>Participantes</h2>${room.players.map(p=>`<div class="row" style="padding:8px 0"><span>👤 ${h(p.name)} ${p.id===room.hostId?'👑':''}</span><b>${p.score} pts</b></div>`).join('')}</div><div class="card"><h2>Questões da partida</h2>${room.questions.slice(0,12).map((q,i)=>`<p class="mu">${i+1}. ${h(q.text)} ${host && room.mode === 'custom' ? `<button class="lk" data-a="removePartyQuestion" data-i="${i}">Remover</button>` : ''}</p>`).join('') || '<p class="mu">Nenhuma questão ainda.</p>'}${room.questions.length>12?`<p class="mu">... e mais ${room.questions.length-12} perguntas.</p>`:''}</div></div>`;
+    html += `<div class="grid2"><div class="card"><h2>Participantes</h2>${room.players.map(p=>`<div class="row" style="padding:8px 0"><span>👤 ${h(p.name)} ${p.id===room.hostId?'👑':''} ${p.online===false?'(reconectando…)':''}</span><b>${p.score} pts</b></div>`).join('')}</div><div class="card"><h2>Questões da partida</h2>${room.questions.slice(0,12).map((q,i)=>`<p class="mu">${i+1}. ${h(q.text)} ${host && room.mode === 'custom' ? `<button class="lk" data-a="removePartyQuestion" data-i="${i}">Remover</button>` : ''}</p>`).join('') || '<p class="mu">Nenhuma questão ainda.</p>'}${room.questions.length>12?`<p class="mu">... e mais ${room.questions.length-12} perguntas.</p>`:''}</div></div>`;
     if (host) {
       if (room.mode === 'ready') html += readySelector();
       if (room.mode === 'custom') html += `<div class="card"><h2>✏️ Adicionar pergunta própria</h2><p class="mu">Ao adicionar, a pergunta também será salva na sua biblioteca para futuras salas.</p><label>Enunciado<textarea id="pq" rows="2" maxlength="300" placeholder="Digite a pergunta"></textarea></label>${[0,1,2,3,4].map(i=>`<div class="answer-row"><input type="radio" name="pc" value="${i}" ${i===0?'checked':''}><input class="pa" maxlength="150" placeholder="Alternativa ${i+1}"></div>`).join('')}<p class="mu">Marque a alternativa correta.</p><button class="pri" data-a="addPartyQuestion">Adicionar e salvar</button><button data-a="useSaved">Usar minha biblioteca (${Math.min(savedQuestions.length,room.amount)} questões)</button></div>`;
@@ -77,7 +98,9 @@ function partyView() {
   } else if (room.phase === 'question' && q) {
     const answered = me?.answered === room.index;
     const answeredCount = room.players.filter(p => p.answered === room.index).length;
-    html += `<div class="card question-box"><div class="row"><div class="mu">Questão ${room.index+1} de ${room.questions.length}</div><div class="party-timer" id="partyTimer" data-deadline="${Number(room.deadline)||0}">⏱ ${room.secondsPerQuestion}s</div></div><div class="progress"><div style="width:${(room.index+1)/room.questions.length*100}%"></div></div><h2>${h(q.text)}</h2>${q.options.map((option,i)=>`<button class="opt" data-a="partyAnswer" data-i="${i}" ${answered?'disabled':''}>${'ABCDE'[i]}. ${h(option)}</button>`).join('')}<div class="notice">${answered?'✅ Resposta enviada!':'Escolha uma alternativa antes do tempo acabar.'} ${answeredCount}/${room.players.length} responderam. A resposta será revelada quando todos responderem ou o tempo terminar.</div></div>`;
+    const choiceKey = room.code + ':' + room.index;
+    if (partyChoice.key !== choiceKey) partyChoice = { key: choiceKey, choice: null };
+    html += `<div class="card question-box"><div class="row"><div class="mu">Questão ${room.index+1} de ${room.questions.length}</div><div class="party-timer" id="partyTimer" data-deadline="${Number(room.deadline)||0}">⏱ ${room.secondsPerQuestion}s</div></div><div class="progress"><div style="width:${(room.index+1)/room.questions.length*100}%"></div></div><h2>${h(q.text)}</h2>${q.options.map((option,i)=>`<button class="opt ${!answered && partyChoice.choice===i?'selected':''}" data-a="selectPartyAnswer" data-i="${i}" aria-pressed="${!answered && partyChoice.choice===i}" ${answered?'disabled':''}>${'ABCDE'[i]}. ${h(option)}</button>`).join('')}${answered?'':`<button class="pri" data-a="partyAnswer" ${partyChoice.choice===null?'disabled':''}>Enviar resposta</button><p class="mu">Você pode trocar a alternativa antes de enviar. O tempo continua correndo.</p>`}<div class="notice">${answered?'✅ Resposta enviada!':'Selecione e confirme sua resposta antes do tempo acabar.'} ${answeredCount}/${room.players.length} responderam. A resposta será revelada quando todos responderem ou o tempo terminar.</div></div>`;
   } else if (room.phase === 'reveal' && q) {
     const myResult = (room.results || []).find(r => r.id === socket?.id);
     html += `<div class="card question-box"><div class="mu">Resultado da questão ${room.index+1} de ${room.questions.length}</div><h2>${h(q.text)}</h2>${q.options.map((option,i)=>`<div class="opt party-result-opt ${i===room.correct?'party-correct':myResult?.choice===i?'party-wrong':''}">${'ABCDE'[i]}. ${h(option)} ${i===room.correct?'✓ Correta':myResult?.choice===i?'✕ Sua escolha':''}</div>`).join('')}<h3>Resultado dos participantes</h3>${(room.results||[]).map(r=>`<div class="row party-player-result"><span>${r.isCorrect?'✅':r.choice===null?'⏳':'❌'} ${h(r.name)}</span><b>${r.isCorrect?'Acertou (+100 pontos)':r.choice===null?'Não respondeu':'Errou'}</b></div>`).join('')}${ranking(room)}</div>`;
@@ -87,15 +110,17 @@ function partyView() {
     html += `<div class="card"><h2>🏆 Quiz finalizado!</h2>${ranking(room)}</div>`;
     if (host) html += '<button class="pri" data-a="partyRestart">Voltar ao lobby</button>';
   }
-  return html + '<div class="actions"><button data-a="leaveParty">Sair da Party</button></div>';
+  // A saída fica longe dos controles de resposta e só aparece no lobby ou após o jogo.
+  if (room.phase === 'lobby' || room.phase === 'done') html += '<div class="party-exit"><button class="party-exit-button" data-a="leaveParty">Sair da sala…</button></div>';
+  return html;
 }
 function ranking(room) { return '<h3>Placar</h3>' + room.players.slice().sort((a,b)=>b.score-a.score).map((p,i)=>`<div class="row"><span>${i+1}º ${h(p.name)}</span><b>${p.score} pontos</b></div>`).join(''); }
 function rememberName(name) { party.name = name; localStorage.setItem('estudae:player-name',name); }
-function join(code, name) { if (!name) { party.feedback='Informe seu nome para entrar.'; return; } rememberName(name); partyEmit('joinRoom',{code,name}); }
+function join(code, name) { if (!name) { party.feedback='Informe seu nome para entrar.'; return; } rememberName(name); partyEmit('joinRoom',{code,name,sessionKey}); }
 ACT.createParty = () => {
   const name = document.getElementById('partyName').value.trim();
   rememberName(name);
-  partyEmit('createRoom', { name, title: document.getElementById('partyTitle').value.trim(), visibility: document.getElementById('partyVisibility').value, mode: document.getElementById('partyMode').value, category: 'Múltiplas matérias', amount: Number(document.getElementById('partyAmount').value), secondsPerQuestion: Number(document.getElementById('partySeconds').value), owner });
+  partyEmit('createRoom', { name, title: document.getElementById('partyTitle').value.trim(), visibility: document.getElementById('partyVisibility').value, mode: document.getElementById('partyMode').value, category: 'Múltiplas matérias', amount: Number(document.getElementById('partyAmount').value), secondsPerQuestion: Number(document.getElementById('partySeconds').value), owner, sessionKey });
 };
 ACT.joinParty = () => join(document.getElementById('joinCode').value.trim().toUpperCase(),document.getElementById('joinName').value.trim());
 ACT.joinPublic = d => join(d.code, party.name || prompt('Qual é seu nome?')?.trim());
@@ -112,10 +137,15 @@ ACT.removePartyQuestion = d => partyEmit('removeQuestion', {index:Number(d.i)});
 ACT.removeSaved = d => { savedQuestions.splice(Number(d.i),1); localStorage.setItem(LIBRARY_KEY,JSON.stringify(savedQuestions)); partyEmit('saveSavedQuestions',{owner,questions:savedQuestions}); };
 ACT.exportQuestions = () => { const blob = new Blob([JSON.stringify(savedQuestions,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='estudae-minhas-perguntas.json';a.click();URL.revokeObjectURL(url); };
 ACT.launchParty = () => partyEmit('startQuiz');
-ACT.partyAnswer = d => partyEmit('answer',{choice:Number(d.i)});
+ACT.selectPartyAnswer = d => { if (party.room?.phase==='question') partyChoice.choice=Number(d.i); };
+ACT.partyAnswer = () => { if (party.room?.phase==='question' && partyChoice.choice!==null) partyEmit('answer',{choice:partyChoice.choice}); };
 ACT.partyNext = () => partyEmit('nextQuestion');
 ACT.partyRestart = () => partyEmit('restart');
-ACT.leaveParty = () => { partyEmit('leaveRoom');party.room=null;party.feedback='';partyEmit('listPublicRooms'); };
+ACT.reconnectParty = () => { if (!socket?.connected) { party.feedback = 'Aguardando conexão com o servidor…'; return; } tryResumeParty(); };
+ACT.leaveParty = () => {
+  if (!confirm('Deseja realmente sair da Party? Seu lugar será liberado e você não poderá recuperar essa sessão.')) return;
+  partyEmit('leaveRoom'); clearPartySession(); party.room = null; party.feedback = ''; partyEmit('listPublicRooms');
+};
 ACT.copyCode = () => navigator.clipboard?.writeText(party.room?.code || '');
 
 // O líder escolhe somente os temas; o servidor sorteia e equilibra as perguntas.

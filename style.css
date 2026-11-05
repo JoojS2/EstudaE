@@ -728,3 +728,33 @@ html[data-theme="dark"] button:disabled { opacity:.58; cursor:not-allowed; }
 html[data-theme="dark"] :is(button,input,textarea,select):focus-visible { outline:3px solid #80cdb5; outline-offset:2px; }
 @media(max-width:570px) { .theme-toggle { margin-right:8px; padding:9px 11px; } .theme-caption { display:none; } }
 @media(prefers-reduced-motion:reduce) { *,*::before,*::after { transition-duration:.01ms !important; animation-duration:.01ms !important; } }
+
+/* Estudaê 9.0 — microinterações acessíveis e discretas */
+button:not(:disabled) { cursor:pointer; transition: background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease, transform .18s ease, filter .2s ease; }
+button:not(:disabled):hover { transform:translateY(-2px); box-shadow:0 7px 18px rgba(37,86,74,.12); }
+button:not(:disabled):active { transform:translateY(1px) scale(.985); box-shadow:0 2px 5px rgba(37,86,74,.08); }
+button.pri:not(:disabled):hover,.hero button:not(:disabled):hover { background:#397e74 !important; filter:brightness(1.05); box-shadow:0 9px 22px rgba(44,121,102,.22) !important; }
+button.opt:not(:disabled):hover { transform:translateX(3px); box-shadow:0 4px 14px rgba(40,103,85,.09); }
+button:focus-visible { outline:3px solid #74bba5; outline-offset:3px; }
+html[data-theme="dark"] button.pri:not(:disabled):hover,html[data-theme="dark"] .hero button:not(:disabled):hover { background:#95d5bd !important; box-shadow:0 8px 22px rgba(95,194,158,.17) !important; }
+html[data-theme="dark"] button:not(:disabled):hover { border-color:#78bca8; }
+.party-exit { display:flex; justify-content:flex-end; margin:24px 0 10px; }
+.party-exit-button { background:transparent; border:1px solid var(--bd); color:var(--mu); font-size:.88rem; padding:9px 13px; border-radius:12px; }
+.party-exit-button:hover { color:#a35454; border-color:#d7a3a3; background:rgba(192,95,95,.06); }
+.reconnect-card { margin-bottom:18px; border-color:#87bba9; }
+@media(prefers-reduced-motion:reduce) { button:not(:disabled),button:not(:disabled):hover,button:not(:disabled):active { transition:none !important; transform:none !important; } }
+
+/* Estudaê 10.0 — modo claro acolhedor, sem branco puro. O modo escuro permanece intacto. */
+html[data-theme="light"] { --bg:#f1f3ee; --card:#f9f9f5; --tx:#283b36; --mu:#647b73; --bd:#dce5dc; --soft:#e9f2eb; }
+html[data-theme="light"] body { background:#f1f3ee; }
+html[data-theme="light"] .sidebar { background:#f5f7f2; border-color:var(--bd); }
+html[data-theme="light"] .topbar { background:rgba(245,247,242,.92); border-color:var(--bd); }
+html[data-theme="light"] .card,html[data-theme="light"] .stat { background:#f9f9f5; border-color:#dce5dc; }
+html[data-theme="light"] .opt { background:#f5f8f3; border-color:#d8e5da; color:#35504b; }
+html[data-theme="light"] .opt:not(:disabled):hover { background:#eaf3ec; }
+html[data-theme="light"] .topic-choice { background:#f5f8f3; }
+html[data-theme="light"] .theme-toggle { background:#f9f9f5; }
+html[data-theme="light"] input:not([type=radio]):not([type=checkbox]),html[data-theme="light"] textarea,html[data-theme="light"] select { background:#fdfdf9; }
+.opt.selected,html[data-theme="light"] .opt.selected { background:#dceee5 !important; color:#245c4b !important; border:2px solid #4b9388 !important; box-shadow:0 0 0 2px rgba(75,147,136,.12); }
+html[data-theme="dark"] .opt.selected { background:#2c4b43 !important; color:#d8f4e8 !important; border:2px solid #8ec9b6 !important; box-shadow:0 0 0 2px rgba(142,201,182,.15); }
+.question-box .pri, .review-question .pri { margin-top:16px; }

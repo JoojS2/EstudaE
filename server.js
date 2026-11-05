@@ -43,6 +43,7 @@ const rooms = new Map();
 const VALID_AMOUNTS = [10, 20, 30, 45, 60];
 const MIN_SECONDS = 10;
 const MAX_SECONDS = 30;
+const RECONNECT_GRACE_MS = 120000; // reserva a vaga por 2 minutos após queda ou atualização
 function shuffle(items) {
   const result = [...items];
   for (let i = result.length - 1; i > 0; i--) {
@@ -75,7 +76,7 @@ function publicRoom(room) {
   return {
     code: room.code, title: room.title, visibility: room.visibility, mode: room.mode,
     category: room.category, amount: room.amount, topics: room.topics, hostId: room.hostId, phase: room.phase, index: room.index,
-    players: room.players.map(p => ({ ...p })), questions: safeQuestions(room.questions),
+    players: room.players.map(({ sessionKey, disconnectTimer, ...p }) => ({ ...p, online: !!p.online })), questions: safeQuestions(room.questions),
     correct: room.phase === 'reveal' ? room.questions[room.index]?.correct : null,
     secondsPerQuestion: room.secondsPerQuestion, deadline: room.phase === 'question' ? room.deadline : null,
     results: room.phase === 'reveal' ? room.results : []
@@ -116,10 +117,31 @@ function beginQuestion(room) {
   room.timer = setTimeout(() => revealQuestion(room), room.secondsPerQuestion * 1000);
   broadcast(room);
 }
+function expirePlayer(room, player) {
+  if (!rooms.has(room.code) || !room.players.includes(player) || player.online) return;
+  room.players = room.players.filter(p => p !== player);
+  if (room.hostId === player.id && room.players.length) room.hostId = room.players[0].id;
+  if (!room.players.length) { cancelTimer(room); rooms.delete(room.code); publishRooms(); return; }
+  if (room.phase === 'question' && room.players.every(p => room.answers.has(p.id))) revealQuestion(room);
+  else broadcast(room);
+}
+function disconnectTemporarily(socket) {
+  const room = rooms.get(socket.data.roomCode);
+  if (!room) return;
+  const player = room.players.find(p => p.id === socket.id);
+  if (!player) return;
+  player.online = false;
+  player.disconnectTimer = setTimeout(() => expirePlayer(room, player), RECONNECT_GRACE_MS);
+  socket.data.roomCode = null;
+  // Não altera cronômetro, respostas nem a pontuação da partida.
+  broadcast(room);
+}
 function leave(socket) {
   const room = rooms.get(socket.data.roomCode);
   if (!room) return;
   socket.leave(room.code);
+  const leaving = room.players.find(p => p.id === socket.id);
+  if (leaving?.disconnectTimer) clearTimeout(leaving.disconnectTimer);
   room.players = room.players.filter(p => p.id !== socket.id);
   socket.data.roomCode = null;
   if (!room.players.length) { cancelTimer(room); rooms.delete(room.code); }
@@ -155,9 +177,36 @@ io.on('connection', socket => {
     catch (e) { console.error(e); error(socket, 'Não foi possível salvar as perguntas.'); }
   });
 
-  socket.on('createRoom', ({ name, title, visibility, mode, category, amount, secondsPerQuestion, owner } = {}) => {
+  socket.on('resumeRoom', ({ code, sessionKey } = {}) => {
+    code = clean(code, 8).toUpperCase();
+    const room = rooms.get(code);
+    const player = room?.players.find(p => p.sessionKey === sessionKey);
+    if (!room || !player || typeof sessionKey !== 'string' || !/^[a-f0-9]{48}$/.test(sessionKey)) {
+      socket.emit('resumeFailed', 'Não foi possível recuperar a sala. Ela pode ter sido encerrada.');
+      return;
+    }
+    if (player.online && player.id !== socket.id) {
+      const previous = io.sockets.sockets.get(player.id);
+      if (previous) { previous.data.roomCode = null; previous.leave(room.code); previous.emit('sessionReplaced'); }
+    }
+    leave(socket);
+    if (player.disconnectTimer) clearTimeout(player.disconnectTimer);
+    const oldId = player.id;
+    player.id = socket.id;
+    player.online = true;
+    player.disconnectTimer = null;
+    if (room.hostId === oldId) room.hostId = socket.id;
+    if (room.answers.has(oldId)) { const answer = room.answers.get(oldId); room.answers.delete(oldId); room.answers.set(socket.id, answer); }
+    room.results.forEach(r => { if (r.id === oldId) r.id = socket.id; });
+    socket.data.roomCode = code;
+    socket.join(code);
+    broadcast(room);
+    socket.emit('resumeSuccess', { code });
+  });
+  socket.on('createRoom', ({ name, title, visibility, mode, category, amount, secondsPerQuestion, owner, sessionKey } = {}) => {
     name = clean(name, 28); title = clean(title, 60) || 'Party de estudos';
     if (!name) return error(socket, 'Informe seu nome.');
+    if (typeof sessionKey !== 'string' || !/^[a-f0-9]{48}$/.test(sessionKey)) return error(socket, 'Sessão inválida. Atualize a página.');
     if (!['public', 'private'].includes(visibility)) return error(socket, 'Escolha sala pública ou privada.');
     if (!['ready', 'custom'].includes(mode)) return error(socket, 'Escolha perguntas prontas ou próprias.');
     amount = Number(amount);
@@ -167,18 +216,19 @@ io.on('connection', socket => {
     leave(socket);
     let code; do { code = roomCode(); } while (rooms.has(code));
     const questions = [];
-    const room = { code, title, visibility, mode, amount, secondsPerQuestion, deadline: null, timer: null, results: [], topics: [], category: mode === 'ready' ? 'Aguardando temas' : 'Personalizado', hostId: socket.id, owner: validOwner(owner) ? owner : null, phase: 'lobby', index: 0, questions, players: [{ id: socket.id, name, score: 0, answered: -1 }], answers: new Map() };
+    const room = { code, title, visibility, mode, amount, secondsPerQuestion, deadline: null, timer: null, results: [], topics: [], category: mode === 'ready' ? 'Aguardando temas' : 'Personalizado', hostId: socket.id, owner: validOwner(owner) ? owner : null, phase: 'lobby', index: 0, questions, players: [{ id: socket.id, name, score: 0, answered: -1, sessionKey, online: true, disconnectTimer: null }], answers: new Map() };
     rooms.set(code, room); socket.data.roomCode = code; socket.join(code); broadcast(room);
   });
-  socket.on('joinRoom', ({ name, code } = {}) => {
+  socket.on('joinRoom', ({ name, code, sessionKey } = {}) => {
     name = clean(name, 28); code = clean(code, 8).toUpperCase();
     const room = rooms.get(code);
     if (!name) return error(socket, 'Informe seu nome.');
+    if (typeof sessionKey !== 'string' || !/^[a-f0-9]{48}$/.test(sessionKey)) return error(socket, 'Sessão inválida. Atualize a página.');
     if (!room) return error(socket, 'Sala não encontrada.');
     if (room.phase !== 'lobby') return error(socket, 'Esta Party já começou.');
     if (room.players.length >= 30) return error(socket, 'Sala cheia.');
     leave(socket); socket.data.roomCode = code; socket.join(code);
-    room.players.push({ id: socket.id, name, score: 0, answered: -1 }); broadcast(room);
+    room.players.push({ id: socket.id, name, score: 0, answered: -1, sessionKey, online: true, disconnectTimer: null }); broadcast(room);
   });
   socket.on('generateReadyQuestions', ({ topics } = {}) => {
     const room = current(socket);
@@ -237,6 +287,6 @@ io.on('connection', socket => {
     room.phase = 'lobby'; room.index = 0; room.players.forEach(p => { p.score = 0; p.answered = -1; }); broadcast(room);
   });
   socket.on('leaveRoom', () => leave(socket));
-  socket.on('disconnect', () => leave(socket));
+  socket.on('disconnect', () => disconnectTemporarily(socket));
 });
 initStorage().then(() => server.listen(process.env.PORT || 3000, '0.0.0.0', () => console.log('Estudaê online'))).catch(err => { console.error('Erro no banco de dados:', err); process.exit(1); });

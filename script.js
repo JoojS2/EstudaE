@@ -106,12 +106,12 @@ function rev() {
     if (R.fim)
         return R.fim;
     const q = R.qs[R.i];
-    return `<div class="review-question card"><div class="mu">Questão ${R.i + 1} de ${R.qs.length} · ${esc(q.a.startsWith('bank:')?q.a.slice(5):nomeA(q.a))}</div><h2>${esc(q.t)}</h2>` + q.alts.map((t, i) => { let c = 'opt'; if (R.fb !== null) {
+    return `<div class="review-question card"><div class="mu">Questão ${R.i + 1} de ${R.qs.length} · ${esc(q.a.startsWith('bank:')?q.a.slice(5):nomeA(q.a))}</div><h2>${esc(q.t)}</h2>` + q.alts.map((t, i) => { let c = 'opt'; if (R.fb === null && R.selected === i) c += ' selected'; if (R.fb !== null) {
         if (i === q.c)
             c += ' ok';
         else if (i === R.fb)
             c += ' no';
-    } return `<button class="${c}" data-a="ans" data-i="${i}" ${R.fb !== null ? 'disabled' : ''}>${esc(t)}</button>`; }).join('') + (R.fb !== null ? `<button class="pri" data-a="next">${R.i + 1 < R.qs.length ? 'Próxima' : 'Finalizar'}</button>` : '') + '</div>';
+    } return `<button class="${c}" data-a="ans" data-i="${i}" ${R.fb !== null ? 'disabled' : ''} aria-pressed="${R.fb===null && R.selected===i}">${'ABCDE'[i]}. ${esc(t)}</button>`; }).join('') + (R.fb !== null ? `<button class="pri" data-a="next">${R.i + 1 < R.qs.length ? 'Próxima' : 'Finalizar'}</button>` : `<button class="pri" data-a="submitReview" ${R.selected===null?'disabled':''}>Enviar resposta</button><p class="mu">Você pode mudar sua escolha antes de enviar.</p>`) + '</div>';
 }
 function man() {
     const o = S.assuntos.map(a => `<option value="${a.id}">${esc(a.nome)}</option>`).join('');
@@ -133,11 +133,12 @@ const ACT = {
     go: d => { V = d.v; if(V==='rev') R=null; RS = false; },
     start: () => { V='rev'; R=null; },
     newReview: () => { R=null; V='rev'; },
-    startReview: () => { const selected=[...document.querySelectorAll('[data-revision-topic]:checked')].map(el=>el.dataset.revisionTopic); if(!selected.length) { alert('Selecione ao menos uma matéria.'); return; } revisionTopics=selected; revisionCount=Number(document.getElementById('revisionAmount').value); const qs=reviewPool(); if(!qs.length) { alert('Nenhuma questão disponível para os temas escolhidos.'); return; } R={qs,i:0,fb:null,resp:[]}; V='rev'; },
-    ans: d => { const q = R.qs[R.i], i = +d.i, ok = i === q.c; R.fb = i; R.resp.push({ a: q.a, ok }); q.l = ok ? 2 : 1; save(); },
+    startReview: () => { const selected=[...document.querySelectorAll('[data-revision-topic]:checked')].map(el=>el.dataset.revisionTopic); if(!selected.length) { alert('Selecione ao menos uma matéria.'); return; } revisionTopics=selected; revisionCount=Number(document.getElementById('revisionAmount').value); const qs=reviewPool(); if(!qs.length) { alert('Nenhuma questão disponível para os temas escolhidos.'); return; } R={qs,i:0,fb:null,selected:null,resp:[]}; V='rev'; },
+    ans: d => { if (R.fb===null) R.selected=Number(d.i); },
+    submitReview: () => { if (!R || R.fb!==null || R.selected===null) return; const q = R.qs[R.i], i = R.selected, ok = i === q.c; R.fb = i; R.resp.push({ a: q.a, ok }); q.l = ok ? 2 : 1; save(); },
     next: () => { if (R.i + 1 < R.qs.length) {
         R.i++;
-        R.fb = null;
+        R.fb = null; R.selected = null;
     }
     else
         fin(); },
