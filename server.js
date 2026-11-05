@@ -132,8 +132,8 @@ function leave(socket) {
 }
 function validQuestion(q) {
   return q && typeof q.text === 'string' && clean(q.text) && q.text.length <= 300 &&
-    Array.isArray(q.options) && q.options.length === 4 && q.options.every(x => typeof x === 'string' && clean(x) && x.length <= 150) &&
-    Number.isInteger(q.correct) && q.correct >= 0 && q.correct < 4;
+    Array.isArray(q.options) && (q.options.length === 4 || q.options.length === 5) && q.options.every(x => typeof x === 'string' && clean(x) && x.length <= 150) &&
+    Number.isInteger(q.correct) && q.correct >= 0 && q.correct < q.options.length;
 }
 function sanitized(q) { return { text: clean(q.text), options: q.options.map(x => clean(x, 150)), correct: q.correct }; }
 function validOwner(token) { return typeof token === 'string' && /^[a-f0-9]{48}$/.test(token); }
@@ -201,7 +201,7 @@ io.on('connection', socket => {
   socket.on('addQuestion', q => {
     const room = current(socket);
     if (!room || room.hostId !== socket.id || room.phase !== 'lobby' || room.mode !== 'custom') return;
-    if (!validQuestion(q)) return error(socket, 'Preencha a pergunta e quatro alternativas.');
+    if (!validQuestion(q)) return error(socket, 'Preencha a pergunta e cinco alternativas.');
     if (room.questions.length >= room.amount) return error(socket, `Limite de ${room.amount} questões por Party.`);
     room.questions.push(sanitized(q)); broadcast(room);
   });
@@ -217,7 +217,7 @@ io.on('connection', socket => {
   });
   socket.on('answer', ({ choice } = {}) => {
     const room = current(socket);
-    if (!room || room.phase !== 'question' || !Number.isInteger(choice) || choice < 0 || choice > 3) return;
+    if (!room || room.phase !== 'question' || !Number.isInteger(choice) || choice < 0 || choice >= room.questions[room.index].options.length) return;
     const player = room.players.find(p => p.id === socket.id);
     if (!player || player.answered === room.index) return;
     player.answered = room.index; room.answers.set(socket.id, choice);

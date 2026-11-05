@@ -23,3 +23,12 @@ Questões devem ser revisadas pedagogicamente antes de avaliações oficiais.
 - Geografia: 65 questões
 - Biologia: 65 questões
 - História: 65 questões
+
+
+## Estudaê 8.0 — tema escuro e cinco alternativas
+- O botão **Modo escuro / Modo claro** aparece no cabeçalho e salva a preferência no navegador. Na primeira visita, respeita o tema do sistema.
+- As **328 questões prontas** de Matemática, Física, Geografia, Biologia e História agora têm **cinco alternativas (A–E)**, tanto na revisão quanto nas Partys.
+- Os formulários de novas perguntas pessoais também aceitam cinco alternativas.
+- **Compatibilidade:** questões pessoais antigas com quatro alternativas continuam funcionando e não são alteradas automaticamente, para evitar inventar respostas incorretas. Você pode recriá-las com cinco opções.
+- **Revisão editorial recomendada:** a quinta alternativa das questões prontas foi adicionada automaticamente, com verificação de duplicatas e preservação do índice correto. Revise a qualidade pedagógica dos distratores antes de uso em provas.
+- **Importante:** ao atualizar seu projeto, mantenha a URL real do Render em `config.js`. O ZIP traz o endereço de exemplo.

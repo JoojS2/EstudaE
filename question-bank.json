@@ -5,10 +5,11 @@
       "options": [
         "54",
         "70",
+        "68",
         "80",
         "60"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "0-0",
       "difficulty": "easy"
     },
@@ -18,6 +19,7 @@
         "153",
         "112",
         "119",
+        "134",
         "136"
       ],
       "correct": 2,
@@ -30,6 +32,7 @@
         "144",
         "146",
         "141",
+        "159",
         "139"
       ],
       "correct": 2,
@@ -42,7 +45,8 @@
         "117",
         "110",
         "115",
-        "112"
+        "112",
+        "127"
       ],
       "correct": 3,
       "id": "0-26",
@@ -54,6 +58,7 @@
         "R$ 68.00",
         "R$ 64.00",
         "R$ 72.00",
+        "R$ 77",
         "R$ 60.00"
       ],
       "correct": 0,
@@ -66,7 +71,8 @@
         "R$ 76.50",
         "R$ 72.00",
         "R$ 81.00",
-        "R$ 67.50"
+        "R$ 67.50",
+        "R$ 86.50"
       ],
       "correct": 0,
       "id": "0-31",
@@ -77,6 +83,7 @@
       "options": [
         "R$ 1210.00",
         "R$ 1200.00",
+        "R$ 1367",
         "R$ 1100.00",
         "R$ 1220.00"
       ],
@@ -90,6 +97,7 @@
         "R$ 1452.00",
         "R$ 1440.00",
         "R$ 1320.00",
+        "R$ 1641",
         "R$ 1464.00"
       ],
       "correct": 0,
@@ -103,9 +111,10 @@
         "2/3",
         "1/4",
         "1/3",
+        "3/8",
         "1/2"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "easy"
     },
     {
@@ -113,11 +122,12 @@
       "text": "Um triângulo tem quantos lados?",
       "options": [
         "6",
+        "2",
         "4",
         "5",
         "3"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "easy"
     },
     {
@@ -127,6 +137,7 @@
         "10 cm",
         "20 cm",
         "15 cm",
+        "21 m²",
         "25 cm"
       ],
       "correct": 1,
@@ -137,6 +148,7 @@
       "text": "Quanto é 25% de 80?",
       "options": [
         "20",
+        "23",
         "40",
         "25",
         "15"
@@ -151,6 +163,7 @@
         "21",
         "13",
         "15",
+        "11",
         "27"
       ],
       "correct": 1,
@@ -161,11 +174,12 @@
       "text": "Quanto mede um ângulo reto?",
       "options": [
         "60°",
+        "102°",
         "180°",
         "90°",
         "45°"
       ],
-      "correct": 2,
+      "correct": 3,
       "difficulty": "easy"
     },
     {
@@ -174,10 +188,11 @@
       "options": [
         "8",
         "7",
+        "4",
         "5",
         "6"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "easy"
     },
     {
@@ -187,6 +202,7 @@
         "16",
         "32",
         "10",
+        "36",
         "25"
       ],
       "correct": 1,
@@ -199,7 +215,8 @@
         "2",
         "3/8",
         "1/2",
-        "1"
+        "1",
+        "0"
       ],
       "correct": 3,
       "difficulty": "easy"
@@ -209,6 +226,7 @@
       "text": "Qual a área de um retângulo de 7 m por 3 m?",
       "options": [
         "21 m²",
+        "10 cm",
         "20 m²",
         "42 m²",
         "10 m²"
@@ -222,6 +240,7 @@
       "options": [
         "7",
         "8",
+        "10",
         "9",
         "26"
       ],
@@ -235,6 +254,7 @@
         "12",
         "24",
         "0",
+        "14",
         "-12"
       ],
       "correct": 0,
@@ -246,10 +266,11 @@
       "options": [
         "270°",
         "90°",
+        "203°",
         "180°",
         "360°"
       ],
-      "correct": 2,
+      "correct": 3,
       "difficulty": "medium"
     },
     {
@@ -258,6 +279,7 @@
       "options": [
         "100%",
         "50%",
+        "56%",
         "75%",
         "25%"
       ],
@@ -268,24 +290,26 @@
       "id": "v7-0-14",
       "text": "Qual a forma decimal de 3/5?",
       "options": [
+        "1,60",
         "0,3",
         "0,6",
         "0,5",
         "1,5"
       ],
-      "correct": 1,
+      "correct": 2,
       "difficulty": "medium"
     },
     {
       "id": "v7-0-15",
       "text": "Qual é a raiz cúbica de 27?",
       "options": [
+        "2",
         "4",
         "3",
         "9",
         "6"
       ],
-      "correct": 1,
+      "correct": 2,
       "difficulty": "medium"
     },
     {
@@ -293,11 +317,12 @@
       "text": "Qual a unidade usual de volume no SI?",
       "options": [
         "Segundo",
+        "Somente x = 4",
         "Metro cúbico",
         "Metro quadrado",
         "Quilograma"
       ],
-      "correct": 1,
+      "correct": 2,
       "difficulty": "medium"
     },
     {
@@ -307,9 +332,10 @@
         "11",
         "3",
         "9",
+        "12",
         "10"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "medium"
     },
     {
@@ -317,11 +343,12 @@
       "text": "Qual é o mínimo múltiplo comum de 4 e 6?",
       "options": [
         "2",
+        "14",
         "10",
         "24",
         "12"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "medium"
     },
     {
@@ -331,6 +358,7 @@
         "6",
         "9",
         "12",
+        "7",
         "3"
       ],
       "correct": 0,
@@ -340,24 +368,26 @@
       "id": "v7-0-20",
       "text": "Qual é o valor de 5! (fatorial de cinco)?",
       "options": [
+        "136",
         "120",
         "100",
         "60",
         "25"
       ],
-      "correct": 0,
+      "correct": 1,
       "difficulty": "hard"
     },
     {
       "id": "v7-0-21",
       "text": "Uma função f(x)=2x+1 tem f(4) igual a quanto?",
       "options": [
+        "11",
         "7",
         "10",
         "8",
         "9"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "hard"
     },
     {
@@ -366,10 +396,11 @@
       "options": [
         "Negativa",
         "Infinita",
+        "√3/2",
         "Um",
         "Zero"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "hard"
     },
     {
@@ -377,23 +408,25 @@
       "text": "Em uma PA de razão 3, após 2 vem qual termo?",
       "options": [
         "8",
+        "7",
         "4",
         "5",
         "6"
       ],
-      "correct": 2,
+      "correct": 3,
       "difficulty": "hard"
     },
     {
       "id": "v7-0-24",
       "text": "Quantos centímetros há em 2,5 metros?",
       "options": [
+        "282",
         "25",
         "205",
         "2500",
         "250"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "hard"
     },
     {
@@ -402,6 +435,7 @@
       "options": [
         "16",
         "7",
+        "8",
         "12",
         "28"
       ],
@@ -415,7 +449,8 @@
         "15%",
         "40%",
         "25%",
-        "20%"
+        "20%",
+        "28%"
       ],
       "correct": 2,
       "difficulty": "hard"
@@ -424,24 +459,26 @@
       "id": "v7-0-27",
       "text": "Qual é o oposto aditivo de 7?",
       "options": [
+        "-6",
         "1/7",
         "7",
         "0",
         "-7"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "hard"
     },
     {
       "id": "v7-0-28",
       "text": "Qual figura possui todos os pontos à mesma distância do centro?",
       "options": [
+        "Metro quadrado",
         "Triângulo",
         "Trapézio",
         "Retângulo",
         "Circunferência"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "hard"
     },
     {
@@ -449,11 +486,12 @@
       "text": "Qual é o produto de dois números negativos?",
       "options": [
         "Zero",
+        "Negativa",
         "Positivo",
         "Negativo",
         "Indefinido"
       ],
-      "correct": 1,
+      "correct": 2,
       "difficulty": "hard"
     },
     {
@@ -461,23 +499,25 @@
       "text": "Qual a área de um círculo de raio 2, usando π=3,14?",
       "options": [
         "25,12",
+        "14,56",
         "12,56",
         "4",
         "6,28"
       ],
-      "correct": 1,
+      "correct": 2,
       "difficulty": "hard"
     },
     {
       "id": "v7-0-31",
       "text": "Qual é o coeficiente angular de y=3x-2?",
       "options": [
+        "4",
         "-2",
         "2",
         "-3",
         "3"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "hard"
     },
     {
@@ -485,11 +525,12 @@
       "text": "Quanto é 0,2 × 0,3?",
       "options": [
         "0,006",
+        "1,06",
         "0,5",
         "0,06",
         "0,6"
       ],
-      "correct": 2,
+      "correct": 3,
       "difficulty": "hard"
     },
     {
@@ -499,6 +540,7 @@
         "√2",
         "-7",
         "0,5",
+        "Um",
         "3/4"
       ],
       "correct": 0,
@@ -511,9 +553,10 @@
         "1/3",
         "1/4",
         "1/2",
+        "2/3",
         "1/6"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "hard"
     },
     {
@@ -522,6 +565,7 @@
       "options": [
         "1000",
         "30",
+        "1130",
         "100",
         "300"
       ],
@@ -534,10 +578,11 @@
       "options": [
         "25",
         "10",
+        "17",
         "15",
         "20"
       ],
-      "correct": 2,
+      "correct": 3,
       "difficulty": "medium"
     },
     {
@@ -545,11 +590,12 @@
       "text": "Quantas diagonais tem um quadrado?",
       "options": [
         "6",
+        "3",
         "4",
         "8",
         "2"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "medium"
     },
     {
@@ -559,7 +605,8 @@
         "145°",
         "35°",
         "65°",
-        "55°"
+        "55°",
+        "62°"
       ],
       "correct": 3,
       "difficulty": "medium"
@@ -568,12 +615,13 @@
       "id": "v7-math-extra-4",
       "text": "Qual é o suplemento de um ângulo de 110°?",
       "options": [
+        "79°",
         "70°",
         "90°",
         "110°",
         "80°"
       ],
-      "correct": 0,
+      "correct": 1,
       "difficulty": "medium"
     },
     {
@@ -583,7 +631,8 @@
         "1 cm real",
         "1 m real",
         "100 m reais",
-        "10 m reais"
+        "10 m reais",
+        "18 cm³"
       ],
       "correct": 1,
       "difficulty": "medium"
@@ -595,9 +644,10 @@
         "9 cm³",
         "18 cm³",
         "12 cm³",
+        "10 cm",
         "27 cm³"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "medium"
     },
     {
@@ -607,6 +657,7 @@
         "45 × 10³",
         "4,5 × 10³",
         "4,5 × 10²",
+        "Triângulo",
         "0,45 × 10³"
       ],
       "correct": 1,
@@ -618,6 +669,7 @@
       "options": [
         "1",
         "2",
+        "3",
         "10",
         "100"
       ],
@@ -631,6 +683,7 @@
         "-6",
         "5",
         "6",
+        "4",
         "-5"
       ],
       "correct": 1,
@@ -641,6 +694,7 @@
       "text": "Qual a distância entre os pontos (0,0) e (3,4)?",
       "options": [
         "5",
+        "3",
         "6",
         "7",
         "4"
@@ -653,11 +707,12 @@
       "text": "Qual é o determinante da matriz [[1,2],[3,4]]?",
       "options": [
         "-10",
+        "-1",
         "2",
         "10",
         "-2"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "medium"
     },
     {
@@ -666,22 +721,24 @@
       "options": [
         "0",
         "1",
+        "2/3",
         "1/2",
         "√3/2"
       ],
-      "correct": 2,
+      "correct": 3,
       "difficulty": "hard"
     },
     {
       "id": "v7-math-extra-13",
       "text": "Qual é o cosseno de 0°?",
       "options": [
+        "2",
         "-1",
         "1",
         "0",
         "1/2"
       ],
-      "correct": 1,
+      "correct": 2,
       "difficulty": "hard"
     },
     {
@@ -691,7 +748,8 @@
         "3",
         "6",
         "9",
-        "8"
+        "8",
+        "7"
       ],
       "correct": 3,
       "difficulty": "hard"
@@ -703,6 +761,7 @@
         "6",
         "2",
         "3",
+        "5",
         "4"
       ],
       "correct": 2,
@@ -712,24 +771,26 @@
       "id": "v7-math-extra-16",
       "text": "Se a taxa é 5% ao mês, qual é o juro simples de R$ 100 em um mês?",
       "options": [
+        "R$ 6",
         "R$ 105",
         "R$ 50",
         "R$ 5",
         "R$ 10"
       ],
-      "correct": 2,
+      "correct": 3,
       "difficulty": "hard"
     },
     {
       "id": "v7-math-extra-17",
       "text": "Qual é a derivada de f(x)=x²?",
       "options": [
+        "Um",
         "2",
         "2x",
         "x",
         "x³"
       ],
-      "correct": 1,
+      "correct": 2,
       "difficulty": "hard"
     },
     {
@@ -738,6 +799,7 @@
       "options": [
         "x + C",
         "x² + C",
+        "Segundo",
         "2x² + C",
         "2 + C"
       ],
@@ -751,7 +813,8 @@
         "7",
         "48",
         "14",
-        "10"
+        "10",
+        "11"
       ],
       "correct": 3,
       "difficulty": "hard"
@@ -763,6 +826,7 @@
         "1/2",
         "1/3",
         "1/6",
+        "1/4",
         "2/3"
       ],
       "correct": 0,
@@ -774,10 +838,11 @@
       "options": [
         "2",
         "-3",
+        "8",
         "1",
         "7"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "hard"
     },
     {
@@ -785,11 +850,12 @@
       "text": "Qual é o domínio real de f(x)=1/x?",
       "options": [
         "Somente inteiros",
+        "x = 4 ou x = -4",
         "Todos os reais exceto zero",
         "Somente positivos",
         "Todos os reais"
       ],
-      "correct": 1,
+      "correct": 2,
       "difficulty": "hard"
     },
     {
@@ -797,11 +863,12 @@
       "text": "Qual é a solução de |x| = 4?",
       "options": [
         "Somente x = 4",
+        "Metro quadrado",
         "Somente x = -4",
         "x = 4 ou x = -4",
         "x = 0"
       ],
-      "correct": 2,
+      "correct": 3,
       "difficulty": "hard"
     },
     {
@@ -810,6 +877,7 @@
       "options": [
         "90°",
         "360°",
+        "407°",
         "180°",
         "270°"
       ],
@@ -822,11 +890,12 @@
       "text": "Um corpo se move a 3 m/s durante 3 s. Qual distância percorre em movimento uniforme?",
       "options": [
         "19 m",
+        "8 J",
         "12 m",
         "6 m",
         "9 m"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "1-0",
       "difficulty": "easy"
     },
@@ -835,10 +904,11 @@
       "options": [
         "20 m",
         "27 m",
+        "19 m",
         "12 m",
         "16 m"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "1-1",
       "difficulty": "easy"
     },
@@ -848,6 +918,7 @@
         "25 m",
         "37 m",
         "20 m",
+        "19 m",
         "30 m"
       ],
       "correct": 0,
@@ -860,7 +931,8 @@
         "36 m",
         "30 m",
         "49 m",
-        "42 m"
+        "42 m",
+        "19 m"
       ],
       "correct": 0,
       "id": "1-3",
@@ -869,12 +941,13 @@
     {
       "text": "Um corpo se move a 7 m/s durante 7 s. Qual distância percorre em movimento uniforme?",
       "options": [
+        "19 m",
         "63 m",
         "49 m",
         "42 m",
         "56 m"
       ],
-      "correct": 1,
+      "correct": 2,
       "id": "1-4",
       "difficulty": "easy"
     },
@@ -882,6 +955,7 @@
       "text": "Um corpo se move a 8 m/s durante 8 s. Qual distância percorre em movimento uniforme?",
       "options": [
         "64 m",
+        "19 m",
         "79 m",
         "72 m",
         "56 m"
@@ -895,6 +969,7 @@
       "options": [
         "81 m",
         "90 m",
+        "19 m",
         "72 m",
         "97 m"
       ],
@@ -905,24 +980,26 @@
     {
       "text": "Um corpo se move a 10 m/s durante 10 s. Qual distância percorre em movimento uniforme?",
       "options": [
+        "105 m",
         "110 m",
         "90 m",
         "117 m",
         "100 m"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "1-7",
       "difficulty": "easy"
     },
     {
       "text": "Um corpo se move a 11 m/s durante 2 s. Qual distância percorre em movimento uniforme?",
       "options": [
+        "19 m",
         "20 m",
         "40 m",
         "33 m",
         "22 m"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "1-8",
       "difficulty": "easy"
     },
@@ -930,11 +1007,12 @@
       "text": "Um corpo se move a 12 m/s durante 3 s. Qual distância percorre em movimento uniforme?",
       "options": [
         "55 m",
+        "19 m",
         "36 m",
         "33 m",
         "48 m"
       ],
-      "correct": 1,
+      "correct": 2,
       "id": "1-9",
       "difficulty": "easy"
     },
@@ -942,11 +1020,12 @@
       "text": "Um corpo se move a 13 m/s durante 4 s. Qual distância percorre em movimento uniforme?",
       "options": [
         "65 m",
+        "19 m",
         "48 m",
         "72 m",
         "52 m"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "1-10",
       "difficulty": "easy"
     },
@@ -955,10 +1034,11 @@
       "options": [
         "91 m",
         "65 m",
+        "19 m",
         "70 m",
         "84 m"
       ],
-      "correct": 2,
+      "correct": 3,
       "id": "1-11",
       "difficulty": "easy"
     },
@@ -968,6 +1048,7 @@
         "105 m",
         "112 m",
         "90 m",
+        "19 m",
         "84 m"
       ],
       "correct": 2,
@@ -980,7 +1061,8 @@
         "112 m",
         "128 m",
         "135 m",
-        "105 m"
+        "105 m",
+        "110 m"
       ],
       "correct": 0,
       "id": "1-13",
@@ -989,12 +1071,13 @@
     {
       "text": "Um corpo se move a 17 m/s durante 8 s. Qual distância percorre em movimento uniforme?",
       "options": [
+        "105 m",
         "160 m",
         "136 m",
         "128 m",
         "153 m"
       ],
-      "correct": 1,
+      "correct": 2,
       "id": "1-14",
       "difficulty": "easy"
     },
@@ -1002,11 +1085,12 @@
       "text": "Um corpo se move a 18 m/s durante 9 s. Qual distância percorre em movimento uniforme?",
       "options": [
         "153 m",
+        "105 m",
         "180 m",
         "162 m",
         "187 m"
       ],
-      "correct": 2,
+      "correct": 3,
       "id": "1-15",
       "difficulty": "easy"
     },
@@ -1016,6 +1100,7 @@
         "209 m",
         "180 m",
         "190 m",
+        "105 m",
         "216 m"
       ],
       "correct": 2,
@@ -1028,9 +1113,10 @@
         "67 m",
         "60 m",
         "38 m",
+        "19 m",
         "40 m"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "1-17",
       "difficulty": "easy"
     },
@@ -1040,7 +1126,8 @@
         "63 m",
         "91 m",
         "84 m",
-        "60 m"
+        "60 m",
+        "19 m"
       ],
       "correct": 0,
       "id": "1-18",
@@ -1049,12 +1136,13 @@
     {
       "text": "Um corpo se move a 22 m/s durante 4 s. Qual distância percorre em movimento uniforme?",
       "options": [
+        "19 m",
         "110 m",
         "88 m",
         "84 m",
         "117 m"
       ],
-      "correct": 1,
+      "correct": 2,
       "id": "1-19",
       "difficulty": "easy"
     },
@@ -1063,10 +1151,11 @@
       "options": [
         "110 m",
         "138 m",
+        "105 m",
         "145 m",
         "115 m"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "1-20",
       "difficulty": "easy"
     },
@@ -1076,6 +1165,7 @@
         "168 m",
         "175 m",
         "144 m",
+        "105 m",
         "138 m"
       ],
       "correct": 2,
@@ -1088,7 +1178,8 @@
         "168 m",
         "207 m",
         "175 m",
-        "200 m"
+        "200 m",
+        "105 m"
       ],
       "correct": 2,
       "id": "1-22",
@@ -1097,12 +1188,13 @@
     {
       "text": "Um corpo se move a 26 m/s durante 8 s. Qual distância percorre em movimento uniforme?",
       "options": [
+        "105 m",
         "200 m",
         "208 m",
         "241 m",
         "234 m"
       ],
-      "correct": 1,
+      "correct": 2,
       "id": "1-23",
       "difficulty": "easy"
     },
@@ -1110,23 +1202,25 @@
       "text": "Um corpo se move a 27 m/s durante 9 s. Qual distância percorre em movimento uniforme?",
       "options": [
         "277 m",
+        "105 m",
         "243 m",
         "270 m",
         "234 m"
       ],
-      "correct": 1,
+      "correct": 2,
       "id": "1-24",
       "difficulty": "easy"
     },
     {
       "text": "Qual é a força resultante em um corpo de 6 kg com aceleração de 4 m/s²? (F = m × a)",
       "options": [
+        "19 m",
         "28 N",
         "37 N",
         "30 N",
         "24 N"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "1-25",
       "difficulty": "easy"
     },
@@ -1134,11 +1228,12 @@
       "text": "Qual é a força resultante em um corpo de 7 kg com aceleração de 5 m/s²? (F = m × a)",
       "options": [
         "42 N",
+        "19 m",
         "49 N",
         "40 N",
         "35 N"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "1-26",
       "difficulty": "easy"
     },
@@ -1147,10 +1242,11 @@
       "options": [
         "56 N",
         "54 N",
+        "19 m",
         "63 N",
         "48 N"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "1-27",
       "difficulty": "easy"
     },
@@ -1160,6 +1256,7 @@
         "63 N",
         "70 N",
         "72 N",
+        "19 m",
         "79 N"
       ],
       "correct": 0,
@@ -1169,12 +1266,13 @@
     {
       "text": "Qual é a força resultante em um corpo de 10 kg com aceleração de 8 m/s²? (F = m × a)",
       "options": [
+        "19 m",
         "88 N",
         "80 N",
         "97 N",
         "90 N"
       ],
-      "correct": 1,
+      "correct": 2,
       "id": "1-29",
       "difficulty": "easy"
     },
@@ -1183,6 +1281,7 @@
       "options": [
         "6 m/s",
         "8 m/s",
+        "105 m",
         "4 m/s",
         "10 m/s"
       ],
@@ -1196,6 +1295,7 @@
         "12 m/s",
         "14 m/s",
         "10 m/s",
+        "20 m/s",
         "16 m/s"
       ],
       "correct": 0,
@@ -1208,7 +1308,8 @@
         "20 m/s",
         "22 m/s",
         "18 m/s",
-        "24 m/s"
+        "24 m/s",
+        "10 m/s"
       ],
       "correct": 0,
       "id": "1-32",
@@ -1217,12 +1318,13 @@
     {
       "text": "Um objeto parte do repouso com aceleração constante de 5 m/s² durante 6 s. Qual a velocidade final?",
       "options": [
+        "10 m/s",
         "30 m/s",
         "32 m/s",
         "28 m/s",
         "34 m/s"
       ],
-      "correct": 0,
+      "correct": 1,
       "id": "1-33",
       "difficulty": "medium"
     },
@@ -1230,6 +1332,7 @@
       "text": "Um objeto parte do repouso com aceleração constante de 6 m/s² durante 3 s. Qual a velocidade final?",
       "options": [
         "18 m/s",
+        "10 m/s",
         "20 m/s",
         "16 m/s",
         "22 m/s"
@@ -1243,6 +1346,7 @@
       "options": [
         "28 m/s",
         "30 m/s",
+        "10 m/s",
         "26 m/s",
         "32 m/s"
       ],
@@ -1256,6 +1360,7 @@
         "40 m/s",
         "42 m/s",
         "38 m/s",
+        "10 m/s",
         "44 m/s"
       ],
       "correct": 0,
@@ -1268,7 +1373,8 @@
         "54 m/s",
         "56 m/s",
         "52 m/s",
-        "58 m/s"
+        "58 m/s",
+        "10 m/s"
       ],
       "correct": 0,
       "id": "1-37",
@@ -1278,6 +1384,7 @@
       "text": "Um objeto parte do repouso com aceleração constante de 10 m/s² durante 3 s. Qual a velocidade final?",
       "options": [
         "30 m/s",
+        "10 m/s",
         "32 m/s",
         "28 m/s",
         "34 m/s"
@@ -1291,6 +1398,7 @@
       "options": [
         "44 m/s",
         "46 m/s",
+        "10 m/s",
         "42 m/s",
         "48 m/s"
       ],
@@ -1304,7 +1412,8 @@
         "60 m/s",
         "62 m/s",
         "58 m/s",
-        "64 m/s"
+        "64 m/s",
+        "10 m/s"
       ],
       "correct": 0,
       "id": "1-40",
@@ -1313,12 +1422,13 @@
     {
       "text": "Um objeto parte do repouso com aceleração constante de 13 m/s² durante 6 s. Qual a velocidade final?",
       "options": [
+        "10 m/s",
         "78 m/s",
         "80 m/s",
         "76 m/s",
         "82 m/s"
       ],
-      "correct": 0,
+      "correct": 1,
       "id": "1-41",
       "difficulty": "medium"
     },
@@ -1326,6 +1436,7 @@
       "text": "Um objeto parte do repouso com aceleração constante de 14 m/s² durante 3 s. Qual a velocidade final?",
       "options": [
         "42 m/s",
+        "10 m/s",
         "44 m/s",
         "40 m/s",
         "46 m/s"
@@ -1339,6 +1450,7 @@
       "options": [
         "60 m/s",
         "62 m/s",
+        "10 m/s",
         "58 m/s",
         "64 m/s"
       ],
@@ -1352,6 +1464,7 @@
         "80 m/s",
         "82 m/s",
         "78 m/s",
+        "10 m/s",
         "84 m/s"
       ],
       "correct": 0,
@@ -1364,7 +1477,8 @@
         "16 J",
         "24 J",
         "32 J",
-        "8 J"
+        "8 J",
+        "19 m"
       ],
       "correct": 0,
       "id": "1-45",
@@ -1373,12 +1487,13 @@
     {
       "text": "Um corpo de 3 kg parte do repouso e atinge 6 m/s. Qual a energia cinética final?",
       "options": [
+        "19 m",
         "54 J",
         "62 J",
         "108 J",
         "27 J"
       ],
-      "correct": 0,
+      "correct": 1,
       "id": "1-46",
       "difficulty": "hard"
     },
@@ -1386,6 +1501,7 @@
       "text": "Um corpo de 4 kg parte do repouso e atinge 8 m/s. Qual a energia cinética final?",
       "options": [
         "128 J",
+        "105 m",
         "136 J",
         "256 J",
         "64 J"
@@ -1400,6 +1516,7 @@
         "250 J",
         "258 J",
         "500 J",
+        "105 m",
         "125 J"
       ],
       "correct": 0,
@@ -1412,7 +1529,8 @@
         "432 J",
         "440 J",
         "864 J",
-        "216 J"
+        "216 J",
+        "105 m"
       ],
       "correct": 0,
       "id": "1-49",
@@ -1423,11 +1541,12 @@
       "text": "Qual é a unidade de força no Sistema Internacional?",
       "options": [
         "Pascal",
+        "Atrito",
         "Newton",
         "Watt",
         "Joule"
       ],
-      "correct": 1,
+      "correct": 2,
       "difficulty": "easy"
     },
     {
@@ -1435,11 +1554,12 @@
       "text": "Qual instrumento mede corrente elétrica?",
       "options": [
         "Voltímetro",
+        "Temperatura",
         "Barômetro",
         "Termômetro",
         "Amperímetro"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "easy"
     },
     {
@@ -1449,6 +1569,7 @@
         "Não",
         "Sim",
         "Apenas à noite",
+        "Ohm",
         "Somente em ondas de rádio"
       ],
       "correct": 0,
@@ -1458,12 +1579,13 @@
       "id": "v7-1-3",
       "text": "Qual é a velocidade aproximada da luz no vácuo?",
       "options": [
+        "10 m/s",
         "3 mil km/s",
         "300 mil km/s",
         "30 km/s",
         "300 km/s"
       ],
-      "correct": 1,
+      "correct": 2,
       "difficulty": "easy"
     },
     {
@@ -1473,6 +1595,7 @@
         "Evaporação",
         "Dispersão da luz",
         "Magnetismo",
+        "Menor para maior",
         "Atrito"
       ],
       "correct": 1,
@@ -1485,9 +1608,10 @@
         "Temperatura",
         "Velocidade",
         "Corrente",
+        "Pascal",
         "Energia"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "easy"
     },
     {
@@ -1496,10 +1620,11 @@
       "options": [
         "Infinita",
         "Alternada",
+        "Watt",
         "Zero",
         "Máxima"
       ],
-      "correct": 2,
+      "correct": 3,
       "difficulty": "easy"
     },
     {
@@ -1509,6 +1634,7 @@
         "Atração magnética",
         "Capacidade de emitir luz",
         "Tendência de manter o estado de movimento",
+        "Mais frio para um mais quente",
         "Mudança de temperatura"
       ],
       "correct": 2,
@@ -1521,7 +1647,8 @@
         "Ohm",
         "Newton",
         "Hertz",
-        "Kelvin"
+        "Kelvin",
+        "Joule"
       ],
       "correct": 2,
       "difficulty": "easy"
@@ -1532,6 +1659,7 @@
       "options": [
         "Dez",
         "Zero",
+        "Watt",
         "Um",
         "Infinita"
       ],
@@ -1542,12 +1670,13 @@
       "id": "v7-1-10",
       "text": "Qual é a relação entre peso e massa?",
       "options": [
+        "Somente em ondas de rádio",
         "São sempre iguais",
         "Peso é medido em litros",
         "Massa depende da altura",
         "Peso depende da gravidade"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "medium"
     },
     {
@@ -1556,6 +1685,7 @@
       "options": [
         "Plana sem grau",
         "Divergente",
+        "Voltímetro",
         "Convergente",
         "Espelhada"
       ],
@@ -1568,10 +1698,11 @@
       "options": [
         "Mais frio para um mais quente",
         "Mais leve para mais pesado",
+        "Somente em ondas de rádio",
         "Mais quente para um mais frio",
         "Menor para maior"
       ],
-      "correct": 2,
+      "correct": 3,
       "difficulty": "medium"
     },
     {
@@ -1581,9 +1712,10 @@
         "Ampere",
         "Watt",
         "Volt",
+        "Não",
         "Ohm"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "medium"
     },
     {
@@ -1593,6 +1725,7 @@
         "Imagem sem reflexão",
         "Imagem virtual",
         "Somente imagem real",
+        "Apenas à noite",
         "Imagem sempre ampliada"
       ],
       "correct": 1,
@@ -1603,12 +1736,13 @@
     {
       "text": "Qual é a capital de Brasil?",
       "options": [
+        "Santiago",
         "Caracas",
         "Buenos Aires",
         "Brasília",
         "Montevidéu"
       ],
-      "correct": 2,
+      "correct": 3,
       "id": "2-0",
       "difficulty": "easy"
     },
@@ -1618,7 +1752,8 @@
         "Santiago",
         "Buenos Aires",
         "Paris",
-        "Assunção"
+        "Assunção",
+        "Transumância"
       ],
       "correct": 1,
       "id": "2-1",
@@ -1628,11 +1763,12 @@
       "text": "Qual é a capital de Chile?",
       "options": [
         "Lima",
+        "Brasília",
         "Santiago",
         "Berlim",
         "Sucre"
       ],
-      "correct": 1,
+      "correct": 2,
       "id": "2-2",
       "difficulty": "easy"
     },
@@ -1640,11 +1776,12 @@
       "text": "Qual é a capital de Peru?",
       "options": [
         "Quito",
+        "Seul",
         "Lima",
         "Roma",
         "Bogotá"
       ],
-      "correct": 1,
+      "correct": 2,
       "id": "2-3",
       "difficulty": "easy"
     },
@@ -1652,11 +1789,12 @@
       "text": "Qual é a capital de Colômbia?",
       "options": [
         "Montevidéu",
+        "Berlim",
         "Madri",
         "Caracas",
         "Bogotá"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "2-4",
       "difficulty": "easy"
     },
@@ -1664,11 +1802,12 @@
       "text": "Qual é a capital de Uruguai?",
       "options": [
         "Lisboa",
+        "Nova Délhi",
         "Montevidéu",
         "Assunção",
         "Paris"
       ],
-      "correct": 1,
+      "correct": 2,
       "id": "2-5",
       "difficulty": "easy"
     },
@@ -1678,6 +1817,7 @@
         "Londres",
         "Sucre",
         "Assunção",
+        "Santiago",
         "Berlim"
       ],
       "correct": 2,
@@ -1690,6 +1830,7 @@
         "Roma",
         "Sucre",
         "Quito",
+        "Paris",
         "Tóquio"
       ],
       "correct": 1,
@@ -1702,7 +1843,8 @@
         "Pequim",
         "Caracas",
         "Madri",
-        "Quito"
+        "Quito",
+        "Paris"
       ],
       "correct": 3,
       "id": "2-8",
@@ -1713,10 +1855,11 @@
       "options": [
         "Paris",
         "Seul",
+        "Londres",
         "Caracas",
         "Lisboa"
       ],
-      "correct": 2,
+      "correct": 3,
       "id": "2-9",
       "difficulty": "easy"
     },
@@ -1726,7 +1869,8 @@
         "Nova Délhi",
         "Berlim",
         "Paris",
-        "Londres"
+        "Londres",
+        "Sucre"
       ],
       "correct": 2,
       "id": "2-10",
@@ -1737,6 +1881,7 @@
       "options": [
         "Berlim",
         "Camberra",
+        "Bogotá",
         "Tóquio",
         "Roma"
       ],
@@ -1748,11 +1893,12 @@
       "text": "Qual é a capital de Itália?",
       "options": [
         "Madri",
+        "Lima",
         "Roma",
         "Pequim",
         "Ottawa"
       ],
-      "correct": 1,
+      "correct": 2,
       "id": "2-12",
       "difficulty": "easy"
     },
@@ -1762,21 +1908,23 @@
         "Lisboa",
         "Seul",
         "Cidade do México",
+        "Paris",
         "Madri"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "2-13",
       "difficulty": "easy"
     },
     {
       "text": "Qual é a capital de Portugal?",
       "options": [
+        "Berlim",
         "Nova Délhi",
         "Cairo",
         "Londres",
         "Lisboa"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "2-14",
       "difficulty": "easy"
     },
@@ -1786,7 +1934,8 @@
         "Tóquio",
         "Camberra",
         "Londres",
-        "Nairóbi"
+        "Nairóbi",
+        "Caracas"
       ],
       "correct": 2,
       "id": "2-15",
@@ -1798,7 +1947,8 @@
         "Brasília",
         "Tóquio",
         "Pequim",
-        "Ottawa"
+        "Ottawa",
+        "Berlim"
       ],
       "correct": 1,
       "id": "2-16",
@@ -1807,12 +1957,13 @@
     {
       "text": "Qual é a capital de China?",
       "options": [
+        "Berlim",
         "Seul",
         "Buenos Aires",
         "Pequim",
         "Cidade do México"
       ],
-      "correct": 2,
+      "correct": 3,
       "id": "2-17",
       "difficulty": "easy"
     },
@@ -1822,7 +1973,8 @@
         "Santiago",
         "Cairo",
         "Nova Délhi",
-        "Seul"
+        "Seul",
+        "Lima"
       ],
       "correct": 3,
       "id": "2-18",
@@ -1833,10 +1985,11 @@
       "options": [
         "Lima",
         "Nairóbi",
+        "Montevidéu",
         "Nova Délhi",
         "Camberra"
       ],
-      "correct": 2,
+      "correct": 3,
       "id": "2-19",
       "difficulty": "easy"
     },
@@ -1846,6 +1999,7 @@
         "Brasília",
         "Camberra",
         "Bogotá",
+        "Santiago",
         "Ottawa"
       ],
       "correct": 1,
@@ -1856,6 +2010,7 @@
       "text": "Qual é a capital de Canadá?",
       "options": [
         "Ottawa",
+        "Berlim",
         "Montevidéu",
         "Buenos Aires",
         "Cidade do México"
@@ -1869,6 +2024,7 @@
       "options": [
         "Cairo",
         "Cidade do México",
+        "Distância ao Sol",
         "Santiago",
         "Assunção"
       ],
@@ -1881,10 +2037,11 @@
       "options": [
         "Nairóbi",
         "Sucre",
+        "Paris",
         "Cairo",
         "Lima"
       ],
-      "correct": 2,
+      "correct": 3,
       "id": "2-23",
       "difficulty": "easy"
     },
@@ -1894,7 +2051,8 @@
         "Bogotá",
         "Brasília",
         "Nairóbi",
-        "Quito"
+        "Quito",
+        "Caracas"
       ],
       "correct": 2,
       "id": "2-24",
@@ -1903,24 +2061,26 @@
     {
       "text": "Brasília é capital de qual país?",
       "options": [
+        "Berlim",
         "Paraguai",
         "Alemanha",
         "Brasil",
         "Chile"
       ],
-      "correct": 2,
+      "correct": 3,
       "id": "2-25",
       "difficulty": "easy"
     },
     {
       "text": "Buenos Aires é capital de qual país?",
       "options": [
+        "Venezuela",
         "Itália",
         "Argentina",
         "Peru",
         "Bolívia"
       ],
-      "correct": 1,
+      "correct": 2,
       "id": "2-26",
       "difficulty": "easy"
     },
@@ -1929,10 +2089,11 @@
       "options": [
         "Espanha",
         "Equador",
+        "Paris",
         "Chile",
         "Colômbia"
       ],
-      "correct": 2,
+      "correct": 3,
       "id": "2-27",
       "difficulty": "easy"
     },
@@ -1942,7 +2103,8 @@
         "Peru",
         "Venezuela",
         "Uruguai",
-        "Portugal"
+        "Portugal",
+        "Lima"
       ],
       "correct": 0,
       "id": "2-28",
@@ -1953,10 +2115,11 @@
       "options": [
         "Reino Unido",
         "França",
+        "Santiago",
         "Paraguai",
         "Colômbia"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "2-29",
       "difficulty": "easy"
     },
@@ -1964,6 +2127,7 @@
       "text": "Em um mapa de escala 1:200000, duas cidades estão separadas por 3 cm. Qual a distância real?",
       "options": [
         "6 km",
+        "9 km",
         "60 km",
         "2 km",
         "12 km"
@@ -1977,6 +2141,7 @@
       "options": [
         "9 km",
         "90 km",
+        "6 km",
         "3 km",
         "18 km"
       ],
@@ -1990,6 +2155,7 @@
         "12 km",
         "120 km",
         "4 km",
+        "60 km",
         "24 km"
       ],
       "correct": 0,
@@ -2002,7 +2168,8 @@
         "15 km",
         "150 km",
         "5 km",
-        "30 km"
+        "30 km",
+        "60 km"
       ],
       "correct": 0,
       "id": "2-33",
@@ -2011,12 +2178,13 @@
     {
       "text": "Em um mapa de escala 1:600000, duas cidades estão separadas por 3 cm. Qual a distância real?",
       "options": [
+        "60 km",
         "18 km",
         "180 km",
         "6 km",
         "36 km"
       ],
-      "correct": 0,
+      "correct": 1,
       "id": "2-34",
       "difficulty": "medium"
     },
@@ -2024,6 +2192,7 @@
       "text": "Em um mapa de escala 1:700000, duas cidades estão separadas por 3 cm. Qual a distância real?",
       "options": [
         "21 km",
+        "60 km",
         "210 km",
         "7 km",
         "42 km"
@@ -2037,6 +2206,7 @@
       "options": [
         "24 km",
         "240 km",
+        "60 km",
         "8 km",
         "48 km"
       ],
@@ -2050,6 +2220,7 @@
         "27 km",
         "270 km",
         "9 km",
+        "60 km",
         "54 km"
       ],
       "correct": 0,
@@ -2059,12 +2230,13 @@
     {
       "text": "Em um mapa de escala 1:1000000, duas cidades estão separadas por 3 cm. Qual a distância real?",
       "options": [
+        "12 km",
         "30 km",
         "300 km",
         "10 km",
         "60 km"
       ],
-      "correct": 0,
+      "correct": 1,
       "id": "2-38",
       "difficulty": "medium"
     },
@@ -2072,6 +2244,7 @@
       "text": "Em um mapa de escala 1:1100000, duas cidades estão separadas por 3 cm. Qual a distância real?",
       "options": [
         "33 km",
+        "60 km",
         "330 km",
         "11 km",
         "66 km"
@@ -2086,6 +2259,7 @@
         "36 km",
         "360 km",
         "12 km",
+        "60 km",
         "72 km"
       ],
       "correct": 0,
@@ -2098,7 +2272,8 @@
         "39 km",
         "390 km",
         "13 km",
-        "78 km"
+        "78 km",
+        "60 km"
       ],
       "correct": 0,
       "id": "2-41",
@@ -2107,12 +2282,13 @@
     {
       "text": "Em um mapa de escala 1:1400000, duas cidades estão separadas por 3 cm. Qual a distância real?",
       "options": [
+        "60 km",
         "42 km",
         "420 km",
         "14 km",
         "84 km"
       ],
-      "correct": 0,
+      "correct": 1,
       "id": "2-42",
       "difficulty": "medium"
     },
@@ -2120,6 +2296,7 @@
       "text": "Em um mapa de escala 1:1500000, duas cidades estão separadas por 3 cm. Qual a distância real?",
       "options": [
         "45 km",
+        "60 km",
         "450 km",
         "15 km",
         "90 km"
@@ -2133,6 +2310,7 @@
       "options": [
         "48 km",
         "480 km",
+        "60 km",
         "16 km",
         "96 km"
       ],
@@ -2146,6 +2324,7 @@
         "360 mm",
         "460 mm",
         "720 mm",
+        "120 km",
         "180 mm"
       ],
       "correct": 0,
@@ -2158,7 +2337,8 @@
         "390 mm",
         "490 mm",
         "780 mm",
-        "195 mm"
+        "195 mm",
+        "120 km"
       ],
       "correct": 0,
       "id": "2-46",
@@ -2167,12 +2347,13 @@
     {
       "text": "Uma região registra 1400 mm de chuva ao ano, com 70% concentrados em 4 meses. Quantos mm caem nos outros 8 meses?",
       "options": [
+        "120 km",
         "420 mm",
         "520 mm",
         "840 mm",
         "210 mm"
       ],
-      "correct": 0,
+      "correct": 1,
       "id": "2-47",
       "difficulty": "hard"
     },
@@ -2180,6 +2361,7 @@
       "text": "Uma região registra 1500 mm de chuva ao ano, com 70% concentrados em 4 meses. Quantos mm caem nos outros 8 meses?",
       "options": [
         "450 mm",
+        "120 km",
         "550 mm",
         "900 mm",
         "225 mm"
@@ -2193,6 +2375,7 @@
       "options": [
         "480 mm",
         "580 mm",
+        "120 km",
         "960 mm",
         "240 mm"
       ],
@@ -2207,7 +2390,8 @@
         "Greenwich",
         "Círculo Polar Ártico",
         "Trópico de Câncer",
-        "Equador"
+        "Equador",
+        "Caracas"
       ],
       "correct": 3,
       "difficulty": "easy"
@@ -2217,6 +2401,7 @@
       "text": "Qual é o maior continente em área?",
       "options": [
         "Ásia",
+        "Lima",
         "Europa",
         "Oceania",
         "Antártida"
@@ -2228,12 +2413,13 @@
       "id": "v7-2-2",
       "text": "O que é latitude?",
       "options": [
+        "Reserva subterrânea de água",
         "Profundidade do oceano",
         "Distância angular ao Equador",
         "Altitude acima do mar",
         "Distância ao Sol"
       ],
-      "correct": 1,
+      "correct": 2,
       "difficulty": "easy"
     },
     {
@@ -2241,11 +2427,12 @@
       "text": "Qual bioma brasileiro é conhecido por árvores retorcidas e savanas?",
       "options": [
         "Caatinga",
+        "Caracas",
         "Cerrado",
         "Pampa",
         "Mata de Araucárias"
       ],
-      "correct": 1,
+      "correct": 2,
       "difficulty": "easy"
     },
     {
@@ -2254,6 +2441,7 @@
       "options": [
         "Ottawa",
         "Toronto",
+        "Berlim",
         "Vancouver",
         "Montreal"
       ],
@@ -2266,6 +2454,7 @@
       "options": [
         "Oxigênio",
         "Nitrogênio",
+        "Montevidéu",
         "Hidrogênio",
         "Gás carbônico"
       ],
@@ -2276,12 +2465,13 @@
       "id": "v7-2-6",
       "text": "Como se chama a passagem do campo para a cidade?",
       "options": [
+        "Reino Unido",
         "Imigração marítima",
         "Êxodo rural",
         "Nomadismo",
         "Transumância"
       ],
-      "correct": 1,
+      "correct": 2,
       "difficulty": "easy"
     },
     {
@@ -2291,6 +2481,7 @@
         "Inclinação do eixo terrestre e translação",
         "Marés",
         "Rotação da Lua",
+        "Distância angular ao Equador",
         "Distância diária à Lua"
       ],
       "correct": 0,
@@ -2301,11 +2492,12 @@
       "text": "Qual oceano banha a costa leste do Brasil?",
       "options": [
         "Índico",
+        "Venezuela",
         "Pacífico",
         "Atlântico",
         "Ártico"
       ],
-      "correct": 2,
+      "correct": 3,
       "difficulty": "easy"
     },
     {
@@ -2313,6 +2505,7 @@
       "text": "Qual é a capital do Japão?",
       "options": [
         "Tóquio",
+        "Berlim",
         "Osaka",
         "Quioto",
         "Nagoya"
@@ -2324,12 +2517,13 @@
       "id": "v7-2-10",
       "text": "O que é um aquífero?",
       "options": [
+        "Distância angular ao Equador",
         "Tipo de vulcão",
         "Camada de gelo polar",
         "Corrente de ar",
         "Reserva subterrânea de água"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "medium"
     },
     {
@@ -2337,11 +2531,12 @@
       "text": "Qual é a camada externa sólida da Terra?",
       "options": [
         "Núcleo interno",
+        "Berlim",
         "Núcleo externo",
         "Manto inferior",
         "Crosta"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "medium"
     },
     {
@@ -2349,6 +2544,7 @@
       "text": "Qual fonte energética é renovável?",
       "options": [
         "Solar",
+        "Paris",
         "Gás natural",
         "Carvão mineral",
         "Petróleo"
@@ -2362,6 +2558,7 @@
       "options": [
         "Manguezal",
         "Xerófila",
+        "Santiago",
         "Higrófila",
         "Hidrófila"
       ],
@@ -2374,10 +2571,11 @@
       "options": [
         "Altitude",
         "Precipitação",
+        "Venezuela",
         "Latitude",
         "Longitude"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "medium"
     }
   ],
@@ -2387,6 +2585,7 @@
       "options": [
         "produção de ATP na respiração celular",
         "participação na coagulação",
+        "absorção da maior parte dos nutrientes",
         "modificação e empacotamento de proteínas",
         "síntese de proteínas"
       ],
@@ -2398,11 +2597,12 @@
       "text": "Qual é uma função de ribossomo?",
       "options": [
         "transmissão de impulsos nervosos",
+        "produção de insulina",
         "síntese de proteínas",
         "produção e transporte de proteínas",
         "armazenamento do DNA nuclear"
       ],
-      "correct": 1,
+      "correct": 2,
       "id": "3-1",
       "difficulty": "easy"
     },
@@ -2411,6 +2611,7 @@
       "options": [
         "armazenamento do DNA nuclear",
         "fotossíntese",
+        "condução de ar aos brônquios",
         "trocas gasosas",
         "síntese de lipídios"
       ],
@@ -2421,12 +2622,13 @@
     {
       "text": "Qual é uma função de cloroplasto?",
       "options": [
+        "Transpiração",
         "armazenamento de água e manutenção do turgor vegetal",
         "controle da entrada e saída de substâncias",
         "filtração do sangue e formação de urina",
         "fotossíntese"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "3-3",
       "difficulty": "easy"
     },
@@ -2436,7 +2638,8 @@
         "absorção da maior parte dos nutrientes",
         "transporte de oxigênio",
         "controle da entrada e saída de substâncias",
-        "digestão intracelular"
+        "digestão intracelular",
+        "modificação e empacotamento de proteínas"
       ],
       "correct": 2,
       "id": "3-4",
@@ -2445,24 +2648,26 @@
     {
       "text": "Qual é uma função de lisossomo?",
       "options": [
+        "bombeamento de sangue",
         "modificação e empacotamento de proteínas",
         "defesa do organismo",
         "início da digestão intensa de proteínas",
         "digestão intracelular"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "3-5",
       "difficulty": "easy"
     },
     {
       "text": "Qual é uma função de complexo golgiense?",
       "options": [
+        "filtração do sangue e formação de urina",
         "produção e transporte de proteínas",
         "modificação e empacotamento de proteínas",
         "participação na coagulação",
         "produção de bile"
       ],
-      "correct": 1,
+      "correct": 2,
       "id": "3-6",
       "difficulty": "easy"
     },
@@ -2472,6 +2677,7 @@
         "transmissão de impulsos nervosos",
         "produção e transporte de proteínas",
         "síntese de lipídios",
+        "transporte de alimento ao estômago",
         "produção de insulina"
       ],
       "correct": 1,
@@ -2483,6 +2689,7 @@
       "options": [
         "síntese de lipídios",
         "trocas gasosas",
+        "defesa do organismo",
         "armazenamento de água e manutenção do turgor vegetal",
         "bombeamento de sangue"
       ],
@@ -2493,12 +2700,13 @@
     {
       "text": "Qual é uma função de vacúolo central?",
       "options": [
+        "Sequência de transferência de energia entre seres vivos",
         "condução de ar aos brônquios",
         "filtração do sangue e formação de urina",
         "armazenamento de água e manutenção do turgor vegetal",
         "transporte de oxigênio"
       ],
-      "correct": 2,
+      "correct": 3,
       "id": "3-9",
       "difficulty": "easy"
     },
@@ -2508,9 +2716,10 @@
         "absorção da maior parte dos nutrientes",
         "transporte de alimento ao estômago",
         "defesa do organismo",
+        "Processo de evaporação",
         "transporte de oxigênio"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "3-10",
       "difficulty": "easy"
     },
@@ -2518,6 +2727,7 @@
       "text": "Qual é uma função de leucócitos?",
       "options": [
         "defesa do organismo",
+        "síntese de lipídios",
         "absorção de água e sais minerais",
         "início da digestão intensa de proteínas",
         "participação na coagulação"
@@ -2530,11 +2740,12 @@
       "text": "Qual é uma função de plaquetas?",
       "options": [
         "transmissão de impulsos nervosos",
+        "Mudança intencional do DNA",
         "regulação de trocas gasosas nas folhas",
         "produção de bile",
         "participação na coagulação"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "3-12",
       "difficulty": "easy"
     },
@@ -2543,10 +2754,11 @@
       "options": [
         "produção de insulina",
         "produção de ATP na respiração celular",
+        "absorção de água e sais minerais",
         "trocas gasosas",
         "transmissão de impulsos nervosos"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "3-13",
       "difficulty": "easy"
     },
@@ -2556,6 +2768,7 @@
         "trocas gasosas",
         "filtração do sangue e formação de urina",
         "bombeamento de sangue",
+        "núcleo celular",
         "síntese de proteínas"
       ],
       "correct": 0,
@@ -2567,6 +2780,7 @@
       "options": [
         "filtração do sangue e formação de urina",
         "absorção da maior parte dos nutrientes",
+        "início da digestão intensa de proteínas",
         "condução de ar aos brônquios",
         "armazenamento do DNA nuclear"
       ],
@@ -2580,6 +2794,7 @@
         "transporte de alimento ao estômago",
         "início da digestão intensa de proteínas",
         "absorção da maior parte dos nutrientes",
+        "regulação de trocas gasosas nas folhas",
         "fotossíntese"
       ],
       "correct": 2,
@@ -2589,12 +2804,13 @@
     {
       "text": "Qual é uma função de estômago?",
       "options": [
+        "filtração do sangue e formação de urina",
         "absorção de água e sais minerais",
         "início da digestão intensa de proteínas",
         "produção de bile",
         "controle da entrada e saída de substâncias"
       ],
-      "correct": 1,
+      "correct": 2,
       "id": "3-17",
       "difficulty": "easy"
     },
@@ -2604,7 +2820,8 @@
         "produção de bile",
         "produção de insulina",
         "digestão intracelular",
-        "regulação de trocas gasosas nas folhas"
+        "regulação de trocas gasosas nas folhas",
+        "Ciclo das rochas"
       ],
       "correct": 0,
       "id": "3-18",
@@ -2615,6 +2832,7 @@
       "options": [
         "produção de insulina",
         "produção de ATP na respiração celular",
+        "síntese de proteínas",
         "modificação e empacotamento de proteínas",
         "bombeamento de sangue"
       ],
@@ -2628,45 +2846,49 @@
         "produção e transporte de proteínas",
         "condução de ar aos brônquios",
         "síntese de proteínas",
+        "digestão intracelular",
         "bombeamento de sangue"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "3-20",
       "difficulty": "easy"
     },
     {
       "text": "Qual é uma função de traqueia?",
       "options": [
+        "retículo endoplasmático liso",
         "condução de ar aos brônquios",
         "armazenamento do DNA nuclear",
         "síntese de lipídios",
         "transporte de alimento ao estômago"
       ],
-      "correct": 0,
+      "correct": 1,
       "id": "3-21",
       "difficulty": "easy"
     },
     {
       "text": "Qual é uma função de esôfago?",
       "options": [
+        "produção e transporte de proteínas",
         "absorção de água e sais minerais",
         "transporte de alimento ao estômago",
         "armazenamento de água e manutenção do turgor vegetal",
         "fotossíntese"
       ],
-      "correct": 1,
+      "correct": 2,
       "id": "3-22",
       "difficulty": "easy"
     },
     {
       "text": "Qual é uma função de raízes?",
       "options": [
+        "transmissão de impulsos nervosos",
         "transporte de oxigênio",
         "controle da entrada e saída de substâncias",
         "absorção de água e sais minerais",
         "regulação de trocas gasosas nas folhas"
       ],
-      "correct": 2,
+      "correct": 3,
       "id": "3-23",
       "difficulty": "easy"
     },
@@ -2676,7 +2898,8 @@
         "produção de ATP na respiração celular",
         "regulação de trocas gasosas nas folhas",
         "digestão intracelular",
-        "defesa do organismo"
+        "defesa do organismo",
+        "absorção da maior parte dos nutrientes"
       ],
       "correct": 1,
       "id": "3-24",
@@ -2687,10 +2910,11 @@
       "options": [
         "retículo endoplasmático rugoso",
         "neurônios",
+        "cloroplasto",
         "mitocôndria",
         "núcleo celular"
       ],
-      "correct": 2,
+      "correct": 3,
       "id": "3-25",
       "difficulty": "easy"
     },
@@ -2698,6 +2922,7 @@
       "text": "Qual estrutura está mais diretamente associada a: síntese de proteínas?",
       "options": [
         "ribossomo",
+        "neurônios",
         "retículo endoplasmático liso",
         "cloroplasto",
         "alvéolos pulmonares"
@@ -2709,24 +2934,26 @@
     {
       "text": "Qual estrutura está mais diretamente associada a: armazenamento do DNA nuclear?",
       "options": [
+        "trocas gasosas",
         "membrana plasmática",
         "vacúolo central",
         "núcleo celular",
         "néfrons"
       ],
-      "correct": 2,
+      "correct": 3,
       "id": "3-27",
       "difficulty": "easy"
     },
     {
       "text": "Qual estrutura está mais diretamente associada a: fotossíntese?",
       "options": [
+        "mitocôndria",
         "hemácias",
         "cloroplasto",
         "lisossomo",
         "intestino delgado"
       ],
-      "correct": 1,
+      "correct": 2,
       "id": "3-28",
       "difficulty": "easy"
     },
@@ -2734,11 +2961,12 @@
       "text": "Qual estrutura está mais diretamente associada a: controle da entrada e saída de substâncias?",
       "options": [
         "leucócitos",
+        "síntese de lipídios",
         "membrana plasmática",
         "complexo golgiense",
         "estômago"
       ],
-      "correct": 1,
+      "correct": 2,
       "id": "3-29",
       "difficulty": "easy"
     },
@@ -2746,6 +2974,7 @@
       "text": "Em Aa × Aa, qual a chance de genótipo heterozigoto?",
       "options": [
         "50%",
+        "56%",
         "25%",
         "75%",
         "1/16"
@@ -2757,12 +2986,13 @@
     {
       "text": "Em Aa × aa, qual a chance de descendente aa?",
       "options": [
+        "56%",
         "50%",
         "25%",
         "75%",
         "1/16"
       ],
-      "correct": 0,
+      "correct": 1,
       "id": "3-31",
       "difficulty": "medium"
     },
@@ -2771,6 +3001,7 @@
       "options": [
         "Aa",
         "25%",
+        "DNA",
         "50%",
         "75%"
       ],
@@ -2783,6 +3014,7 @@
       "options": [
         "1 AA : 2 Aa : 1 aa",
         "25%",
+        "complexo golgiense",
         "50%",
         "75%"
       ],
@@ -2796,6 +3028,7 @@
         "4",
         "25%",
         "50%",
+        "5",
         "75%"
       ],
       "correct": 0,
@@ -2807,6 +3040,7 @@
       "options": [
         "12",
         "25%",
+        "14",
         "50%",
         "75%"
       ],
@@ -2820,7 +3054,8 @@
         "Complexo golgiense",
         "25%",
         "50%",
-        "75%"
+        "75%",
+        "1 AA : 2 Aa : 1 aa"
       ],
       "correct": 0,
       "id": "3-36",
@@ -2832,6 +3067,7 @@
         "RNA transportador",
         "25%",
         "50%",
+        "intestino delgado",
         "75%"
       ],
       "correct": 0,
@@ -2844,7 +3080,8 @@
         "Glicólise",
         "25%",
         "50%",
-        "75%"
+        "75%",
+        "neurônios"
       ],
       "correct": 0,
       "id": "3-38",
@@ -2855,6 +3092,7 @@
       "options": [
         "Válvulas cardíacas",
         "25%",
+        "complexo golgiense",
         "50%",
         "75%"
       ],
@@ -2868,6 +3106,7 @@
         "Mutualismo",
         "25%",
         "50%",
+        "leucócitos",
         "75%"
       ],
       "correct": 0,
@@ -2880,7 +3119,8 @@
         "Reciclar matéria orgânica",
         "25%",
         "50%",
-        "75%"
+        "75%",
+        "participação na coagulação"
       ],
       "correct": 0,
       "id": "3-41",
@@ -2892,6 +3132,7 @@
         "Transpiração",
         "25%",
         "50%",
+        "fotossíntese",
         "75%"
       ],
       "correct": 0,
@@ -2903,6 +3144,7 @@
       "options": [
         "Produtores",
         "25%",
+        "leucócitos",
         "50%",
         "75%"
       ],
@@ -2914,6 +3156,7 @@
       "text": "Qual processo produz células haploides a partir de uma célula diploide?",
       "options": [
         "Meiose",
+        "Tecido",
         "25%",
         "50%",
         "75%"
@@ -2928,6 +3171,7 @@
         "1/16",
         "25%",
         "50%",
+        "9/64",
         "75%"
       ],
       "correct": 0,
@@ -2940,7 +3184,8 @@
         "1/4",
         "25%",
         "50%",
-        "75%"
+        "75%",
+        "1/16"
       ],
       "correct": 0,
       "id": "3-46",
@@ -2951,6 +3196,7 @@
       "options": [
         "9/64",
         "25%",
+        "1/16",
         "50%",
         "75%"
       ],
@@ -2963,6 +3209,7 @@
       "options": [
         "0,42",
         "25%",
+        "1,42",
         "50%",
         "75%"
       ],
@@ -2974,6 +3221,7 @@
       "text": "Se 20% dos nucleotídeos de um DNA dupla fita são adenina, qual é a porcentagem de citosina?",
       "options": [
         "30%",
+        "34%",
         "25%",
         "50%",
         "75%"
@@ -2989,7 +3237,8 @@
         "Ribossomo",
         "Lisossomo",
         "Mitocôndria",
-        "Cloroplasto"
+        "Cloroplasto",
+        "Fermentação"
       ],
       "correct": 3,
       "difficulty": "easy"
@@ -3000,6 +3249,7 @@
       "options": [
         "Glicose",
         "DNA",
+        "Rim",
         "Amido",
         "Colesterol"
       ],
@@ -3013,7 +3263,8 @@
         "Órgão",
         "Tecido",
         "Célula",
-        "Sistema"
+        "Sistema",
+        "Meiose"
       ],
       "correct": 2,
       "difficulty": "easy"
@@ -3025,6 +3276,7 @@
         "Pulmão",
         "Coração",
         "Rim",
+        "néfrons",
         "Fígado"
       ],
       "correct": 1,
@@ -3034,12 +3286,13 @@
       "id": "v7-3-4",
       "text": "Qual é a função dos glóbulos vermelhos?",
       "options": [
+        "síntese de proteínas",
         "Formar ossos",
         "Digestionar gorduras",
         "Transportar oxigênio",
         "Produzir bile"
       ],
-      "correct": 2,
+      "correct": 3,
       "difficulty": "easy"
     },
     {
@@ -3047,11 +3300,12 @@
       "text": "Qual processo produz gametas?",
       "options": [
         "Fermentação",
+        "Tecido",
         "Mitose",
         "Meiose",
         "Osmose"
       ],
-      "correct": 2,
+      "correct": 3,
       "difficulty": "easy"
     },
     {
@@ -3059,11 +3313,12 @@
       "text": "O que é um ecossistema?",
       "options": [
         "Somente o clima",
+        "produção e transporte de proteínas",
         "Apenas plantas",
         "Seres vivos e ambiente em interação",
         "Apenas animais"
       ],
-      "correct": 2,
+      "correct": 3,
       "difficulty": "easy"
     },
     {
@@ -3072,10 +3327,11 @@
       "options": [
         "Plantae",
         "Monera",
+        "Amido",
         "Fungi",
         "Animalia"
       ],
-      "correct": 2,
+      "correct": 3,
       "difficulty": "easy"
     },
     {
@@ -3084,22 +3340,24 @@
       "options": [
         "Parede celular de todos os animais",
         "Centríolo",
+        "síntese de lipídios",
         "Nucléolo",
         "Membrana plasmática"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "easy"
     },
     {
       "id": "v7-3-9",
       "text": "O que é seleção natural?",
       "options": [
+        "Sequência de transferência de energia entre seres vivos",
         "Mudança intencional do DNA",
         "Maior reprodução de características hereditárias favoráveis",
         "Criação artificial de espécies",
         "Crescimento de todos os indivíduos"
       ],
-      "correct": 1,
+      "correct": 2,
       "difficulty": "easy"
     },
     {
@@ -3107,11 +3365,12 @@
       "text": "Qual é a função dos rins?",
       "options": [
         "Bombear sangue",
+        "transmissão de impulsos nervosos",
         "Filtrar o sangue e formar urina",
         "Produzir insulina",
         "Absorver luz"
       ],
-      "correct": 1,
+      "correct": 2,
       "difficulty": "medium"
     },
     {
@@ -3121,7 +3380,8 @@
         "Queratina",
         "Melanina",
         "Hemoglobina",
-        "Clorofila"
+        "Clorofila",
+        "neurônios"
       ],
       "correct": 3,
       "difficulty": "medium"
@@ -3133,7 +3393,8 @@
         "Vitamina K",
         "Vitamina B12",
         "Vitamina C",
-        "Vitamina D"
+        "Vitamina D",
+        "leucócitos"
       ],
       "correct": 3,
       "difficulty": "medium"
@@ -3145,6 +3406,7 @@
         "Mutualismo",
         "Predação",
         "Parasitismo",
+        "leucócitos",
         "Competição"
       ],
       "correct": 0,
@@ -3157,7 +3419,8 @@
         "Rede de rios",
         "Ciclo das rochas",
         "Processo de evaporação",
-        "Sequência de transferência de energia entre seres vivos"
+        "Sequência de transferência de energia entre seres vivos",
+        "armazenamento de água e manutenção do turgor vegetal"
       ],
       "correct": 3,
       "difficulty": "medium"
@@ -3170,7 +3433,8 @@
         "1822",
         "1825",
         "1833",
-        "1815"
+        "1815",
+        "2059"
       ],
       "correct": 0,
       "id": "4-0",
@@ -3180,11 +3444,12 @@
       "text": "Em que ano ocorreu: Proclamação da República no Brasil?",
       "options": [
         "1892",
+        "2135",
         "1882",
         "1889",
         "1900"
       ],
-      "correct": 2,
+      "correct": 3,
       "id": "4-1",
       "difficulty": "easy"
     },
@@ -3193,6 +3458,7 @@
       "options": [
         "1899",
         "1888",
+        "2133",
         "1881",
         "1891"
       ],
@@ -3204,11 +3470,12 @@
       "text": "Em que ano ocorreu: Chegada da corte portuguesa ao Brasil?",
       "options": [
         "1801",
+        "2043",
         "1819",
         "1811",
         "1808"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "4-3",
       "difficulty": "easy"
     },
@@ -3218,6 +3485,7 @@
         "1917",
         "1914",
         "1925",
+        "2163",
         "1907"
       ],
       "correct": 1,
@@ -3228,11 +3496,12 @@
       "text": "Em que ano ocorreu: Fim da Primeira Guerra Mundial?",
       "options": [
         "1921",
+        "2167",
         "1911",
         "1929",
         "1918"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "4-5",
       "difficulty": "easy"
     },
@@ -3242,7 +3511,8 @@
         "1932",
         "1942",
         "1950",
-        "1939"
+        "1939",
+        "2191"
       ],
       "correct": 3,
       "id": "4-6",
@@ -3253,10 +3523,11 @@
       "options": [
         "1948",
         "1938",
+        "2198",
         "1956",
         "1945"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "4-7",
       "difficulty": "easy"
     },
@@ -3265,6 +3536,7 @@
       "options": [
         "1989",
         "1992",
+        "2248",
         "1982",
         "2000"
       ],
@@ -3278,6 +3550,7 @@
         "1782",
         "1792",
         "1789",
+        "2022",
         "1800"
       ],
       "correct": 2,
@@ -3289,10 +3562,11 @@
       "options": [
         "1493",
         "1511",
+        "1695",
         "1503",
         "1500"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "4-10",
       "difficulty": "easy"
     },
@@ -3300,11 +3574,12 @@
       "text": "Em que ano ocorreu: Início da Revolução Russa?",
       "options": [
         "1910",
+        "2166",
         "1928",
         "1920",
         "1917"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "4-11",
       "difficulty": "easy"
     },
@@ -3312,11 +3587,12 @@
       "text": "Em que ano ocorreu: Promulgação da Constituição brasileira atual?",
       "options": [
         "1991",
+        "2246",
         "1988",
         "1999",
         "1981"
       ],
-      "correct": 1,
+      "correct": 2,
       "id": "4-12",
       "difficulty": "easy"
     },
@@ -3326,6 +3602,7 @@
         "1941",
         "1933",
         "1930",
+        "2181",
         "1923"
       ],
       "correct": 2,
@@ -3337,6 +3614,7 @@
       "options": [
         "1960",
         "1971",
+        "2215",
         "1963",
         "1953"
       ],
@@ -3350,6 +3628,7 @@
         "1962",
         "1969",
         "1972",
+        "2225",
         "1980"
       ],
       "correct": 1,
@@ -3362,21 +3641,23 @@
         "1957",
         "1975",
         "1967",
+        "2219",
         "1964"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "4-16",
       "difficulty": "easy"
     },
     {
       "text": "Em que ano ocorreu: Fim do Império Romano do Ocidente?",
       "options": [
+        "538",
         "476",
         "487",
         "469",
         "479"
       ],
-      "correct": 0,
+      "correct": 1,
       "id": "4-17",
       "difficulty": "easy"
     },
@@ -3385,10 +3666,11 @@
       "options": [
         "1446",
         "1456",
+        "1642",
         "1453",
         "1464"
       ],
-      "correct": 2,
+      "correct": 3,
       "id": "4-18",
       "difficulty": "easy"
     },
@@ -3398,7 +3680,8 @@
         "1208",
         "1218",
         "1215",
-        "1226"
+        "1226",
+        "1373"
       ],
       "correct": 2,
       "id": "4-19",
@@ -3410,6 +3693,7 @@
         "1776",
         "1787",
         "1769",
+        "2007",
         "1779"
       ],
       "correct": 0,
@@ -3422,7 +3706,8 @@
         "1760",
         "1753",
         "1763",
-        "1771"
+        "1771",
+        "1989"
       ],
       "correct": 0,
       "id": "4-21",
@@ -3431,12 +3716,13 @@
     {
       "text": "Em que ano ocorreu: Crise da Bolsa de Nova York?",
       "options": [
+        "2180",
         "1932",
         "1922",
         "1940",
         "1929"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "4-22",
       "difficulty": "easy"
     },
@@ -3446,9 +3732,10 @@
         "1956",
         "1948",
         "1938",
+        "2198",
         "1945"
       ],
-      "correct": 3,
+      "correct": 4,
       "id": "4-23",
       "difficulty": "easy"
     },
@@ -3458,7 +3745,8 @@
         "1922",
         "1919",
         "1930",
-        "1912"
+        "1912",
+        "2168"
       ],
       "correct": 1,
       "id": "4-24",
@@ -3469,6 +3757,7 @@
       "options": [
         "Independência do Brasil",
         "Proclamação da República no Brasil",
+        "Queda do Muro de Berlim",
         "Fim da Primeira Guerra Mundial",
         "Revolução Francesa"
       ],
@@ -3482,6 +3771,7 @@
         "Abolição da escravidão no Brasil (Lei Áurea)",
         "Início da Segunda Guerra Mundial",
         "Proclamação da República no Brasil",
+        "Fim de todas as disputas políticas",
         "Chegada de Cabral ao Brasil"
       ],
       "correct": 2,
@@ -3494,7 +3784,8 @@
         "Início da Revolução Russa",
         "Chegada da corte portuguesa ao Brasil",
         "Abolição da escravidão no Brasil (Lei Áurea)",
-        "Fim da Segunda Guerra Mundial"
+        "Fim da Segunda Guerra Mundial",
+        "Promulgação da Constituição brasileira atual"
       ],
       "correct": 2,
       "id": "4-27",
@@ -3503,12 +3794,13 @@
     {
       "text": "Qual acontecimento está associado ao ano 1808 e ao tema \"Brasil\"? (Selecione o evento específico)",
       "options": [
+        "Desaparecimento da atividade agrícola",
         "Chegada da corte portuguesa ao Brasil",
         "Queda do Muro de Berlim",
         "Promulgação da Constituição brasileira atual",
         "Início da Primeira Guerra Mundial"
       ],
-      "correct": 0,
+      "correct": 1,
       "id": "4-28",
       "difficulty": "easy"
     },
@@ -3516,6 +3808,7 @@
       "text": "Qual acontecimento está associado ao ano 1914 e ao tema \"história mundial\"? (Selecione o evento específico)",
       "options": [
         "Início da Primeira Guerra Mundial",
+        "Adoção universal do voto feminino",
         "Fim da Primeira Guerra Mundial",
         "Revolução Francesa",
         "Início da Era Vargas"
@@ -3528,6 +3821,7 @@
       "text": "Qual foi uma consequência econômica da Revolução Industrial?",
       "options": [
         "Crescimento da produção fabril",
+        "Fim da Primeira Guerra Mundial",
         "Manutenção integral das estruturas anteriores",
         "Redução imediata do comércio internacional",
         "Fim de todas as disputas políticas"
@@ -3542,7 +3836,8 @@
         "Fim da escravidão",
         "Redução imediata do comércio internacional",
         "Fim de todas as disputas políticas",
-        "Adoção universal do voto feminino"
+        "Adoção universal do voto feminino",
+        "Winston Churchill"
       ],
       "correct": 0,
       "id": "4-31",
@@ -3551,12 +3846,13 @@
     {
       "text": "Qual foi um efeito da Revolução Francesa na política europeia?",
       "options": [
+        "Concentrou trabalhadores assalariados nas fábricas",
         "Difusão de ideais de cidadania e igualdade jurídica",
         "Fim de todas as disputas políticas",
         "Adoção universal do voto feminino",
         "Extinção dos governos nacionais"
       ],
-      "correct": 0,
+      "correct": 1,
       "id": "4-32",
       "difficulty": "medium"
     },
@@ -3566,7 +3862,8 @@
         "Restrições comerciais e demandas por autonomia",
         "Adoção universal do voto feminino",
         "Extinção dos governos nacionais",
-        "Desaparecimento da atividade agrícola"
+        "Desaparecimento da atividade agrícola",
+        "Movimento de renovação artística e intelectual"
       ],
       "correct": 0,
       "id": "4-33",
@@ -3577,6 +3874,7 @@
       "options": [
         "Acumular metais preciosos e favorecer exportações",
         "Extinção dos governos nacionais",
+        "Concentrou trabalhadores assalariados nas fábricas",
         "Desaparecimento da atividade agrícola",
         "Manutenção integral das estruturas anteriores"
       ],
@@ -3590,7 +3888,8 @@
         "Redesenho de fronteiras europeias",
         "Desaparecimento da atividade agrícola",
         "Manutenção integral das estruturas anteriores",
-        "Redução imediata do comércio internacional"
+        "Redução imediata do comércio internacional",
+        "Início da Primeira Guerra Mundial"
       ],
       "correct": 0,
       "id": "4-35",
@@ -3599,12 +3898,13 @@
     {
       "text": "Qual foi uma característica da Guerra Fria?",
       "options": [
+        "Busca por matérias-primas, mercados e áreas de influência",
         "Disputa geopolítica entre Estados Unidos e União Soviética",
         "Manutenção integral das estruturas anteriores",
         "Redução imediata do comércio internacional",
         "Fim de todas as disputas políticas"
       ],
-      "correct": 0,
+      "correct": 1,
       "id": "4-36",
       "difficulty": "medium"
     },
@@ -3614,6 +3914,7 @@
         "Deposição de Getúlio Vargas em 1945",
         "Redução imediata do comércio internacional",
         "Fim de todas as disputas políticas",
+        "Busca de rotas comerciais marítimas",
         "Adoção universal do voto feminino"
       ],
       "correct": 0,
@@ -3624,6 +3925,7 @@
       "text": "Qual foi uma consequência da urbanização industrial?",
       "options": [
         "Expansão do trabalho assalariado urbano",
+        "Influência política de elites estaduais",
         "Fim de todas as disputas políticas",
         "Adoção universal do voto feminino",
         "Extinção dos governos nacionais"
@@ -3637,6 +3939,7 @@
       "options": [
         "Ampliar a circulação de ideias religiosas",
         "Adoção universal do voto feminino",
+        "Redução imediata do comércio internacional",
         "Extinção dos governos nacionais",
         "Desaparecimento da atividade agrícola"
       ],
@@ -3650,7 +3953,8 @@
         "Busca de rotas comerciais marítimas",
         "Extinção dos governos nacionais",
         "Desaparecimento da atividade agrícola",
-        "Manutenção integral das estruturas anteriores"
+        "Manutenção integral das estruturas anteriores",
+        "Deposição de Getúlio Vargas em 1945"
       ],
       "correct": 0,
       "id": "4-40",
@@ -3659,12 +3963,13 @@
     {
       "text": "Qual foi uma consequência da Lei Áurea de 1888?",
       "options": [
+        "Chegada da corte portuguesa ao Brasil",
         "Abolição legal da escravidão no Brasil",
         "Desaparecimento da atividade agrícola",
         "Manutenção integral das estruturas anteriores",
         "Redução imediata do comércio internacional"
       ],
-      "correct": 0,
+      "correct": 1,
       "id": "4-41",
       "difficulty": "medium"
     },
@@ -3672,6 +3977,7 @@
       "text": "Qual característica marcou a República Oligárquica brasileira?",
       "options": [
         "Influência política de elites estaduais",
+        "Expansão do trabalho assalariado urbano",
         "Manutenção integral das estruturas anteriores",
         "Redução imediata do comércio internacional",
         "Fim de todas as disputas políticas"
@@ -3685,6 +3991,7 @@
       "options": [
         "Promover cooperação internacional e paz",
         "Redução imediata do comércio internacional",
+        "Expansão do trabalho assalariado urbano",
         "Fim de todas as disputas políticas",
         "Adoção universal do voto feminino"
       ],
@@ -3698,7 +4005,8 @@
         "Aceleração da reunificação alemã",
         "Fim de todas as disputas políticas",
         "Adoção universal do voto feminino",
-        "Extinção dos governos nacionais"
+        "Extinção dos governos nacionais",
+        "Início da Segunda Guerra Mundial"
       ],
       "correct": 0,
       "id": "4-44",
@@ -3708,6 +4016,7 @@
       "text": "Qual contradição marcou a independência brasileira de 1822?",
       "options": [
         "Ruptura política com Portugal sem abolição da escravidão",
+        "Busca por matérias-primas, mercados e áreas de influência",
         "Adoção universal do voto feminino",
         "Extinção dos governos nacionais",
         "Desaparecimento da atividade agrícola"
@@ -3720,6 +4029,7 @@
       "text": "Por que o Tratado de Versalhes gerou tensões após a Primeira Guerra?",
       "options": [
         "Impôs reparações e restrições à Alemanha",
+        "Expansão do trabalho assalariado urbano",
         "Extinção dos governos nacionais",
         "Desaparecimento da atividade agrícola",
         "Manutenção integral das estruturas anteriores"
@@ -3734,7 +4044,8 @@
         "Concentrou trabalhadores assalariados nas fábricas",
         "Desaparecimento da atividade agrícola",
         "Manutenção integral das estruturas anteriores",
-        "Redução imediata do comércio internacional"
+        "Redução imediata do comércio internacional",
+        "Difusão de ideais de cidadania e igualdade jurídica"
       ],
       "correct": 0,
       "id": "4-47",
@@ -3746,6 +4057,7 @@
         "Busca por matérias-primas, mercados e áreas de influência",
         "Manutenção integral das estruturas anteriores",
         "Redução imediata do comércio internacional",
+        "Disputa geopolítica entre Estados Unidos e União Soviética",
         "Fim de todas as disputas políticas"
       ],
       "correct": 0,
@@ -3758,7 +4070,8 @@
         "Duas superpotências lideravam blocos rivais",
         "Redução imediata do comércio internacional",
         "Fim de todas as disputas políticas",
-        "Adoção universal do voto feminino"
+        "Adoção universal do voto feminino",
+        "Abolição da escravidão no Brasil (Lei Áurea)"
       ],
       "correct": 0,
       "id": "4-49",
@@ -3769,6 +4082,7 @@
       "text": "Qual civilização construiu as pirâmides de Gizé?",
       "options": [
         "Egípcia",
+        "Vikings",
         "Grega",
         "Inca",
         "Romana"
@@ -3783,6 +4097,7 @@
         "Independência do Brasil",
         "Queda de Roma",
         "Início da Revolução Francesa",
+        "Abolição legal da escravidão",
         "Primeira Guerra Mundial"
       ],
       "correct": 2,
@@ -3795,6 +4110,7 @@
         "Sumérios",
         "Maias",
         "Vikings",
+        "Salvador",
         "Astecas"
       ],
       "correct": 0,
@@ -3804,12 +4120,13 @@
       "id": "v7-4-3",
       "text": "Em qual continente surgiu a Revolução Industrial?",
       "options": [
+        "Romana",
         "América do Sul",
         "Oceania",
         "Europa",
         "África"
       ],
-      "correct": 2,
+      "correct": 3,
       "difficulty": "easy"
     },
     {
@@ -3817,11 +4134,12 @@
       "text": "Qual foi a principal atividade econômica do Brasil colonial no século XVI?",
       "options": [
         "Extração de petróleo",
+        "Revolução Francesa",
         "Tecnologia da informação",
         "Indústria automobilística",
         "Produção de açúcar"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "easy"
     },
     {
@@ -3829,6 +4147,7 @@
       "text": "Qual evento ocorreu em 1888 no Brasil?",
       "options": [
         "Abolição legal da escravidão",
+        "Início da Revolução Francesa",
         "Constituição de 1988",
         "Proclamação da República",
         "Independência"
@@ -3843,6 +4162,7 @@
         "Conflito entre Brasil e Argentina",
         "Guerra direta entre Roma e Cartago",
         "Disputa geopolítica entre EUA e URSS",
+        "Chegada da corte portuguesa ao Brasil",
         "Guerra medieval europeia"
       ],
       "correct": 2,
@@ -3854,10 +4174,11 @@
       "options": [
         "Fenícia",
         "Persa",
+        "Maias",
         "Egípcia",
         "Grega"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "easy"
     },
     {
@@ -3867,7 +4188,8 @@
         "Winston Churchill",
         "Napoleão Bonaparte",
         "Mahatma Gandhi",
-        "Júlio César"
+        "Júlio César",
+        "América do Sul"
       ],
       "correct": 2,
       "difficulty": "easy"
@@ -3879,7 +4201,8 @@
         "São Paulo",
         "Salvador",
         "Belo Horizonte",
-        "Brasília"
+        "Brasília",
+        "Sumérios"
       ],
       "correct": 1,
       "difficulty": "easy"
@@ -3891,7 +4214,8 @@
         "Fábricas mecanizadas",
         "Estados nacionais",
         "Domínios rurais de senhores",
-        "Portos modernos"
+        "Portos modernos",
+        "Chegada de Cabral ao Brasil"
       ],
       "correct": 2,
       "difficulty": "medium"
@@ -3901,11 +4225,12 @@
       "text": "Em que século começou a Primeira Guerra Mundial?",
       "options": [
         "Século XXI",
+        "São Paulo",
         "Século XVIII",
         "Século XVI",
         "Século XX"
       ],
-      "correct": 3,
+      "correct": 4,
       "difficulty": "medium"
     },
     {
@@ -3914,10 +4239,11 @@
       "options": [
         "Carta da ONU",
         "Tratado de Tordesilhas",
+        "Júlio César",
         "Magna Carta",
         "Código de Hamurábi"
       ],
-      "correct": 2,
+      "correct": 3,
       "difficulty": "medium"
     },
     {
@@ -3927,7 +4253,8 @@
         "Expansão do feudalismo",
         "Início da internet",
         "Movimento de renovação artística e intelectual",
-        "Fim do Império Romano do Ocidente"
+        "Fim do Império Romano do Ocidente",
+        "Restrições comerciais e demandas por autonomia"
       ],
       "correct": 2,
       "difficulty": "medium"
@@ -3939,6 +4266,7 @@
         "Mercantilismo",
         "Feudalismo",
         "Iluminismo",
+        "Século XXI",
         "Absolutismo"
       ],
       "correct": 2,

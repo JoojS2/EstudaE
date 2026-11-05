@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f7f8fc">
-    <title>Estudaê 7.0 — seu espaço de estudos</title>
+    <meta name="theme-color" content="#f8faf9" id="theme-color">
+    <script>try { const t=localStorage.getItem("estudae:theme"); document.documentElement.dataset.theme = t === "dark" || (t !== "light" && matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light"; } catch (_) { document.documentElement.dataset.theme="light"; }</script>
+    <title>Estudaê 8.0 — seu espaço de estudos</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -29,6 +30,7 @@
         <div class="content">
             <header class="topbar">
                 <span class="breadcrumb">Estudaê <span>/</span> <strong id="current-page">Início</strong></span>
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar modo escuro" title="Alternar tema"><span class="theme-symbol" aria-hidden="true">☾</span><span class="theme-caption">Modo escuro</span></button>
                 <div class="profile">
                     <span class="status-dot"></span>
                     Seu espaço de aprendizado
@@ -44,6 +46,27 @@
     <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
     <!-- Edite SERVER_URL com o endereço real do seu serviço no Render. -->
     <script src="config.js"></script>
+    <script>
+      (function () {
+        const button = document.getElementById("themeToggle");
+        const meta = document.getElementById("theme-color");
+        function update() {
+          const dark = document.documentElement.dataset.theme === "dark";
+          button.querySelector(".theme-symbol").textContent = dark ? "☀" : "☾";
+          button.querySelector(".theme-caption").textContent = dark ? "Modo claro" : "Modo escuro";
+          button.setAttribute("aria-label", dark ? "Ativar modo claro" : "Ativar modo escuro");
+          button.setAttribute("aria-pressed", String(dark));
+          meta.setAttribute("content", dark ? "#111b1c" : "#f8faf9");
+        }
+        button.addEventListener("click", function () {
+          const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+          document.documentElement.dataset.theme = next;
+          try { localStorage.setItem("estudae:theme", next); } catch (_) {}
+          update();
+        });
+        update();
+      })();
+    </script>
     <!-- Funcionalidades de estudos e revisão -->
     <script src="script.js"></script>
     <!-- Funcionalidades das salas de quiz -->
