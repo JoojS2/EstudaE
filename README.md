@@ -1,3 +1,20 @@
+# Estudaê 6.0 — Temporizador e resultados sincronizados
+
+## Novidades
+- O líder escolhe 10, 15, 20, 25 ou 30 segundos por questão ao criar a Party.
+- O servidor inicia e encerra cada rodada; quando todos respondem, revela imediatamente, mesmo antes do tempo acabar.
+- Se o tempo acabar, quem não respondeu fica sem pontos naquela rodada.
+- Resposta correta em verde; alternativa errada escolhida pelo jogador em vermelho.
+- Lista de participantes mostra quem acertou, errou ou não respondeu; 100 pontos por acerto.
+- Só o líder avança para a próxima pergunta após a revelação.
+- O servidor também trata a saída de participantes durante a rodada.
+
+## Publicação
+Substitua os arquivos no repositório Git, **preserve a URL real do Render no config.js**, execute `git add .`, `git commit -m "Estudae 6.0 - tempo e resultados"` e `git push origin main`. Verifique os deploys da Vercel e Render.
+
+## Atenção
+A biblioteca pessoal depende de PostgreSQL (`DATABASE_URL`) para persistir em reinicializações do Render. As salas ativas são mantidas em memória e não sobrevivem a reinicializações.
+
 # Estudaê 5.0 — Partys públicas, privadas e banco de questões
 
 ## Funcionalidades

@@ -1,4 +1,4 @@
-/** Estudaê 5.0 — interface das Partys, salas públicas e biblioteca de questões. */
+/** Estudaê 6.0 — interface das Partys, salas públicas e biblioteca de questões. */
 const socket = typeof io === 'function' ? io(window.SERVER_URL || location.origin, { reconnection: true }) : null;
 const OWNER_KEY = 'estudae:owner-token';
 const LIBRARY_KEY = 'estudae:my-questions';
@@ -54,6 +54,7 @@ function partyView() {
       ${input('partyTitle','Nome da sala','Ex.: Revisão para a prova',60)}
       <label>Privacidade<select id="partyVisibility"><option value="public">🌍 Pública — aparece na lista</option><option value="private">🔒 Privada — entra com código</option></select></label>
       <label>Tipo de questões<select id="partyMode"><option value="ready">📚 Perguntas prontas</option><option value="custom">✏️ Criar minhas perguntas</option></select></label>
+      <label>Tempo por pergunta<select id="partySeconds">${[10,15,20,25,30].map(n=>`<option value="${n}" ${n===20?'selected':''}>${n} segundos</option>`).join('')}</select></label>
       <label>Quantidade de perguntas<select id="partyAmount"><option value="10">10 questões</option><option value="20" selected>20 questões</option><option value="30">30 questões</option><option value="45">45 questões</option><option value="60">60 questões</option></select></label>
       <p class="mu">Nas perguntas prontas, escolha apenas as matérias. O sistema sorteia as questões e divide a quantidade igualmente entre os temas selecionados.</p>
       <button class="pri" data-a="createParty">Criar sala</button></div>
@@ -65,7 +66,7 @@ function partyView() {
   const host = room.hostId === socket?.id;
   const me = room.players.find(p => p.id === socket?.id);
   const q = room.questions[room.index];
-  html += `<div class="card"><div class="row"><div><div class="mu">${room.visibility === 'public' ? '🌍 SALA PÚBLICA' : '🔒 SALA PRIVADA'}</div><h2>${h(room.title)}</h2><div class="party-code">${h(room.code)}</div><div class="mu">${room.players.length} participantes · ${room.questions.length}/${room.amount} questões · ${h(room.category)}</div></div><button data-a="copyCode">Copiar código</button></div></div>`;
+  html += `<div class="card"><div class="row"><div><div class="mu">${room.visibility === 'public' ? '🌍 SALA PÚBLICA' : '🔒 SALA PRIVADA'}</div><h2>${h(room.title)}</h2><div class="party-code">${h(room.code)}</div><div class="mu">${room.players.length} participantes · ${room.questions.length}/${room.amount} questões · ${room.secondsPerQuestion}s por pergunta · ${h(room.category)}</div></div><button data-a="copyCode">Copiar código</button></div></div>`;
   if (room.phase === 'lobby') {
     html += `<div class="grid2"><div class="card"><h2>Participantes</h2>${room.players.map(p=>`<div class="row" style="padding:8px 0"><span>👤 ${h(p.name)} ${p.id===room.hostId?'👑':''}</span><b>${p.score} pts</b></div>`).join('')}</div><div class="card"><h2>Questões da partida</h2>${room.questions.slice(0,12).map((q,i)=>`<p class="mu">${i+1}. ${h(q.text)} ${host && room.mode === 'custom' ? `<button class="lk" data-a="removePartyQuestion" data-i="${i}">Remover</button>` : ''}</p>`).join('') || '<p class="mu">Nenhuma questão ainda.</p>'}${room.questions.length>12?`<p class="mu">... e mais ${room.questions.length-12} perguntas.</p>`:''}</div></div>`;
     if (host) {
@@ -75,11 +76,13 @@ function partyView() {
     } else html += '<div class="notice">Aguardando o anfitrião iniciar o quiz...</div>';
   } else if (room.phase === 'question' && q) {
     const answered = me?.answered === room.index;
-    html += `<div class="card question-box"><div class="mu">Questão ${room.index+1} de ${room.questions.length}</div><div class="progress"><div style="width:${(room.index+1)/room.questions.length*100}%"></div></div><h2>${h(q.text)}</h2>${q.options.map((option,i)=>`<button class="opt" data-a="partyAnswer" data-i="${i}" ${answered?'disabled':''}>${'ABCD'[i]}. ${h(option)}</button>`).join('')}${answered?'<div class="notice">Resposta enviada! Aguarde a revelação.</div>':''}</div>`;
-    if (host) html += '<button class="pri" data-a="partyReveal">Revelar resposta</button>';
-  } else if (room.phase === 'reveal') {
-    html += `<div class="card"><h2>${h(q?.text)}</h2><div class="notice">Resposta correta: ${h(q?.options[room.correct])}</div>${ranking(room)}</div>`;
+    const answeredCount = room.players.filter(p => p.answered === room.index).length;
+    html += `<div class="card question-box"><div class="row"><div class="mu">Questão ${room.index+1} de ${room.questions.length}</div><div class="party-timer" id="partyTimer" data-deadline="${Number(room.deadline)||0}">⏱ ${room.secondsPerQuestion}s</div></div><div class="progress"><div style="width:${(room.index+1)/room.questions.length*100}%"></div></div><h2>${h(q.text)}</h2>${q.options.map((option,i)=>`<button class="opt" data-a="partyAnswer" data-i="${i}" ${answered?'disabled':''}>${'ABCD'[i]}. ${h(option)}</button>`).join('')}<div class="notice">${answered?'✅ Resposta enviada!':'Escolha uma alternativa antes do tempo acabar.'} ${answeredCount}/${room.players.length} responderam. A resposta será revelada quando todos responderem ou o tempo terminar.</div></div>`;
+  } else if (room.phase === 'reveal' && q) {
+    const myResult = (room.results || []).find(r => r.id === socket?.id);
+    html += `<div class="card question-box"><div class="mu">Resultado da questão ${room.index+1} de ${room.questions.length}</div><h2>${h(q.text)}</h2>${q.options.map((option,i)=>`<div class="opt party-result-opt ${i===room.correct?'party-correct':myResult?.choice===i?'party-wrong':''}">${'ABCD'[i]}. ${h(option)} ${i===room.correct?'✓ Correta':myResult?.choice===i?'✕ Sua escolha':''}</div>`).join('')}<h3>Resultado dos participantes</h3>${(room.results||[]).map(r=>`<div class="row party-player-result"><span>${r.isCorrect?'✅':r.choice===null?'⏳':'❌'} ${h(r.name)}</span><b>${r.isCorrect?'Acertou (+100 pontos)':r.choice===null?'Não respondeu':'Errou'}</b></div>`).join('')}${ranking(room)}</div>`;
     if (host) html += '<button class="pri" data-a="partyNext">Próxima etapa</button>';
+    else html += '<div class="notice">Aguardando o líder avançar para a próxima questão...</div>';
   } else if (room.phase === 'done') {
     html += `<div class="card"><h2>🏆 Quiz finalizado!</h2>${ranking(room)}</div>`;
     if (host) html += '<button class="pri" data-a="partyRestart">Voltar ao lobby</button>';
@@ -92,7 +95,7 @@ function join(code, name) { if (!name) { party.feedback='Informe seu nome para e
 ACT.createParty = () => {
   const name = document.getElementById('partyName').value.trim();
   rememberName(name);
-  partyEmit('createRoom', { name, title: document.getElementById('partyTitle').value.trim(), visibility: document.getElementById('partyVisibility').value, mode: document.getElementById('partyMode').value, category: 'Múltiplas matérias', amount: Number(document.getElementById('partyAmount').value), owner });
+  partyEmit('createRoom', { name, title: document.getElementById('partyTitle').value.trim(), visibility: document.getElementById('partyVisibility').value, mode: document.getElementById('partyMode').value, category: 'Múltiplas matérias', amount: Number(document.getElementById('partyAmount').value), secondsPerQuestion: Number(document.getElementById('partySeconds').value), owner });
 };
 ACT.joinParty = () => join(document.getElementById('joinCode').value.trim().toUpperCase(),document.getElementById('joinName').value.trim());
 ACT.joinPublic = d => join(d.code, party.name || prompt('Qual é seu nome?')?.trim());
@@ -110,7 +113,6 @@ ACT.removeSaved = d => { savedQuestions.splice(Number(d.i),1); localStorage.setI
 ACT.exportQuestions = () => { const blob = new Blob([JSON.stringify(savedQuestions,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='estudae-minhas-perguntas.json';a.click();URL.revokeObjectURL(url); };
 ACT.launchParty = () => partyEmit('startQuiz');
 ACT.partyAnswer = d => partyEmit('answer',{choice:Number(d.i)});
-ACT.partyReveal = () => partyEmit('reveal');
 ACT.partyNext = () => partyEmit('nextQuestion');
 ACT.partyRestart = () => partyEmit('restart');
 ACT.leaveParty = () => { partyEmit('leaveRoom');party.room=null;party.feedback='';partyEmit('listPublicRooms'); };
@@ -133,3 +135,12 @@ ACT.generateReadyQuestions = () => {
   if (!topics.length) { party.feedback = 'Selecione pelo menos uma matéria.'; render(); return; }
   partyEmit('generateReadyQuestions', { topics });
 };
+
+// Atualiza somente o relógio visível; a contagem oficial e o encerramento ficam no servidor.
+setInterval(() => {
+  const el = document.getElementById('partyTimer');
+  if (!el) return;
+  const seconds = Math.max(0, Math.ceil((Number(el.dataset.deadline) - Date.now()) / 1000));
+  el.textContent = `⏱ ${seconds}s`;
+  el.classList.toggle('party-timer-low', seconds <= 5);
+}, 200);

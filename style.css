@@ -627,3 +627,12 @@ label {
 .catalog-option { display:flex; align-items:flex-start; gap:10px; padding:9px; border-bottom:1px solid var(--bd); cursor:pointer; }
 .catalog-option input { width:auto; margin:5px 0 0; }
 .catalog-option span { display:block; }
+
+/* Estudaê 6.0: feedback sincronizado de cada questão */
+.party-timer { font-weight:800; font-size:1.25rem; font-variant-numeric:tabular-nums; padding:8px 14px; border-radius:12px; background:rgba(59,130,246,.12); color:#2563eb; }
+.party-timer-low { background:rgba(239,68,68,.12); color:#dc2626; }
+.party-result-opt { display:block; width:100%; margin:10px 0; text-align:left; cursor:default; }
+.party-result-opt.party-correct { background:#dcfce7 !important; color:#166534 !important; border:2px solid #22c55e !important; }
+.party-result-opt.party-wrong { background:#fee2e2 !important; color:#991b1b !important; border:2px solid #ef4444 !important; }
+.party-player-result { padding:9px 0; border-bottom:1px solid var(--bd); gap:12px; }
+.party-player-result b { text-align:right; }

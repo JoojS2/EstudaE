@@ -1,4 +1,4 @@
-/** Estudaê 5.0 — servidor de salas e biblioteca persistente. */
+/** Estudaê 6.0 — servidor de salas e biblioteca persistente. */
 const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
@@ -41,6 +41,8 @@ async function saveQuiz(owner, questions) {
 // Salas ativas são temporárias; a biblioteca pessoal de perguntas é persistida separadamente.
 const rooms = new Map();
 const VALID_AMOUNTS = [10, 20, 30, 45, 60];
+const MIN_SECONDS = 10;
+const MAX_SECONDS = 30;
 function shuffle(items) {
   const result = [...items];
   for (let i = result.length - 1; i > 0; i--) {
@@ -74,7 +76,9 @@ function publicRoom(room) {
     code: room.code, title: room.title, visibility: room.visibility, mode: room.mode,
     category: room.category, amount: room.amount, topics: room.topics, hostId: room.hostId, phase: room.phase, index: room.index,
     players: room.players.map(p => ({ ...p })), questions: safeQuestions(room.questions),
-    correct: room.phase === 'reveal' ? room.questions[room.index]?.correct : null
+    correct: room.phase === 'reveal' ? room.questions[room.index]?.correct : null,
+    secondsPerQuestion: room.secondsPerQuestion, deadline: room.phase === 'question' ? room.deadline : null,
+    results: room.phase === 'reveal' ? room.results : []
   };
 }
 function broadcast(room) { io.to(room.code).emit('room', publicRoom(room)); publishRooms(); }
@@ -86,16 +90,43 @@ function current(socket) {
   if (!room) error(socket, 'Sala não encontrada.');
   return room;
 }
+function cancelTimer(room) {
+  if (room.timer) clearTimeout(room.timer);
+  room.timer = null;
+  room.deadline = null;
+}
+function revealQuestion(room) {
+  if (room.phase !== 'question') return;
+  cancelTimer(room);
+  const correct = room.questions[room.index].correct;
+  room.results = room.players.map(player => {
+    const choice = room.answers.has(player.id) ? room.answers.get(player.id) : null;
+    const isCorrect = choice === correct;
+    if (isCorrect) player.score += 100;
+    return { id: player.id, name: player.name, choice, isCorrect };
+  });
+  room.phase = 'reveal';
+  broadcast(room);
+}
+function beginQuestion(room) {
+  room.phase = 'question';
+  room.answers.clear();
+  room.results = [];
+  room.deadline = Date.now() + room.secondsPerQuestion * 1000;
+  room.timer = setTimeout(() => revealQuestion(room), room.secondsPerQuestion * 1000);
+  broadcast(room);
+}
 function leave(socket) {
   const room = rooms.get(socket.data.roomCode);
   if (!room) return;
   socket.leave(room.code);
   room.players = room.players.filter(p => p.id !== socket.id);
   socket.data.roomCode = null;
-  if (!room.players.length) rooms.delete(room.code);
+  if (!room.players.length) { cancelTimer(room); rooms.delete(room.code); }
   else {
     if (room.hostId === socket.id) room.hostId = room.players[0].id;
-    broadcast(room);
+    if (room.phase === 'question' && room.players.every(p => room.answers.has(p.id))) revealQuestion(room);
+    else broadcast(room);
   }
   publishRooms();
 }
@@ -124,17 +155,19 @@ io.on('connection', socket => {
     catch (e) { console.error(e); error(socket, 'Não foi possível salvar as perguntas.'); }
   });
 
-  socket.on('createRoom', ({ name, title, visibility, mode, category, amount, owner } = {}) => {
+  socket.on('createRoom', ({ name, title, visibility, mode, category, amount, secondsPerQuestion, owner } = {}) => {
     name = clean(name, 28); title = clean(title, 60) || 'Party de estudos';
     if (!name) return error(socket, 'Informe seu nome.');
     if (!['public', 'private'].includes(visibility)) return error(socket, 'Escolha sala pública ou privada.');
     if (!['ready', 'custom'].includes(mode)) return error(socket, 'Escolha perguntas prontas ou próprias.');
     amount = Number(amount);
     if (!VALID_AMOUNTS.includes(amount)) return error(socket, 'Escolha 10, 20, 30, 45 ou 60 questões.');
+    secondsPerQuestion = Number(secondsPerQuestion);
+    if (!Number.isInteger(secondsPerQuestion) || secondsPerQuestion < MIN_SECONDS || secondsPerQuestion > MAX_SECONDS) return error(socket, 'Escolha um tempo entre 10 e 30 segundos.');
     leave(socket);
     let code; do { code = roomCode(); } while (rooms.has(code));
     const questions = [];
-    const room = { code, title, visibility, mode, amount, topics: [], category: mode === 'ready' ? 'Aguardando temas' : 'Personalizado', hostId: socket.id, owner: validOwner(owner) ? owner : null, phase: 'lobby', index: 0, questions, players: [{ id: socket.id, name, score: 0, answered: -1 }], answers: new Map() };
+    const room = { code, title, visibility, mode, amount, secondsPerQuestion, deadline: null, timer: null, results: [], topics: [], category: mode === 'ready' ? 'Aguardando temas' : 'Personalizado', hostId: socket.id, owner: validOwner(owner) ? owner : null, phase: 'lobby', index: 0, questions, players: [{ id: socket.id, name, score: 0, answered: -1 }], answers: new Map() };
     rooms.set(code, room); socket.data.roomCode = code; socket.join(code); broadcast(room);
   });
   socket.on('joinRoom', ({ name, code } = {}) => {
@@ -180,25 +213,23 @@ io.on('connection', socket => {
   socket.on('startQuiz', () => {
     const room = current(socket);
     if (!room || room.hostId !== socket.id || room.phase !== 'lobby' || room.questions.length !== room.amount) return error(socket, `A Party precisa ter exatamente ${room.amount} questões para começar.`);
-    room.index = 0; room.phase = 'question'; room.answers.clear(); room.players.forEach(p => { p.score = 0; p.answered = -1; }); broadcast(room);
+    room.index = 0; room.players.forEach(p => { p.score = 0; p.answered = -1; }); beginQuestion(room);
   });
   socket.on('answer', ({ choice } = {}) => {
     const room = current(socket);
     if (!room || room.phase !== 'question' || !Number.isInteger(choice) || choice < 0 || choice > 3) return;
     const player = room.players.find(p => p.id === socket.id);
     if (!player || player.answered === room.index) return;
-    player.answered = room.index; room.answers.set(socket.id, choice); broadcast(room);
-  });
-  socket.on('reveal', () => {
-    const room = current(socket);
-    if (!room || room.hostId !== socket.id || room.phase !== 'question') return;
-    room.players.forEach(p => { if (room.answers.get(p.id) === room.questions[room.index].correct) p.score += 100; });
-    room.phase = 'reveal'; broadcast(room);
+    player.answered = room.index; room.answers.set(socket.id, choice);
+    if (room.players.every(p => room.answers.has(p.id))) revealQuestion(room);
+    else broadcast(room);
   });
   socket.on('nextQuestion', () => {
     const room = current(socket);
     if (!room || room.hostId !== socket.id || room.phase !== 'reveal') return;
-    room.index++; room.answers.clear(); room.phase = room.index >= room.questions.length ? 'done' : 'question'; broadcast(room);
+    room.index++;
+    if (room.index >= room.questions.length) { room.phase = 'done'; room.results = []; broadcast(room); }
+    else beginQuestion(room);
   });
   socket.on('restart', () => {
     const room = current(socket);
