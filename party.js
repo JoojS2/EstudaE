@@ -93,8 +93,8 @@ function partyView() {
     if (host) {
       if (room.mode === 'ready') html += readySelector();
       if (room.mode === 'custom') html += `<div class="card"><h2>✏️ Adicionar pergunta própria</h2><p class="mu">Ao adicionar, a pergunta também será salva na sua biblioteca para futuras salas.</p><label>Enunciado<textarea id="pq" rows="2" maxlength="300" placeholder="Digite a pergunta"></textarea></label>${[0,1,2,3,4].map(i=>`<div class="answer-row"><input type="radio" name="pc" value="${i}" ${i===0?'checked':''}><input class="pa" maxlength="150" placeholder="Alternativa ${i+1}"></div>`).join('')}<p class="mu">Marque a alternativa correta.</p><button class="pri" data-a="addPartyQuestion">Adicionar e salvar</button><button data-a="useSaved">Usar minha biblioteca (${Math.min(savedQuestions.length,room.amount)} questões)</button></div>`;
-      html += `<button class="pri" data-a="launchParty" ${room.questions.length!==room.amount?'disabled':''}>Começar quiz (${room.questions.length}/${room.amount} questões)</button>`;
-    } else html += '<div class="notice">Aguardando o anfitrião iniciar o quiz...</div>';
+      html += `<div class="party-lobby-actions"><button class="pri" data-a="launchParty" ${room.questions.length!==room.amount?'disabled':''}>Começar quiz (${room.questions.length}/${room.amount} questões)</button><button class="party-exit-button" data-a="leaveParty">Sair da sala…</button></div>`;
+    } else html += '<div class="notice">Aguardando o anfitrião iniciar o quiz...</div><div class="party-exit"><button class="party-exit-button" data-a="leaveParty">Sair da sala…</button></div>';
   } else if (room.phase === 'question' && q) {
     const answered = me?.answered === room.index;
     const answeredCount = room.players.filter(p => p.answered === room.index).length;
@@ -111,7 +111,7 @@ function partyView() {
     if (host) html += '<button class="pri" data-a="partyRestart">Voltar ao lobby</button>';
   }
   // A saída fica longe dos controles de resposta e só aparece no lobby ou após o jogo.
-  if (room.phase === 'lobby' || room.phase === 'done') html += '<div class="party-exit"><button class="party-exit-button" data-a="leaveParty">Sair da sala…</button></div>';
+  if (room.phase === 'done') html += '<div class="party-exit"><button class="party-exit-button" data-a="leaveParty">Sair da sala…</button></div>';
   return html;
 }
 function ranking(room) { return '<h3>Placar</h3>' + room.players.slice().sort((a,b)=>b.score-a.score).map((p,i)=>`<div class="row"><span>${i+1}º ${h(p.name)}</span><b>${p.score} pontos</b></div>`).join(''); }

@@ -758,3 +758,7 @@ html[data-theme="light"] input:not([type=radio]):not([type=checkbox]),html[data-
 .opt.selected,html[data-theme="light"] .opt.selected { background:#dceee5 !important; color:#245c4b !important; border:2px solid #4b9388 !important; box-shadow:0 0 0 2px rgba(75,147,136,.12); }
 html[data-theme="dark"] .opt.selected { background:#2c4b43 !important; color:#d8f4e8 !important; border:2px solid #8ec9b6 !important; box-shadow:0 0 0 2px rgba(142,201,182,.15); }
 .question-box .pri, .review-question .pri { margin-top:16px; }
+
+/* Ações do lobby: iniciar à esquerda e sair à direita, na mesma linha. */
+.party-lobby-actions { display:flex; align-items:center; justify-content:space-between; gap:16px; margin:24px 0 10px; flex-wrap:wrap; }
+.party-lobby-actions .party-exit-button { margin-left:auto; }
