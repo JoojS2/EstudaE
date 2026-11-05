@@ -12,3 +12,7 @@ Copie os arquivos para a pasta do repositório, preservando o endereço correto 
 
 ## Teste
 Abra uma Party em dois navegadores, sorteie perguntas, confirme que ninguém vê enunciados antes do início, inicie o quiz e troque alternativas várias vezes. O cronômetro deve continuar descendo, sem saltar ao valor inicial.
+
+## Ajustes adicionais
+- Sair da sala disponível também durante perguntas e revelação, com confirmação e separado das respostas.
+- Modo claro com superfícies e campos menos luminosos; modo escuro inalterado.

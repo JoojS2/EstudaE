@@ -762,3 +762,18 @@ html[data-theme="dark"] .opt.selected { background:#2c4b43 !important; color:#d8
 /* Ações do lobby: iniciar à esquerda e sair à direita, na mesma linha. */
 .party-lobby-actions { display:flex; align-items:center; justify-content:space-between; gap:16px; margin:24px 0 10px; flex-wrap:wrap; }
 .party-lobby-actions .party-exit-button { margin-left:auto; }
+
+/* Ajustes de conforto visual — somente tema claro. */
+html[data-theme="light"] { --bg:#e9eee8; --card:#f0f3ec; --tx:#2a3b35; --mu:#596e65; --bd:#d0dcd1; --soft:#e0e9df; }
+html[data-theme="light"] body { background:#e9eee8; }
+html[data-theme="light"] .sidebar { background:#e5ece4; border-color:var(--bd); }
+html[data-theme="light"] .topbar { background:rgba(230,237,229,.95); border-color:var(--bd); }
+html[data-theme="light"] .card,html[data-theme="light"] .stat { background:#f0f3ec; border-color:#d0dcd1; }
+html[data-theme="light"] .opt,html[data-theme="light"] .topic-choice { background:#e8eee6; border-color:#ccd9cc; }
+html[data-theme="light"] .opt:not(:disabled):hover { background:#dce8dd; }
+html[data-theme="light"] .theme-toggle { background:#e8eee6; }
+html[data-theme="light"] input:not([type=radio]):not([type=checkbox]),html[data-theme="light"] textarea,html[data-theme="light"] select { background:#eef2eb; border-color:#cbd8cb; color:var(--tx); }
+html[data-theme="light"] .party-exit-button { background:#e9eee8; color:#6b655f; border-color:#cbd5ca; }
+html[data-theme="light"] .party-exit-button:hover { background:#f0e3e0; color:#884f4d; border-color:#c99f9a; }
+/* A saída fica à direita, distante da confirmação das respostas. */
+.party-exit-during-quiz { margin-top:30px; padding-top:16px; border-top:1px solid var(--bd); }

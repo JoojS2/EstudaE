@@ -110,8 +110,8 @@ function partyView() {
     html += `<div class="card"><h2>🏆 Quiz finalizado!</h2>${ranking(room)}</div>`;
     if (host) html += '<button class="pri" data-a="partyRestart">Voltar ao lobby</button>';
   }
-  // A saída fica longe dos controles de resposta e só aparece no lobby ou após o jogo.
-  if (room.phase === 'done') html += '<div class="party-exit"><button class="party-exit-button" data-a="leaveParty">Sair da sala…</button></div>';
+  // Ação de saída disponível durante toda a partida, longe das alternativas.
+  if (['question', 'reveal', 'done'].includes(room.phase)) html += '<div class="party-exit party-exit-during-quiz"><button class="party-exit-button" data-a="leaveParty">Sair da sala…</button></div>';
   return html;
 }
 function ranking(room) { return '<h3>Placar</h3>' + room.players.slice().sort((a,b)=>b.score-a.score).map((p,i)=>`<div class="row"><span>${i+1}º ${h(p.name)}</span><b>${p.score} pontos</b></div>`).join(''); }
