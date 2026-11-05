@@ -1,4 +1,4 @@
-/** Estudaê 3.0 — servidor de salas e biblioteca persistente. */
+/** Estudaê 5.0 — servidor de salas e biblioteca persistente. */
 const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
@@ -40,6 +40,31 @@ async function saveQuiz(owner, questions) {
 
 // Salas ativas são temporárias; a biblioteca pessoal de perguntas é persistida separadamente.
 const rooms = new Map();
+const VALID_AMOUNTS = [10, 20, 30, 45, 60];
+function shuffle(items) {
+  const result = [...items];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = crypto.randomInt(i + 1);
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+function drawReadyQuestions(topics, amount) {
+  const base = Math.floor(amount / topics.length);
+  const remainder = amount % topics.length;
+  const extraOrder = shuffle(topics);
+  const allocations = Object.fromEntries(topics.map(t => [t, base + (extraOrder.indexOf(t) < remainder ? 1 : 0)]));
+  const selected = [];
+  for (const topic of topics) {
+    const pool = shuffle(bank[topic]);
+    const count = allocations[topic];
+    // Para 60 questões com uma única matéria, repete somente as 10 excedentes.
+    const chosen = pool.slice(0, Math.min(count, pool.length));
+    while (chosen.length < count) chosen.push(...shuffle(pool).slice(0, Math.min(count - chosen.length, pool.length)));
+    selected.push(...chosen);
+  }
+  return shuffle(selected);
+}
 const clean = (v, max = 300) => String(v ?? '').trim().slice(0, max);
 const roomCode = () => crypto.randomBytes(4).toString('hex').toUpperCase();
 const error = (socket, message) => socket.emit('partyError', message);
@@ -47,14 +72,14 @@ const safeQuestions = questions => questions.map(q => ({ text: q.text, options: 
 function publicRoom(room) {
   return {
     code: room.code, title: room.title, visibility: room.visibility, mode: room.mode,
-    category: room.category, hostId: room.hostId, phase: room.phase, index: room.index,
+    category: room.category, amount: room.amount, topics: room.topics, hostId: room.hostId, phase: room.phase, index: room.index,
     players: room.players.map(p => ({ ...p })), questions: safeQuestions(room.questions),
     correct: room.phase === 'reveal' ? room.questions[room.index]?.correct : null
   };
 }
 function broadcast(room) { io.to(room.code).emit('room', publicRoom(room)); publishRooms(); }
 function publishRooms() {
-  io.emit('publicRooms', [...rooms.values()].filter(r => r.visibility === 'public' && r.phase === 'lobby').map(r => ({ code: r.code, title: r.title, category: r.category, players: r.players.length, questions: r.questions.length })));
+  io.emit('publicRooms', [...rooms.values()].filter(r => r.visibility === 'public' && r.phase === 'lobby').map(r => ({ code: r.code, title: r.title, category: r.category, players: r.players.length, questions: r.amount })));
 }
 function current(socket) {
   const room = rooms.get(socket.data.roomCode);
@@ -84,7 +109,7 @@ function validOwner(token) { return typeof token === 'string' && /^[a-f0-9]{48}$
 
 io.on('connection', socket => {
   socket.on('listPublicRooms', publishRooms);
-  // Catálogo público: sem a resposta correta, para o anfitrião selecionar 20 questões.
+  // Catálogo de matérias disponíveis, sem enviar as respostas corretas.
   socket.on('getCatalog', () => socket.emit('catalog', Object.fromEntries(Object.entries(bank).map(([topic, questions]) => [topic, questions.map(({ id, text, difficulty }) => ({ id, text, difficulty }))]))));
 
   // Cada navegador guarda um token privado de proprietário para recuperar suas perguntas.
@@ -104,12 +129,12 @@ io.on('connection', socket => {
     if (!name) return error(socket, 'Informe seu nome.');
     if (!['public', 'private'].includes(visibility)) return error(socket, 'Escolha sala pública ou privada.');
     if (!['ready', 'custom'].includes(mode)) return error(socket, 'Escolha perguntas prontas ou próprias.');
-    // Todas as partidas possuem exatamente 20 questões. O anfitrião escolhe quais.
-    amount = 20;
+    amount = Number(amount);
+    if (!VALID_AMOUNTS.includes(amount)) return error(socket, 'Escolha 10, 20, 30, 45 ou 60 questões.');
     leave(socket);
     let code; do { code = roomCode(); } while (rooms.has(code));
     const questions = [];
-    const room = { code, title, visibility, mode, category: mode === 'ready' ? category : 'Personalizado', hostId: socket.id, owner: validOwner(owner) ? owner : null, phase: 'lobby', index: 0, questions, players: [{ id: socket.id, name, score: 0, answered: -1 }], answers: new Map() };
+    const room = { code, title, visibility, mode, amount, topics: [], category: mode === 'ready' ? 'Aguardando temas' : 'Personalizado', hostId: socket.id, owner: validOwner(owner) ? owner : null, phase: 'lobby', index: 0, questions, players: [{ id: socket.id, name, score: 0, answered: -1 }], answers: new Map() };
     rooms.set(code, room); socket.data.roomCode = code; socket.join(code); broadcast(room);
   });
   socket.on('joinRoom', ({ name, code } = {}) => {
@@ -122,14 +147,16 @@ io.on('connection', socket => {
     leave(socket); socket.data.roomCode = code; socket.join(code);
     room.players.push({ id: socket.id, name, score: 0, answered: -1 }); broadcast(room);
   });
-  socket.on('selectReadyQuestions', ({ ids } = {}) => {
+  socket.on('generateReadyQuestions', ({ topics } = {}) => {
     const room = current(socket);
     if (!room || room.hostId !== socket.id || room.phase !== 'lobby' || room.mode !== 'ready') return;
-    if (!Array.isArray(ids) || ids.length !== 20 || new Set(ids).size !== 20) return error(socket, 'Selecione exatamente 20 questões diferentes.');
-    const lookup = new Map(Object.values(bank).flat().map(q => [q.id, q]));
-    if (!ids.every(id => lookup.has(id))) return error(socket, 'Seleção contém questões inválidas.');
-    room.questions = ids.map(id => lookup.get(id));
-    room.category = [...new Set(room.questions.map(q => Object.keys(bank).find(k => bank[k].includes(q))))].join(', ');
+    if (!Array.isArray(topics) || topics.length < 1 || topics.length > Object.keys(bank).length ||
+        new Set(topics).size !== topics.length || !topics.every(t => typeof t === 'string' && Object.hasOwn(bank, t))) {
+      return error(socket, 'Escolha pelo menos uma matéria válida.');
+    }
+    room.topics = topics;
+    room.category = topics.join(', ');
+    room.questions = drawReadyQuestions(topics, room.amount);
     broadcast(room);
   });
   socket.on('removeQuestion', ({ index } = {}) => {
@@ -142,17 +169,17 @@ io.on('connection', socket => {
     const room = current(socket);
     if (!room || room.hostId !== socket.id || room.phase !== 'lobby' || room.mode !== 'custom') return;
     if (!validQuestion(q)) return error(socket, 'Preencha a pergunta e quatro alternativas.');
-    if (room.questions.length >= 20) return error(socket, 'Limite de 20 questões por Party.');
+    if (room.questions.length >= room.amount) return error(socket, `Limite de ${room.amount} questões por Party.`);
     room.questions.push(sanitized(q)); broadcast(room);
   });
   socket.on('useSavedQuestions', ({ owner } = {}) => {
     const room = current(socket);
     if (!room || room.hostId !== socket.id || room.phase !== 'lobby' || room.mode !== 'custom' || room.owner !== owner) return;
-    loadQuiz(owner).then(questions => { room.questions = questions.slice(0, 20); broadcast(room); }).catch(() => error(socket, 'Erro ao recuperar perguntas.'));
+    loadQuiz(owner).then(questions => { room.questions = questions.slice(0, room.amount); broadcast(room); }).catch(() => error(socket, 'Erro ao recuperar perguntas.'));
   });
   socket.on('startQuiz', () => {
     const room = current(socket);
-    if (!room || room.hostId !== socket.id || room.phase !== 'lobby' || room.questions.length !== 20) return error(socket, 'A Party precisa ter exatamente 20 questões para começar.');
+    if (!room || room.hostId !== socket.id || room.phase !== 'lobby' || room.questions.length !== room.amount) return error(socket, `A Party precisa ter exatamente ${room.amount} questões para começar.`);
     room.index = 0; room.phase = 'question'; room.answers.clear(); room.players.forEach(p => { p.score = 0; p.answered = -1; }); broadcast(room);
   });
   socket.on('answer', ({ choice } = {}) => {

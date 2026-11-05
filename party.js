@@ -1,4 +1,4 @@
-/** Estudaê 3.0 — interface das Partys, salas públicas e biblioteca de questões. */
+/** Estudaê 5.0 — interface das Partys, salas públicas e biblioteca de questões. */
 const socket = typeof io === 'function' ? io(window.SERVER_URL || location.origin, { reconnection: true }) : null;
 const OWNER_KEY = 'estudae:owner-token';
 const LIBRARY_KEY = 'estudae:my-questions';
@@ -16,7 +16,7 @@ let savedQuestions = [];
 try { savedQuestions = JSON.parse(localStorage.getItem(LIBRARY_KEY) || '[]'); } catch (_) {}
 if (!Array.isArray(savedQuestions)) savedQuestions = [];
 let catalog = {};
-let chosenIds = new Set();
+
 let party = { room: null, feedback: '', publicRooms: [], name: localStorage.getItem('estudae:player-name') || '', categories: ['Matemática', 'Física', 'Geografia', 'Biologia', 'História'] };
 function partyEmit(event, data = {}) {
   if (!socket?.connected) { party.feedback = 'Sem conexão com o servidor. Confira config.js e o Render.'; render(); return; }
@@ -54,7 +54,8 @@ function partyView() {
       ${input('partyTitle','Nome da sala','Ex.: Revisão para a prova',60)}
       <label>Privacidade<select id="partyVisibility"><option value="public">🌍 Pública — aparece na lista</option><option value="private">🔒 Privada — entra com código</option></select></label>
       <label>Tipo de questões<select id="partyMode"><option value="ready">📚 Perguntas prontas</option><option value="custom">✏️ Criar minhas perguntas</option></select></label>
-      <p class="mu">Cada partida terá exatamente <b>20 questões</b>. O líder seleciona as perguntas e pode combinar matérias.</p>
+      <label>Quantidade de perguntas<select id="partyAmount"><option value="10">10 questões</option><option value="20" selected>20 questões</option><option value="30">30 questões</option><option value="45">45 questões</option><option value="60">60 questões</option></select></label>
+      <p class="mu">Nas perguntas prontas, escolha apenas as matérias. O sistema sorteia as questões e divide a quantidade igualmente entre os temas selecionados.</p>
       <button class="pri" data-a="createParty">Criar sala</button></div>
       <div class="card party-card"><h2>🚀 Entrar por código</h2>${input('joinName','Seu nome','Seu nome',28)}${input('joinCode','Código da Party','Ex.: A1B2C3D4',8)}<button class="pri" data-a="joinParty">Entrar na sala</button>
       <h3>🌍 Salas públicas</h3>${party.publicRooms.map(r=>`<div class="row" style="margin:12px 0"><div><b>${h(r.title)}</b><div class="mu">${h(r.category)} · ${r.players} participantes · ${r.questions} questões</div></div><button data-a="joinPublic" data-code="${h(r.code)}">Entrar</button></div>`).join('') || '<p class="mu">Nenhuma sala pública aguardando jogadores.</p>'}</div></div>`;
@@ -64,13 +65,13 @@ function partyView() {
   const host = room.hostId === socket?.id;
   const me = room.players.find(p => p.id === socket?.id);
   const q = room.questions[room.index];
-  html += `<div class="card"><div class="row"><div><div class="mu">${room.visibility === 'public' ? '🌍 SALA PÚBLICA' : '🔒 SALA PRIVADA'}</div><h2>${h(room.title)}</h2><div class="party-code">${h(room.code)}</div><div class="mu">${room.players.length} participantes · ${room.questions.length}/20 questões · ${h(room.category)}</div></div><button data-a="copyCode">Copiar código</button></div></div>`;
+  html += `<div class="card"><div class="row"><div><div class="mu">${room.visibility === 'public' ? '🌍 SALA PÚBLICA' : '🔒 SALA PRIVADA'}</div><h2>${h(room.title)}</h2><div class="party-code">${h(room.code)}</div><div class="mu">${room.players.length} participantes · ${room.questions.length}/${room.amount} questões · ${h(room.category)}</div></div><button data-a="copyCode">Copiar código</button></div></div>`;
   if (room.phase === 'lobby') {
-    html += `<div class="grid2"><div class="card"><h2>Participantes</h2>${room.players.map(p=>`<div class="row" style="padding:8px 0"><span>👤 ${h(p.name)} ${p.id===room.hostId?'👑':''}</span><b>${p.score} pts</b></div>`).join('')}</div><div class="card"><h2>Questões selecionadas</h2>${room.questions.slice(0,20).map((q,i)=>`<p class="mu">${i+1}. ${h(q.text)} ${host && room.mode === 'custom' ? `<button class="lk" data-a="removePartyQuestion" data-i="${i}">Remover</button>` : ''}</p>`).join('') || '<p class="mu">Nenhuma questão ainda.</p>'}${room.questions.length>12?`<p class="mu">... e mais ${room.questions.length-12} perguntas.</p>`:''}</div></div>`;
+    html += `<div class="grid2"><div class="card"><h2>Participantes</h2>${room.players.map(p=>`<div class="row" style="padding:8px 0"><span>👤 ${h(p.name)} ${p.id===room.hostId?'👑':''}</span><b>${p.score} pts</b></div>`).join('')}</div><div class="card"><h2>Questões da partida</h2>${room.questions.slice(0,12).map((q,i)=>`<p class="mu">${i+1}. ${h(q.text)} ${host && room.mode === 'custom' ? `<button class="lk" data-a="removePartyQuestion" data-i="${i}">Remover</button>` : ''}</p>`).join('') || '<p class="mu">Nenhuma questão ainda.</p>'}${room.questions.length>12?`<p class="mu">... e mais ${room.questions.length-12} perguntas.</p>`:''}</div></div>`;
     if (host) {
       if (room.mode === 'ready') html += readySelector();
-      if (room.mode === 'custom') html += `<div class="card"><h2>✏️ Adicionar pergunta própria</h2><p class="mu">Ao adicionar, a pergunta também será salva na sua biblioteca para futuras salas.</p><label>Enunciado<textarea id="pq" rows="2" maxlength="300" placeholder="Digite a pergunta"></textarea></label>${[0,1,2,3].map(i=>`<div class="answer-row"><input type="radio" name="pc" value="${i}" ${i===0?'checked':''}><input class="pa" maxlength="150" placeholder="Alternativa ${i+1}"></div>`).join('')}<p class="mu">Marque a alternativa correta.</p><button class="pri" data-a="addPartyQuestion">Adicionar e salvar</button><button data-a="useSaved">Usar minha biblioteca (${Math.min(savedQuestions.length,50)} questões)</button></div>`;
-      html += `<button class="pri" data-a="launchParty" ${room.questions.length!==20?'disabled':''}>Começar quiz (${room.questions.length}/20 questões)</button>`;
+      if (room.mode === 'custom') html += `<div class="card"><h2>✏️ Adicionar pergunta própria</h2><p class="mu">Ao adicionar, a pergunta também será salva na sua biblioteca para futuras salas.</p><label>Enunciado<textarea id="pq" rows="2" maxlength="300" placeholder="Digite a pergunta"></textarea></label>${[0,1,2,3].map(i=>`<div class="answer-row"><input type="radio" name="pc" value="${i}" ${i===0?'checked':''}><input class="pa" maxlength="150" placeholder="Alternativa ${i+1}"></div>`).join('')}<p class="mu">Marque a alternativa correta.</p><button class="pri" data-a="addPartyQuestion">Adicionar e salvar</button><button data-a="useSaved">Usar minha biblioteca (${Math.min(savedQuestions.length,room.amount)} questões)</button></div>`;
+      html += `<button class="pri" data-a="launchParty" ${room.questions.length!==room.amount?'disabled':''}>Começar quiz (${room.questions.length}/${room.amount} questões)</button>`;
     } else html += '<div class="notice">Aguardando o anfitrião iniciar o quiz...</div>';
   } else if (room.phase === 'question' && q) {
     const answered = me?.answered === room.index;
@@ -91,14 +92,14 @@ function join(code, name) { if (!name) { party.feedback='Informe seu nome para e
 ACT.createParty = () => {
   const name = document.getElementById('partyName').value.trim();
   rememberName(name);
-  partyEmit('createRoom', { name, title: document.getElementById('partyTitle').value.trim(), visibility: document.getElementById('partyVisibility').value, mode: document.getElementById('partyMode').value, category: 'Múltiplas matérias', amount: 20, owner });
+  partyEmit('createRoom', { name, title: document.getElementById('partyTitle').value.trim(), visibility: document.getElementById('partyVisibility').value, mode: document.getElementById('partyMode').value, category: 'Múltiplas matérias', amount: Number(document.getElementById('partyAmount').value), owner });
 };
 ACT.joinParty = () => join(document.getElementById('joinCode').value.trim().toUpperCase(),document.getElementById('joinName').value.trim());
 ACT.joinPublic = d => join(d.code, party.name || prompt('Qual é seu nome?')?.trim());
 ACT.addPartyQuestion = () => {
   const q = { text: document.getElementById('pq').value.trim(), options: [...document.querySelectorAll('.pa')].map(x=>x.value.trim()), correct: Number(document.querySelector('input[name=pc]:checked').value) };
   if (!q.text || q.options.some(x=>!x) || savedQuestions.length>=200) { party.feedback='Preencha todas as alternativas (limite de 200 perguntas salvas).'; return; }
-  if (party.room.questions.length >= 20) { party.feedback='Máximo de 20 perguntas por partida.'; return; }
+  if (party.room.questions.length >= party.room.amount) { party.feedback=`Máximo de ${party.room.amount} perguntas por partida.`; return; }
   // Cópia local imediata + gravação no banco de dados do servidor.
   savedQuestions.push(q); localStorage.setItem(LIBRARY_KEY,JSON.stringify(savedQuestions));
   partyEmit('saveSavedQuestions',{owner,questions:savedQuestions}); partyEmit('addQuestion',q);
@@ -115,41 +116,20 @@ ACT.partyRestart = () => partyEmit('restart');
 ACT.leaveParty = () => { partyEmit('leaveRoom');party.room=null;party.feedback='';partyEmit('listPublicRooms'); };
 ACT.copyCode = () => navigator.clipboard?.writeText(party.room?.code || '');
 
-// O anfitrião pode filtrar por matéria e dificuldade e selecionar exatamente 20.
+// O líder escolhe somente os temas; o servidor sorteia e equilibra as perguntas.
 function readySelector() {
   const topics = Object.keys(catalog);
-  return `<div class="card"><h2>📚 Escolha as 20 questões da partida</h2>
-    <p class="mu">Selecione perguntas de uma ou mais matérias. Distribuição do banco por matéria: 30 fáceis, 15 médias e 5 difíceis.</p>
-    <label>Matéria<select id="catalogTopic" data-catalog-filter><option value="all">Todas as matérias</option>${topics.map(t=>`<option value="${h(t)}">${h(t)}</option>`).join('')}</select></label>
-    <label>Dificuldade<select id="catalogDifficulty" data-catalog-filter><option value="all">Todas</option><option value="easy">Fácil</option><option value="medium">Média</option><option value="hard">Difícil</option></select></label>
-    <div class="mu"><b id="selectedCount">${chosenIds.size}</b>/20 selecionadas</div>
-    <div id="catalogItems" class="catalog-list"></div>
-    <button class="pri" data-a="confirmReadySelection">Confirmar 20 questões</button></div>`;
+  const selected = party.room?.topics || [];
+  return `<div class="card"><h2>📚 Escolha as matérias da Party</h2>
+    <p class="mu">O sistema sorteará ${party.room.amount} perguntas e dividirá igualmente entre as matérias escolhidas. Se não houver divisão exata, uma ou mais matérias terão uma questão extra, também por sorteio.</p>
+    ${topics.map(t => `<label class="catalog-option"><input type="checkbox" data-topic="${h(t)}" ${selected.includes(t)?'checked':''}> <span><b>${h(t)}</b><span class="mu">50 questões disponíveis</span></span></label>`).join('')}
+    <p class="mu">Se escolher 60 questões de uma única matéria, 10 perguntas precisarão se repetir, pois o banco possui 50 por matéria.</p>
+    <button class="pri" data-a="generateReadyQuestions">🎲 Sortear questões</button>
+    ${party.room.questions.length ? `<p class="mu">${party.room.questions.length} perguntas sorteadas. Clique novamente para sortear outra seleção.</p>` : ''}
+  </div>`;
 }
-function paintCatalog() {
-  const target = document.getElementById('catalogItems');
-  if (!target) return;
-  const topic = document.getElementById('catalogTopic').value;
-  const difficulty = document.getElementById('catalogDifficulty').value;
-  const labels = {easy:'Fácil',medium:'Média',hard:'Difícil'};
-  const rows = Object.entries(catalog).flatMap(([subject, questions]) => questions.map(q=>({...q,subject})))
-    .filter(q=>(topic==='all'||q.subject===topic)&&(difficulty==='all'||q.difficulty===difficulty));
-  target.innerHTML = rows.map(q=>`<label class="catalog-option"><input type="checkbox" data-question-id="${h(q.id)}" ${chosenIds.has(q.id)?'checked':''}> <span><b>${h(q.subject)} · ${labels[q.difficulty]}</b><span class="mu">${h(q.text)}</span></span></label>`).join('');
-  const count = document.getElementById('selectedCount'); if (count) count.textContent = chosenIds.size;
-}
-document.addEventListener('change', event => {
-  if (event.target.matches('[data-catalog-filter]')) paintCatalog();
-  if (event.target.matches('[data-question-id]')) {
-    const id=event.target.dataset.questionId;
-    if (event.target.checked && chosenIds.size>=20) { event.target.checked=false; alert('Você só pode selecionar 20 questões.'); return; }
-    if (event.target.checked) chosenIds.add(id); else chosenIds.delete(id);
-    document.getElementById('selectedCount').textContent=chosenIds.size;
-  }
-});
-ACT.confirmReadySelection = () => {
-  if (chosenIds.size !== 20) { party.feedback='Selecione exatamente 20 questões.'; return; }
-  partyEmit('selectReadyQuestions',{ids:[...chosenIds]});
+ACT.generateReadyQuestions = () => {
+  const topics = [...document.querySelectorAll('[data-topic]:checked')].map(el => el.dataset.topic);
+  if (!topics.length) { party.feedback = 'Selecione pelo menos uma matéria.'; render(); return; }
+  partyEmit('generateReadyQuestions', { topics });
 };
-// Integra o catálogo ao renderizador existente sem alterar as telas de revisão.
-const previousPartyView = VIEWS.party;
-VIEWS.party = () => { const html=previousPartyView(); queueMicrotask(paintCatalog); return html; };

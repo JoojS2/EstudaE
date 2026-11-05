@@ -1,4 +1,4 @@
-# Estudaê 3.0 — Partys públicas, privadas e banco de questões
+# Estudaê 5.0 — Partys públicas, privadas e banco de questões
 
 ## Funcionalidades
 - Salas públicas visíveis na lista de Partys e privadas acessíveis por código.
@@ -31,10 +31,13 @@ Abra http://localhost:3000. Para testes locais, altere `config.js` para `window.
 - Para produção em escala, acrescente autenticação, limites de requisição, moderação e armazenamento durável de salas.
 
 
-## Atualização 4.0 — seleção de questões
-- Cada matéria possui 50 questões: 30 fáceis, 15 médias e 5 difíceis.
-- O anfitrião escolhe exatamente 20 questões de uma ou várias matérias, filtrando por matéria e dificuldade.
-- Em salas personalizadas, o anfitrião adiciona ou reutiliza 20 perguntas para iniciar.
-- O servidor valida a seleção e impede começar com menos ou mais de 20 perguntas.
-- Atualize **todos** os arquivos no GitHub para sincronizar frontend e servidor Render.
-- As perguntas do banco têm nível didático sugerido e devem passar por revisão pedagógica antes de uso formal.
+
+## Atualização 5.0 — sorteio por temas e tamanho da Party
+- O líder escolhe 10, 20, 30, 45 ou 60 questões na criação da sala.
+- No modo de perguntas prontas, escolhe uma ou várias matérias, **não** perguntas individuais.
+- O servidor sorteia as perguntas e divide a quantidade tão igualmente quanto possível entre as matérias escolhidas.
+- Se houver resto, as questões extras são distribuídas aleatoriamente entre as matérias.
+- O líder pode sortear novamente antes de iniciar.
+- Para 60 perguntas com somente uma matéria, 10 perguntas se repetem, pois cada matéria possui 50 questões. Com duas ou mais matérias, não há necessidade de repetições.
+- No modo personalizado, o líder precisa adicionar ou recuperar exatamente a quantidade escolhida.
+- O banco continua com 30 fáceis, 15 médias e 5 difíceis por matéria. O sorteio é aleatório, sem cotas de dificuldade.
