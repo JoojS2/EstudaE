@@ -1,12 +1,14 @@
-# Estudaê 10.0
+# Estudaê 10.0 — Correções do cronômetro e perguntas surpresa
 
-- Modo claro com fundo off-white esverdeado e superfícies menos brilhantes. Modo escuro preservado.
-- Revisão: clicar seleciona, clicar em outra alternativa troca, **Enviar resposta** confirma e revela a correção.
-- Party: clicar seleciona localmente, **Enviar resposta** transmite ao servidor; somente após o envio a resposta fica bloqueada. O cronômetro continua correndo durante a seleção.
-- A revelação coletiva continua ocorrendo quando todos enviam ou o tempo termina.
+- Trocar a alternativa na Party não reconstrói a tela nem reinicia o relógio visual.
+- O contador mostra imediatamente o tempo restante calculado a partir do prazo fixado pelo servidor.
+- A lista de perguntas sorteadas foi substituída por um resumo da quantidade de perguntas.
+- O servidor só transmite o enunciado e as alternativas da questão atual, durante a questão e sua revelação. Não envia as perguntas futuras nem ao líder.
+- Em salas personalizadas, o líder pode remover a última pergunta adicionada sem visualizar a lista antecipada.
+- O envio de respostas, a reconexão, o ranking e o controle de tempo no servidor permanecem preservados.
 
 ## Publicação
-Copie os arquivos para a pasta Git original, preserve a URL real do Render em `config.js`, faça commit/push, aguarde a Vercel e atualize o Render.
+Copie os arquivos para a pasta do repositório, preservando o endereço correto do Render em `config.js`. Atualize o frontend na Vercel **e** o backend no Render (o `server.js` mudou).
 
-## Testes
-Teste revisão e Party com duas pessoas, incluindo troca de alternativa, envio e término do tempo sem envio.
+## Teste
+Abra uma Party em dois navegadores, sorteie perguntas, confirme que ninguém vê enunciados antes do início, inicie o quiz e troque alternativas várias vezes. O cronômetro deve continuar descendo, sem saltar ao valor inicial.

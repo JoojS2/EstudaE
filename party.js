@@ -89,7 +89,7 @@ function partyView() {
   const q = room.questions[room.index];
   html += `<div class="card"><div class="row"><div><div class="mu">${room.visibility === 'public' ? '🌍 SALA PÚBLICA' : '🔒 SALA PRIVADA'}</div><h2>${h(room.title)}</h2><div class="party-code">${h(room.code)}</div><div class="mu">${room.players.length} participantes · ${room.questions.length}/${room.amount} questões · ${room.secondsPerQuestion}s por pergunta · ${h(room.category)}</div></div><button data-a="copyCode">Copiar código</button></div></div>`;
   if (room.phase === 'lobby') {
-    html += `<div class="grid2"><div class="card"><h2>Participantes</h2>${room.players.map(p=>`<div class="row" style="padding:8px 0"><span>👤 ${h(p.name)} ${p.id===room.hostId?'👑':''} ${p.online===false?'(reconectando…)':''}</span><b>${p.score} pts</b></div>`).join('')}</div><div class="card"><h2>Questões da partida</h2>${room.questions.slice(0,12).map((q,i)=>`<p class="mu">${i+1}. ${h(q.text)} ${host && room.mode === 'custom' ? `<button class="lk" data-a="removePartyQuestion" data-i="${i}">Remover</button>` : ''}</p>`).join('') || '<p class="mu">Nenhuma questão ainda.</p>'}${room.questions.length>12?`<p class="mu">... e mais ${room.questions.length-12} perguntas.</p>`:''}</div></div>`;
+    html += `<div class="grid2"><div class="card"><h2>Participantes</h2>${room.players.map(p=>`<div class="row" style="padding:8px 0"><span>👤 ${h(p.name)} ${p.id===room.hostId?'👑':''} ${p.online===false?'(reconectando…)':''}</span><b>${p.score} pts</b></div>`).join('')}</div><div class="card"><h2>🎁 Perguntas surpresa</h2><p class="mu">${room.questions.length} de ${room.amount} questões preparadas.</p><p class="mu">As perguntas serão reveladas uma por vez, durante o quiz, para todos os jogadores — inclusive o líder.</p>${host && room.mode === 'custom' && room.questions.length ? `<button class="lk" data-a="removeLastPartyQuestion">Remover última pergunta adicionada</button>` : ''}</div></div>`;
     if (host) {
       if (room.mode === 'ready') html += readySelector();
       if (room.mode === 'custom') html += `<div class="card"><h2>✏️ Adicionar pergunta própria</h2><p class="mu">Ao adicionar, a pergunta também será salva na sua biblioteca para futuras salas.</p><label>Enunciado<textarea id="pq" rows="2" maxlength="300" placeholder="Digite a pergunta"></textarea></label>${[0,1,2,3,4].map(i=>`<div class="answer-row"><input type="radio" name="pc" value="${i}" ${i===0?'checked':''}><input class="pa" maxlength="150" placeholder="Alternativa ${i+1}"></div>`).join('')}<p class="mu">Marque a alternativa correta.</p><button class="pri" data-a="addPartyQuestion">Adicionar e salvar</button><button data-a="useSaved">Usar minha biblioteca (${Math.min(savedQuestions.length,room.amount)} questões)</button></div>`;
@@ -100,7 +100,7 @@ function partyView() {
     const answeredCount = room.players.filter(p => p.answered === room.index).length;
     const choiceKey = room.code + ':' + room.index;
     if (partyChoice.key !== choiceKey) partyChoice = { key: choiceKey, choice: null };
-    html += `<div class="card question-box"><div class="row"><div class="mu">Questão ${room.index+1} de ${room.questions.length}</div><div class="party-timer" id="partyTimer" data-deadline="${Number(room.deadline)||0}">⏱ ${room.secondsPerQuestion}s</div></div><div class="progress"><div style="width:${(room.index+1)/room.questions.length*100}%"></div></div><h2>${h(q.text)}</h2>${q.options.map((option,i)=>`<button class="opt ${!answered && partyChoice.choice===i?'selected':''}" data-a="selectPartyAnswer" data-i="${i}" aria-pressed="${!answered && partyChoice.choice===i}" ${answered?'disabled':''}>${'ABCDE'[i]}. ${h(option)}</button>`).join('')}${answered?'':`<button class="pri" data-a="partyAnswer" ${partyChoice.choice===null?'disabled':''}>Enviar resposta</button><p class="mu">Você pode trocar a alternativa antes de enviar. O tempo continua correndo.</p>`}<div class="notice">${answered?'✅ Resposta enviada!':'Selecione e confirme sua resposta antes do tempo acabar.'} ${answeredCount}/${room.players.length} responderam. A resposta será revelada quando todos responderem ou o tempo terminar.</div></div>`;
+    html += `<div class="card question-box"><div class="row"><div class="mu">Questão ${room.index+1} de ${room.questions.length}</div><div class="party-timer" id="partyTimer" data-deadline="${Number(room.deadline)||0}">⏱ ${Math.max(0, Math.ceil((Number(room.deadline) - Date.now()) / 1000))}s</div></div><div class="progress"><div style="width:${(room.index+1)/room.questions.length*100}%"></div></div><h2>${h(q.text)}</h2>${q.options.map((option,i)=>`<button class="opt ${!answered && partyChoice.choice===i?'selected':''}" data-a="selectPartyAnswer" data-i="${i}" aria-pressed="${!answered && partyChoice.choice===i}" ${answered?'disabled':''}>${'ABCDE'[i]}. ${h(option)}</button>`).join('')}${answered?'':`<button class="pri" data-a="partyAnswer" ${partyChoice.choice===null?'disabled':''}>Enviar resposta</button><p class="mu">Você pode trocar a alternativa antes de enviar. O tempo continua correndo.</p>`}<div class="notice">${answered?'✅ Resposta enviada!':'Selecione e confirme sua resposta antes do tempo acabar.'} ${answeredCount}/${room.players.length} responderam. A resposta será revelada quando todos responderem ou o tempo terminar.</div></div>`;
   } else if (room.phase === 'reveal' && q) {
     const myResult = (room.results || []).find(r => r.id === socket?.id);
     html += `<div class="card question-box"><div class="mu">Resultado da questão ${room.index+1} de ${room.questions.length}</div><h2>${h(q.text)}</h2>${q.options.map((option,i)=>`<div class="opt party-result-opt ${i===room.correct?'party-correct':myResult?.choice===i?'party-wrong':''}">${'ABCDE'[i]}. ${h(option)} ${i===room.correct?'✓ Correta':myResult?.choice===i?'✕ Sua escolha':''}</div>`).join('')}<h3>Resultado dos participantes</h3>${(room.results||[]).map(r=>`<div class="row party-player-result"><span>${r.isCorrect?'✅':r.choice===null?'⏳':'❌'} ${h(r.name)}</span><b>${r.isCorrect?'Acertou (+100 pontos)':r.choice===null?'Não respondeu':'Errou'}</b></div>`).join('')}${ranking(room)}</div>`;
@@ -134,10 +134,24 @@ ACT.addPartyQuestion = () => {
 };
 ACT.useSaved = () => partyEmit('useSavedQuestions',{owner});
 ACT.removePartyQuestion = d => partyEmit('removeQuestion', {index:Number(d.i)});
+ACT.removeLastPartyQuestion = () => { if (party.room?.questions.length) partyEmit('removeQuestion', {index: party.room.questions.length - 1}); };
 ACT.removeSaved = d => { savedQuestions.splice(Number(d.i),1); localStorage.setItem(LIBRARY_KEY,JSON.stringify(savedQuestions)); partyEmit('saveSavedQuestions',{owner,questions:savedQuestions}); };
 ACT.exportQuestions = () => { const blob = new Blob([JSON.stringify(savedQuestions,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='estudae-minhas-perguntas.json';a.click();URL.revokeObjectURL(url); };
 ACT.launchParty = () => partyEmit('startQuiz');
-ACT.selectPartyAnswer = d => { if (party.room?.phase==='question') partyChoice.choice=Number(d.i); };
+ACT.selectPartyAnswer = d => {
+  if (party.room?.phase !== 'question') return;
+  const me = party.room.players.find(p => p.id === socket?.id);
+  if (me?.answered === party.room.index) return;
+  partyChoice.choice = Number(d.i);
+  // Atualizar apenas os botões, sem reconstruir o cronômetro.
+  document.querySelectorAll('[data-a="selectPartyAnswer"]').forEach(button => {
+    const selected = Number(button.dataset.i) === partyChoice.choice;
+    button.classList.toggle('selected', selected);
+    button.setAttribute('aria-pressed', String(selected));
+  });
+  const submit = document.querySelector('[data-a="partyAnswer"]');
+  if (submit) submit.disabled = false;
+};
 ACT.partyAnswer = () => { if (party.room?.phase==='question' && partyChoice.choice!==null) partyEmit('answer',{choice:partyChoice.choice}); };
 ACT.partyNext = () => partyEmit('nextQuestion');
 ACT.partyRestart = () => partyEmit('restart');

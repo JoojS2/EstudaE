@@ -167,6 +167,6 @@ const ACT = {
 document.addEventListener('change', e => { if (e.target.matches('[data-revision-topic]')) { const t=e.target.dataset.revisionTopic; revisionTopics=e.target.checked?[...new Set([...revisionTopics,t])]:revisionTopics.filter(x=>x!==t); } });
 document.addEventListener('click', e => { const b = e.target.closest('[data-a]'); if (!b)
     return; if (ACT[b.dataset.a])
-    ACT[b.dataset.a](b.dataset); render(); });
+    ACT[b.dataset.a](b.dataset); if (b.dataset.a !== 'selectPartyAnswer') render(); });
 render();
 

@@ -71,12 +71,21 @@ function drawReadyQuestions(topics, amount) {
 const clean = (v, max = 300) => String(v ?? '').trim().slice(0, max);
 const roomCode = () => crypto.randomBytes(4).toString('hex').toUpperCase();
 const error = (socket, message) => socket.emit('partyError', message);
-const safeQuestions = questions => questions.map(q => ({ text: q.text, options: q.options, difficulty: q.difficulty || 'custom' }));
+// Não enviar questões futuras (nem enunciados nem alternativas) antes de sua vez.
+// Mantemos posições vazias para preservar a contagem usada pelo frontend.
+function visibleQuestions(room) {
+  return room.questions.map((q, i) => {
+    if ((room.phase === 'question' || room.phase === 'reveal') && i === room.index) {
+      return { text: q.text, options: q.options, difficulty: q.difficulty || 'custom' };
+    }
+    return null;
+  });
+}
 function publicRoom(room) {
   return {
     code: room.code, title: room.title, visibility: room.visibility, mode: room.mode,
     category: room.category, amount: room.amount, topics: room.topics, hostId: room.hostId, phase: room.phase, index: room.index,
-    players: room.players.map(({ sessionKey, disconnectTimer, ...p }) => ({ ...p, online: !!p.online })), questions: safeQuestions(room.questions),
+    players: room.players.map(({ sessionKey, disconnectTimer, ...p }) => ({ ...p, online: !!p.online })), questions: visibleQuestions(room),
     correct: room.phase === 'reveal' ? room.questions[room.index]?.correct : null,
     secondsPerQuestion: room.secondsPerQuestion, deadline: room.phase === 'question' ? room.deadline : null,
     results: room.phase === 'reveal' ? room.results : []
