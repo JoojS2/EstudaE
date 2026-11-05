@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f8fc">
+    <title>Estudaê — seu espaço de estudos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Layout principal: navegação lateral e conteúdo -->
+    <div class="layout">
+        <aside class="sidebar">
+            <!-- Identidade visual da plataforma -->
+            <div class="brand">
+                <span class="brand-icon">✦</span>
+                <span>estuda<span class="accent">ê</span><small>SEU ESPAÇO DE ESTUDOS</small></span>
+            </div>
+            <div class="side-label">MENU PRINCIPAL</div>
+            <!-- Menu preenchido dinamicamente pelo script.js -->
+            <nav id="nav"></nav>
+            <div class="sidebar-bottom">
+                <div class="mini-icon">✧</div>
+                <b>Um passo por dia.</b>
+                <p>Aprender fica mais leve quando você evolui no seu ritmo.</p>
+            </div>
+        </aside>
+
+        <div class="content">
+            <header class="topbar">
+                <span class="breadcrumb">Estudaê <span>/</span> <strong id="current-page">Início</strong></span>
+                <div class="profile">
+                    <span class="status-dot"></span>
+                    Seu espaço de aprendizado
+                    <span class="avatar">E</span>
+                </div>
+            </header>
+            <!-- As telas são renderizadas neste elemento -->
+            <main id="app"></main>
+        </div>
+    </div>
+
+    <!-- Socket.IO: comunicação em tempo real com o servidor -->
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- Funcionalidades de estudos e revisão -->
+    <script src="script.js"></script>
+    <!-- Funcionalidades das salas de quiz -->
+    <script src="party.js"></script>
+</body>
+</html>
