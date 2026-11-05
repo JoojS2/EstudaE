@@ -1,57 +1,184 @@
-// ===== DEPENDÊNCIAS E INICIALIZAÇÃO DO SERVIDOR =====
+/** Estudaê 3.0 — servidor de salas e biblioteca persistente. */
 const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
+const crypto = require('crypto');
+const fs = require('fs');
 const path = require('path');
-const app = express(), server = http.createServer(app), io = new Server(server);
-app.use(express.static(__dirname));
-// ===== SALAS TEMPORÁRIAS ARMAZENADAS EM MEMÓRIA =====
-const rooms = new Map();
-const clean = s => String(s || '').trim().slice(0, 300);
-const code = () => Math.random().toString(36).slice(2, 8).toUpperCase();
-// ===== ESTADO PÚBLICO ENVIADO AOS PARTICIPANTES =====
-function publicRoom(r) { return { code: r.code, hostId: r.hostId, phase: r.phase, index: r.index, players: r.players.map(p => ({ ...p })), questions: r.questions.map(q => ({ text: q.text, options: q.options })), correct: r.phase === 'reveal' ? r.questions[r.index]?.correct : null }; }
-function broadcast(r) { io.to(r.code).emit('room', publicRoom(r)); }
-function error(s, m) { s.emit('partyError', m); }
-function get(s) { let r = rooms.get(s.data.code); if (!r)
-    error(s, 'Sala não encontrada.'); return r; }
-// ===== SAÍDA DE PARTICIPANTES E TRANSFERÊNCIA DE ANFITRIÃO =====
-function leave(s) { const r = rooms.get(s.data.code); if (!r)
-    return; s.leave(r.code); r.players = r.players.filter(p => p.id !== s.id); s.data.code = null; if (!r.players.length) {
-    rooms.delete(r.code);
-    return;
-} if (r.hostId === s.id)
-    r.hostId = r.players[0].id; broadcast(r); }
-// ===== EVENTOS SOCKET.IO: SALAS, PERGUNTAS E PONTUAÇÃO =====
-io.on('connection', s => {
-    s.on('createRoom', ({ name } = {}) => { name = clean(name).slice(0, 28); if (!name)
-        return error(s, 'Informe seu nome.'); leave(s); let c = code(); while (rooms.has(c))
-        c = code(); let r = { code: c, hostId: s.id, phase: 'lobby', index: 0, questions: [], players: [{ id: s.id, name, score: 0, answered: -1 }], answers: new Map() }; rooms.set(c, r); s.data.code = c; s.join(c); broadcast(r); });
-    s.on('joinRoom', ({ name, code: c } = {}) => { name = clean(name).slice(0, 28); c = clean(c).toUpperCase(); let r = rooms.get(c); if (!name)
-        return error(s, 'Informe seu nome.'); if (!r)
-        return error(s, 'Código de sala inválido.'); if (r.phase !== 'lobby')
-        return error(s, 'Este quiz já começou.'); if (r.players.length >= 30)
-        return error(s, 'Sala cheia.'); leave(s); s.data.code = c; s.join(c); r.players.push({ id: s.id, name, score: 0, answered: -1 }); broadcast(r); });
-    s.on('addQuestion', ({ text, options, correct } = {}) => { let r = get(s); if (!r || r.hostId !== s.id || r.phase !== 'lobby')
-        return; text = clean(text); options = Array.isArray(options) ? options.map(x => clean(x).slice(0, 150)) : []; if (!text || options.length !== 4 || options.some(x => !x) || !Number.isInteger(correct) || correct < 0 || correct > 3)
-        return error(s, 'Preencha a pergunta e as quatro alternativas.'); if (r.questions.length >= 40)
-        return error(s, 'Limite de 40 perguntas.'); r.questions.push({ text, options, correct }); broadcast(r); });
-    s.on('startQuiz', () => { let r = get(s); if (!r || r.hostId !== s.id || r.phase !== 'lobby' || !r.questions.length)
-        return; r.index = 0; r.phase = 'question'; r.answers.clear(); r.players.forEach(p => { p.score = 0; p.answered = -1; }); broadcast(r); });
-    s.on('answer', ({ choice } = {}) => { let r = get(s); if (!r || r.phase !== 'question')
-        return; let p = r.players.find(p => p.id === s.id); if (!p || p.answered === r.index || !Number.isInteger(choice) || choice < 0 || choice > 3)
-        return; p.answered = r.index; r.answers.set(s.id, choice); broadcast(r); });
-    s.on('reveal', () => { let r = get(s); if (!r || r.hostId !== s.id || r.phase !== 'question')
-        return; r.players.forEach(p => { if (r.answers.get(p.id) === r.questions[r.index].correct)
-        p.score += 100; }); r.phase = 'reveal'; broadcast(r); });
-    s.on('nextQuestion', () => { let r = get(s); if (!r || r.hostId !== s.id || r.phase !== 'reveal')
-        return; r.index++; r.answers.clear(); r.phase = r.index >= r.questions.length ? 'done' : 'question'; broadcast(r); });
-    s.on('restart', () => { let r = get(s); if (!r || r.hostId !== s.id || r.phase !== 'done')
-        return; r.phase = 'lobby'; r.index = 0; r.players.forEach(p => { p.score = 0; p.answered = -1; }); broadcast(r); });
-    s.on('leaveRoom', () => leave(s));
-    s.on('disconnect', () => leave(s));
-});
-// ===== INICIALIZAÇÃO DO SERVIDOR HTTP =====
-const port = process.env.PORT || 3000;
-server.listen(port, () => console.log(`Estudaê rodando em http://localhost:${port}`));
+const bank = require('./question-bank.json');
+const { Pool } = require('pg');
 
+const app = express();
+const server = http.createServer(app);
+const allowedOrigins = (process.env.FRONTEND_URL || '').split(',').map(s => s.trim()).filter(Boolean);
+const io = new Server(server, { cors: { origin: allowedOrigins.length ? allowedOrigins : true, methods: ['GET', 'POST'] } });
+app.use(express.static(__dirname));
+app.get('/api/health', (_, res) => res.json({ ok: true, persistence: process.env.DATABASE_URL ? 'postgres' : 'local-file' }));
+app.get('/api/categories', (_, res) => res.json(Object.fromEntries(Object.entries(bank).map(([k,v]) => [k,v.length]))));
+
+// O Render sem disco persistente perde arquivos em reinícios. Em produção, use DATABASE_URL.
+const pool = process.env.DATABASE_URL ? new Pool({ connectionString: process.env.DATABASE_URL, ssl: process.env.DATABASE_SSL === 'false' ? false : { rejectUnauthorized: false } }) : null;
+const localFile = path.join(__dirname, 'saved-quizzes.json');
+let localSaved = {};
+try { localSaved = JSON.parse(fs.readFileSync(localFile, 'utf8')); } catch (_) { /* primeira execução */ }
+async function initStorage() {
+  if (pool) await pool.query('CREATE TABLE IF NOT EXISTS estudae_quizzes (owner TEXT PRIMARY KEY, questions JSONB NOT NULL)');
+}
+async function loadQuiz(owner) {
+  if (!pool) return localSaved[owner] || [];
+  const result = await pool.query('SELECT questions FROM estudae_quizzes WHERE owner=$1', [owner]);
+  return result.rows[0]?.questions || [];
+}
+async function saveQuiz(owner, questions) {
+  if (pool) {
+    await pool.query('INSERT INTO estudae_quizzes(owner, questions) VALUES($1,$2::jsonb) ON CONFLICT(owner) DO UPDATE SET questions=EXCLUDED.questions', [owner, JSON.stringify(questions)]);
+  } else {
+    localSaved[owner] = questions;
+    fs.writeFileSync(localFile, JSON.stringify(localSaved, null, 2));
+  }
+}
+
+// Salas ativas são temporárias; a biblioteca pessoal de perguntas é persistida separadamente.
+const rooms = new Map();
+const clean = (v, max = 300) => String(v ?? '').trim().slice(0, max);
+const roomCode = () => crypto.randomBytes(4).toString('hex').toUpperCase();
+const error = (socket, message) => socket.emit('partyError', message);
+const safeQuestions = questions => questions.map(q => ({ text: q.text, options: q.options, difficulty: q.difficulty || 'custom' }));
+function publicRoom(room) {
+  return {
+    code: room.code, title: room.title, visibility: room.visibility, mode: room.mode,
+    category: room.category, hostId: room.hostId, phase: room.phase, index: room.index,
+    players: room.players.map(p => ({ ...p })), questions: safeQuestions(room.questions),
+    correct: room.phase === 'reveal' ? room.questions[room.index]?.correct : null
+  };
+}
+function broadcast(room) { io.to(room.code).emit('room', publicRoom(room)); publishRooms(); }
+function publishRooms() {
+  io.emit('publicRooms', [...rooms.values()].filter(r => r.visibility === 'public' && r.phase === 'lobby').map(r => ({ code: r.code, title: r.title, category: r.category, players: r.players.length, questions: r.questions.length })));
+}
+function current(socket) {
+  const room = rooms.get(socket.data.roomCode);
+  if (!room) error(socket, 'Sala não encontrada.');
+  return room;
+}
+function leave(socket) {
+  const room = rooms.get(socket.data.roomCode);
+  if (!room) return;
+  socket.leave(room.code);
+  room.players = room.players.filter(p => p.id !== socket.id);
+  socket.data.roomCode = null;
+  if (!room.players.length) rooms.delete(room.code);
+  else {
+    if (room.hostId === socket.id) room.hostId = room.players[0].id;
+    broadcast(room);
+  }
+  publishRooms();
+}
+function validQuestion(q) {
+  return q && typeof q.text === 'string' && clean(q.text) && q.text.length <= 300 &&
+    Array.isArray(q.options) && q.options.length === 4 && q.options.every(x => typeof x === 'string' && clean(x) && x.length <= 150) &&
+    Number.isInteger(q.correct) && q.correct >= 0 && q.correct < 4;
+}
+function sanitized(q) { return { text: clean(q.text), options: q.options.map(x => clean(x, 150)), correct: q.correct }; }
+function validOwner(token) { return typeof token === 'string' && /^[a-f0-9]{48}$/.test(token); }
+
+io.on('connection', socket => {
+  socket.on('listPublicRooms', publishRooms);
+  // Catálogo público: sem a resposta correta, para o anfitrião selecionar 20 questões.
+  socket.on('getCatalog', () => socket.emit('catalog', Object.fromEntries(Object.entries(bank).map(([topic, questions]) => [topic, questions.map(({ id, text, difficulty }) => ({ id, text, difficulty }))]))));
+
+  // Cada navegador guarda um token privado de proprietário para recuperar suas perguntas.
+  socket.on('loadSavedQuestions', async ({ owner } = {}) => {
+    if (!validOwner(owner)) return error(socket, 'Identificador da biblioteca inválido.');
+    try { socket.emit('savedQuestions', await loadQuiz(owner)); }
+    catch (e) { console.error(e); error(socket, 'Não foi possível carregar suas perguntas.'); }
+  });
+  socket.on('saveSavedQuestions', async ({ owner, questions } = {}) => {
+    if (!validOwner(owner) || !Array.isArray(questions) || questions.length > 200 || !questions.every(validQuestion)) return error(socket, 'Biblioteca inválida (máximo 200 perguntas).');
+    try { await saveQuiz(owner, questions.map(sanitized)); socket.emit('savedQuestions', await loadQuiz(owner)); socket.emit('partyNotice', 'Perguntas salvas na sua biblioteca.'); }
+    catch (e) { console.error(e); error(socket, 'Não foi possível salvar as perguntas.'); }
+  });
+
+  socket.on('createRoom', ({ name, title, visibility, mode, category, amount, owner } = {}) => {
+    name = clean(name, 28); title = clean(title, 60) || 'Party de estudos';
+    if (!name) return error(socket, 'Informe seu nome.');
+    if (!['public', 'private'].includes(visibility)) return error(socket, 'Escolha sala pública ou privada.');
+    if (!['ready', 'custom'].includes(mode)) return error(socket, 'Escolha perguntas prontas ou próprias.');
+    // Todas as partidas possuem exatamente 20 questões. O anfitrião escolhe quais.
+    amount = 20;
+    leave(socket);
+    let code; do { code = roomCode(); } while (rooms.has(code));
+    const questions = [];
+    const room = { code, title, visibility, mode, category: mode === 'ready' ? category : 'Personalizado', hostId: socket.id, owner: validOwner(owner) ? owner : null, phase: 'lobby', index: 0, questions, players: [{ id: socket.id, name, score: 0, answered: -1 }], answers: new Map() };
+    rooms.set(code, room); socket.data.roomCode = code; socket.join(code); broadcast(room);
+  });
+  socket.on('joinRoom', ({ name, code } = {}) => {
+    name = clean(name, 28); code = clean(code, 8).toUpperCase();
+    const room = rooms.get(code);
+    if (!name) return error(socket, 'Informe seu nome.');
+    if (!room) return error(socket, 'Sala não encontrada.');
+    if (room.phase !== 'lobby') return error(socket, 'Esta Party já começou.');
+    if (room.players.length >= 30) return error(socket, 'Sala cheia.');
+    leave(socket); socket.data.roomCode = code; socket.join(code);
+    room.players.push({ id: socket.id, name, score: 0, answered: -1 }); broadcast(room);
+  });
+  socket.on('selectReadyQuestions', ({ ids } = {}) => {
+    const room = current(socket);
+    if (!room || room.hostId !== socket.id || room.phase !== 'lobby' || room.mode !== 'ready') return;
+    if (!Array.isArray(ids) || ids.length !== 20 || new Set(ids).size !== 20) return error(socket, 'Selecione exatamente 20 questões diferentes.');
+    const lookup = new Map(Object.values(bank).flat().map(q => [q.id, q]));
+    if (!ids.every(id => lookup.has(id))) return error(socket, 'Seleção contém questões inválidas.');
+    room.questions = ids.map(id => lookup.get(id));
+    room.category = [...new Set(room.questions.map(q => Object.keys(bank).find(k => bank[k].includes(q))))].join(', ');
+    broadcast(room);
+  });
+  socket.on('removeQuestion', ({ index } = {}) => {
+    const room = current(socket);
+    if (!room || room.hostId !== socket.id || room.phase !== 'lobby' || room.mode !== 'custom') return;
+    if (!Number.isInteger(index) || index < 0 || index >= room.questions.length) return;
+    room.questions.splice(index, 1); broadcast(room);
+  });
+  socket.on('addQuestion', q => {
+    const room = current(socket);
+    if (!room || room.hostId !== socket.id || room.phase !== 'lobby' || room.mode !== 'custom') return;
+    if (!validQuestion(q)) return error(socket, 'Preencha a pergunta e quatro alternativas.');
+    if (room.questions.length >= 20) return error(socket, 'Limite de 20 questões por Party.');
+    room.questions.push(sanitized(q)); broadcast(room);
+  });
+  socket.on('useSavedQuestions', ({ owner } = {}) => {
+    const room = current(socket);
+    if (!room || room.hostId !== socket.id || room.phase !== 'lobby' || room.mode !== 'custom' || room.owner !== owner) return;
+    loadQuiz(owner).then(questions => { room.questions = questions.slice(0, 20); broadcast(room); }).catch(() => error(socket, 'Erro ao recuperar perguntas.'));
+  });
+  socket.on('startQuiz', () => {
+    const room = current(socket);
+    if (!room || room.hostId !== socket.id || room.phase !== 'lobby' || room.questions.length !== 20) return error(socket, 'A Party precisa ter exatamente 20 questões para começar.');
+    room.index = 0; room.phase = 'question'; room.answers.clear(); room.players.forEach(p => { p.score = 0; p.answered = -1; }); broadcast(room);
+  });
+  socket.on('answer', ({ choice } = {}) => {
+    const room = current(socket);
+    if (!room || room.phase !== 'question' || !Number.isInteger(choice) || choice < 0 || choice > 3) return;
+    const player = room.players.find(p => p.id === socket.id);
+    if (!player || player.answered === room.index) return;
+    player.answered = room.index; room.answers.set(socket.id, choice); broadcast(room);
+  });
+  socket.on('reveal', () => {
+    const room = current(socket);
+    if (!room || room.hostId !== socket.id || room.phase !== 'question') return;
+    room.players.forEach(p => { if (room.answers.get(p.id) === room.questions[room.index].correct) p.score += 100; });
+    room.phase = 'reveal'; broadcast(room);
+  });
+  socket.on('nextQuestion', () => {
+    const room = current(socket);
+    if (!room || room.hostId !== socket.id || room.phase !== 'reveal') return;
+    room.index++; room.answers.clear(); room.phase = room.index >= room.questions.length ? 'done' : 'question'; broadcast(room);
+  });
+  socket.on('restart', () => {
+    const room = current(socket);
+    if (!room || room.hostId !== socket.id || room.phase !== 'done') return;
+    room.phase = 'lobby'; room.index = 0; room.players.forEach(p => { p.score = 0; p.answered = -1; }); broadcast(room);
+  });
+  socket.on('leaveRoom', () => leave(socket));
+  socket.on('disconnect', () => leave(socket));
+});
+initStorage().then(() => server.listen(process.env.PORT || 3000, '0.0.0.0', () => console.log('Estudaê online'))).catch(err => { console.error('Erro no banco de dados:', err); process.exit(1); });

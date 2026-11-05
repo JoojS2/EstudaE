@@ -1,0 +1,3012 @@
+{
+  "Matemática": [
+    {
+      "text": "Quanto é 6 × 10?",
+      "options": [
+        "54",
+        "70",
+        "80",
+        "60"
+      ],
+      "correct": 3,
+      "id": "0-0",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 7 × 17?",
+      "options": [
+        "153",
+        "112",
+        "119",
+        "136"
+      ],
+      "correct": 2,
+      "id": "0-1",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 8 × 24?",
+      "options": [
+        "216",
+        "240",
+        "184",
+        "192"
+      ],
+      "correct": 3,
+      "id": "0-2",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 9 × 8?",
+      "options": [
+        "80",
+        "63",
+        "72",
+        "88"
+      ],
+      "correct": 2,
+      "id": "0-3",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 10 × 15?",
+      "options": [
+        "165",
+        "140",
+        "180",
+        "150"
+      ],
+      "correct": 3,
+      "id": "0-4",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 11 × 22?",
+      "options": [
+        "264",
+        "286",
+        "231",
+        "242"
+      ],
+      "correct": 3,
+      "id": "0-5",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 12 × 6?",
+      "options": [
+        "60",
+        "78",
+        "72",
+        "84"
+      ],
+      "correct": 2,
+      "id": "0-6",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 13 × 13?",
+      "options": [
+        "182",
+        "195",
+        "169",
+        "156"
+      ],
+      "correct": 2,
+      "id": "0-7",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 14 × 20?",
+      "options": [
+        "280",
+        "266",
+        "300",
+        "320"
+      ],
+      "correct": 0,
+      "id": "0-8",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 15 × 4?",
+      "options": [
+        "45",
+        "68",
+        "60",
+        "64"
+      ],
+      "correct": 2,
+      "id": "0-9",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 16 × 11?",
+      "options": [
+        "160",
+        "187",
+        "198",
+        "176"
+      ],
+      "correct": 3,
+      "id": "0-10",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 17 × 18?",
+      "options": [
+        "342",
+        "289",
+        "324",
+        "306"
+      ],
+      "correct": 3,
+      "id": "0-11",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 18 × 25?",
+      "options": [
+        "500",
+        "475",
+        "450",
+        "432"
+      ],
+      "correct": 2,
+      "id": "0-12",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 19 × 9?",
+      "options": [
+        "152",
+        "189",
+        "180",
+        "171"
+      ],
+      "correct": 3,
+      "id": "0-13",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 20 × 16?",
+      "options": [
+        "320",
+        "336",
+        "352",
+        "300"
+      ],
+      "correct": 0,
+      "id": "0-14",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 21 × 23?",
+      "options": [
+        "529",
+        "483",
+        "462",
+        "506"
+      ],
+      "correct": 1,
+      "id": "0-15",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 22 × 7?",
+      "options": [
+        "161",
+        "168",
+        "132",
+        "154"
+      ],
+      "correct": 3,
+      "id": "0-16",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 23 × 14?",
+      "options": [
+        "336",
+        "350",
+        "322",
+        "299"
+      ],
+      "correct": 2,
+      "id": "0-17",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 24 × 21?",
+      "options": [
+        "546",
+        "480",
+        "525",
+        "504"
+      ],
+      "correct": 3,
+      "id": "0-18",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 25 × 5?",
+      "options": [
+        "125",
+        "130",
+        "100",
+        "135"
+      ],
+      "correct": 0,
+      "id": "0-19",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 26 × 12?",
+      "options": [
+        "312",
+        "286",
+        "336",
+        "324"
+      ],
+      "correct": 0,
+      "id": "0-20",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 27 × 19?",
+      "options": [
+        "513",
+        "551",
+        "486",
+        "532"
+      ],
+      "correct": 0,
+      "id": "0-21",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 28 × 3?",
+      "options": [
+        "87",
+        "90",
+        "56",
+        "84"
+      ],
+      "correct": 3,
+      "id": "0-22",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 29 × 10?",
+      "options": [
+        "261",
+        "310",
+        "290",
+        "300"
+      ],
+      "correct": 2,
+      "id": "0-23",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 30 × 17?",
+      "options": [
+        "480",
+        "510",
+        "527",
+        "544"
+      ],
+      "correct": 1,
+      "id": "0-24",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 93 + 48?",
+      "options": [
+        "144",
+        "146",
+        "141",
+        "139"
+      ],
+      "correct": 2,
+      "id": "0-25",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 96 + 16?",
+      "options": [
+        "117",
+        "110",
+        "115",
+        "112"
+      ],
+      "correct": 3,
+      "id": "0-26",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 99 + 30?",
+      "options": [
+        "132",
+        "134",
+        "129",
+        "127"
+      ],
+      "correct": 2,
+      "id": "0-27",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 102 + 44?",
+      "options": [
+        "151",
+        "149",
+        "146",
+        "144"
+      ],
+      "correct": 2,
+      "id": "0-28",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Quanto é 105 + 12?",
+      "options": [
+        "117",
+        "120",
+        "115",
+        "122"
+      ],
+      "correct": 0,
+      "id": "0-29",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Uma compra de R$ 80 teve desconto de 15%. Qual o preço final?",
+      "options": [
+        "R$ 68.00",
+        "R$ 64.00",
+        "R$ 72.00",
+        "R$ 60.00"
+      ],
+      "correct": 0,
+      "id": "0-30",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Uma compra de R$ 90 teve desconto de 15%. Qual o preço final?",
+      "options": [
+        "R$ 76.50",
+        "R$ 72.00",
+        "R$ 81.00",
+        "R$ 67.50"
+      ],
+      "correct": 0,
+      "id": "0-31",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Uma compra de R$ 100 teve desconto de 15%. Qual o preço final?",
+      "options": [
+        "R$ 85.00",
+        "R$ 80.00",
+        "R$ 90.00",
+        "R$ 75.00"
+      ],
+      "correct": 0,
+      "id": "0-32",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Uma compra de R$ 110 teve desconto de 15%. Qual o preço final?",
+      "options": [
+        "R$ 93.50",
+        "R$ 88.00",
+        "R$ 99.00",
+        "R$ 82.50"
+      ],
+      "correct": 0,
+      "id": "0-33",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Uma compra de R$ 120 teve desconto de 15%. Qual o preço final?",
+      "options": [
+        "R$ 102.00",
+        "R$ 96.00",
+        "R$ 108.00",
+        "R$ 90.00"
+      ],
+      "correct": 0,
+      "id": "0-34",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Uma compra de R$ 130 teve desconto de 15%. Qual o preço final?",
+      "options": [
+        "R$ 110.50",
+        "R$ 104.00",
+        "R$ 117.00",
+        "R$ 97.50"
+      ],
+      "correct": 0,
+      "id": "0-35",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Uma compra de R$ 140 teve desconto de 15%. Qual o preço final?",
+      "options": [
+        "R$ 119.00",
+        "R$ 112.00",
+        "R$ 126.00",
+        "R$ 105.00"
+      ],
+      "correct": 0,
+      "id": "0-36",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Uma compra de R$ 150 teve desconto de 15%. Qual o preço final?",
+      "options": [
+        "R$ 127.50",
+        "R$ 120.00",
+        "R$ 135.00",
+        "R$ 112.50"
+      ],
+      "correct": 0,
+      "id": "0-37",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Uma compra de R$ 160 teve desconto de 15%. Qual o preço final?",
+      "options": [
+        "R$ 136.00",
+        "R$ 128.00",
+        "R$ 144.00",
+        "R$ 120.00"
+      ],
+      "correct": 0,
+      "id": "0-38",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Uma compra de R$ 170 teve desconto de 15%. Qual o preço final?",
+      "options": [
+        "R$ 144.50",
+        "R$ 136.00",
+        "R$ 153.00",
+        "R$ 127.50"
+      ],
+      "correct": 0,
+      "id": "0-39",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Uma compra de R$ 180 teve desconto de 15%. Qual o preço final?",
+      "options": [
+        "R$ 153.00",
+        "R$ 144.00",
+        "R$ 162.00",
+        "R$ 135.00"
+      ],
+      "correct": 0,
+      "id": "0-40",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Uma compra de R$ 190 teve desconto de 15%. Qual o preço final?",
+      "options": [
+        "R$ 161.50",
+        "R$ 152.00",
+        "R$ 171.00",
+        "R$ 142.50"
+      ],
+      "correct": 0,
+      "id": "0-41",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Uma compra de R$ 200 teve desconto de 15%. Qual o preço final?",
+      "options": [
+        "R$ 170.00",
+        "R$ 160.00",
+        "R$ 180.00",
+        "R$ 150.00"
+      ],
+      "correct": 0,
+      "id": "0-42",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Uma compra de R$ 210 teve desconto de 15%. Qual o preço final?",
+      "options": [
+        "R$ 178.50",
+        "R$ 168.00",
+        "R$ 189.00",
+        "R$ 157.50"
+      ],
+      "correct": 0,
+      "id": "0-43",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Uma compra de R$ 220 teve desconto de 15%. Qual o preço final?",
+      "options": [
+        "R$ 187.00",
+        "R$ 176.00",
+        "R$ 198.00",
+        "R$ 165.00"
+      ],
+      "correct": 0,
+      "id": "0-44",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Uma aplicação de R$ 1000 rende juros compostos de 10% ao ano por 2 anos. Qual o montante?",
+      "options": [
+        "R$ 1210.00",
+        "R$ 1200.00",
+        "R$ 1100.00",
+        "R$ 1220.00"
+      ],
+      "correct": 0,
+      "id": "0-45",
+      "difficulty": "hard"
+    },
+    {
+      "text": "Uma aplicação de R$ 1200 rende juros compostos de 10% ao ano por 2 anos. Qual o montante?",
+      "options": [
+        "R$ 1452.00",
+        "R$ 1440.00",
+        "R$ 1320.00",
+        "R$ 1464.00"
+      ],
+      "correct": 0,
+      "id": "0-46",
+      "difficulty": "hard"
+    },
+    {
+      "text": "Uma aplicação de R$ 1400 rende juros compostos de 10% ao ano por 2 anos. Qual o montante?",
+      "options": [
+        "R$ 1694.00",
+        "R$ 1680.00",
+        "R$ 1540.00",
+        "R$ 1708.00"
+      ],
+      "correct": 0,
+      "id": "0-47",
+      "difficulty": "hard"
+    },
+    {
+      "text": "Uma aplicação de R$ 1600 rende juros compostos de 10% ao ano por 2 anos. Qual o montante?",
+      "options": [
+        "R$ 1936.00",
+        "R$ 1920.00",
+        "R$ 1760.00",
+        "R$ 1952.00"
+      ],
+      "correct": 0,
+      "id": "0-48",
+      "difficulty": "hard"
+    },
+    {
+      "text": "Uma aplicação de R$ 1800 rende juros compostos de 10% ao ano por 2 anos. Qual o montante?",
+      "options": [
+        "R$ 2178.00",
+        "R$ 2160.00",
+        "R$ 1980.00",
+        "R$ 2196.00"
+      ],
+      "correct": 0,
+      "id": "0-49",
+      "difficulty": "hard"
+    }
+  ],
+  "Física": [
+    {
+      "text": "Um corpo se move a 3 m/s durante 3 s. Qual distância percorre em movimento uniforme?",
+      "options": [
+        "19 m",
+        "12 m",
+        "6 m",
+        "9 m"
+      ],
+      "correct": 3,
+      "id": "1-0",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Um corpo se move a 4 m/s durante 4 s. Qual distância percorre em movimento uniforme?",
+      "options": [
+        "20 m",
+        "27 m",
+        "12 m",
+        "16 m"
+      ],
+      "correct": 3,
+      "id": "1-1",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Um corpo se move a 5 m/s durante 5 s. Qual distância percorre em movimento uniforme?",
+      "options": [
+        "25 m",
+        "37 m",
+        "20 m",
+        "30 m"
+      ],
+      "correct": 0,
+      "id": "1-2",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Um corpo se move a 6 m/s durante 6 s. Qual distância percorre em movimento uniforme?",
+      "options": [
+        "36 m",
+        "30 m",
+        "49 m",
+        "42 m"
+      ],
+      "correct": 0,
+      "id": "1-3",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Um corpo se move a 7 m/s durante 7 s. Qual distância percorre em movimento uniforme?",
+      "options": [
+        "63 m",
+        "49 m",
+        "42 m",
+        "56 m"
+      ],
+      "correct": 1,
+      "id": "1-4",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Um corpo se move a 8 m/s durante 8 s. Qual distância percorre em movimento uniforme?",
+      "options": [
+        "64 m",
+        "79 m",
+        "72 m",
+        "56 m"
+      ],
+      "correct": 0,
+      "id": "1-5",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Um corpo se move a 9 m/s durante 9 s. Qual distância percorre em movimento uniforme?",
+      "options": [
+        "81 m",
+        "90 m",
+        "72 m",
+        "97 m"
+      ],
+      "correct": 0,
+      "id": "1-6",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Um corpo se move a 10 m/s durante 10 s. Qual distância percorre em movimento uniforme?",
+      "options": [
+        "110 m",
+        "90 m",
+        "117 m",
+        "100 m"
+      ],
+      "correct": 3,
+      "id": "1-7",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Um corpo se move a 11 m/s durante 2 s. Qual distância percorre em movimento uniforme?",
+      "options": [
+        "20 m",
+        "40 m",
+        "33 m",
+        "22 m"
+      ],
+      "correct": 3,
+      "id": "1-8",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Um corpo se move a 12 m/s durante 3 s. Qual distância percorre em movimento uniforme?",
+      "options": [
+        "55 m",
+        "36 m",
+        "33 m",
+        "48 m"
+      ],
+      "correct": 1,
+      "id": "1-9",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Um corpo se move a 13 m/s durante 4 s. Qual distância percorre em movimento uniforme?",
+      "options": [
+        "65 m",
+        "48 m",
+        "72 m",
+        "52 m"
+      ],
+      "correct": 3,
+      "id": "1-10",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Um corpo se move a 14 m/s durante 5 s. Qual distância percorre em movimento uniforme?",
+      "options": [
+        "91 m",
+        "65 m",
+        "70 m",
+        "84 m"
+      ],
+      "correct": 2,
+      "id": "1-11",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Um corpo se move a 15 m/s durante 6 s. Qual distância percorre em movimento uniforme?",
+      "options": [
+        "105 m",
+        "112 m",
+        "90 m",
+        "84 m"
+      ],
+      "correct": 2,
+      "id": "1-12",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Um corpo se move a 16 m/s durante 7 s. Qual distância percorre em movimento uniforme?",
+      "options": [
+        "112 m",
+        "128 m",
+        "135 m",
+        "105 m"
+      ],
+      "correct": 0,
+      "id": "1-13",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Um corpo se move a 17 m/s durante 8 s. Qual distância percorre em movimento uniforme?",
+      "options": [
+        "160 m",
+        "136 m",
+        "128 m",
+        "153 m"
+      ],
+      "correct": 1,
+      "id": "1-14",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Um corpo se move a 18 m/s durante 9 s. Qual distância percorre em movimento uniforme?",
+      "options": [
+        "153 m",
+        "180 m",
+        "162 m",
+        "187 m"
+      ],
+      "correct": 2,
+      "id": "1-15",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Um corpo se move a 19 m/s durante 10 s. Qual distância percorre em movimento uniforme?",
+      "options": [
+        "209 m",
+        "180 m",
+        "190 m",
+        "216 m"
+      ],
+      "correct": 2,
+      "id": "1-16",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Um corpo se move a 20 m/s durante 2 s. Qual distância percorre em movimento uniforme?",
+      "options": [
+        "67 m",
+        "60 m",
+        "38 m",
+        "40 m"
+      ],
+      "correct": 3,
+      "id": "1-17",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Um corpo se move a 21 m/s durante 3 s. Qual distância percorre em movimento uniforme?",
+      "options": [
+        "63 m",
+        "91 m",
+        "84 m",
+        "60 m"
+      ],
+      "correct": 0,
+      "id": "1-18",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Um corpo se move a 22 m/s durante 4 s. Qual distância percorre em movimento uniforme?",
+      "options": [
+        "110 m",
+        "88 m",
+        "84 m",
+        "117 m"
+      ],
+      "correct": 1,
+      "id": "1-19",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Um corpo se move a 23 m/s durante 5 s. Qual distância percorre em movimento uniforme?",
+      "options": [
+        "110 m",
+        "138 m",
+        "145 m",
+        "115 m"
+      ],
+      "correct": 3,
+      "id": "1-20",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Um corpo se move a 24 m/s durante 6 s. Qual distância percorre em movimento uniforme?",
+      "options": [
+        "168 m",
+        "175 m",
+        "144 m",
+        "138 m"
+      ],
+      "correct": 2,
+      "id": "1-21",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Um corpo se move a 25 m/s durante 7 s. Qual distância percorre em movimento uniforme?",
+      "options": [
+        "168 m",
+        "207 m",
+        "175 m",
+        "200 m"
+      ],
+      "correct": 2,
+      "id": "1-22",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Um corpo se move a 26 m/s durante 8 s. Qual distância percorre em movimento uniforme?",
+      "options": [
+        "200 m",
+        "208 m",
+        "241 m",
+        "234 m"
+      ],
+      "correct": 1,
+      "id": "1-23",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Um corpo se move a 27 m/s durante 9 s. Qual distância percorre em movimento uniforme?",
+      "options": [
+        "277 m",
+        "243 m",
+        "270 m",
+        "234 m"
+      ],
+      "correct": 1,
+      "id": "1-24",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a força resultante em um corpo de 6 kg com aceleração de 4 m/s²? (F = m × a)",
+      "options": [
+        "28 N",
+        "37 N",
+        "30 N",
+        "24 N"
+      ],
+      "correct": 3,
+      "id": "1-25",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a força resultante em um corpo de 7 kg com aceleração de 5 m/s²? (F = m × a)",
+      "options": [
+        "42 N",
+        "49 N",
+        "40 N",
+        "35 N"
+      ],
+      "correct": 3,
+      "id": "1-26",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a força resultante em um corpo de 8 kg com aceleração de 6 m/s²? (F = m × a)",
+      "options": [
+        "56 N",
+        "54 N",
+        "63 N",
+        "48 N"
+      ],
+      "correct": 3,
+      "id": "1-27",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a força resultante em um corpo de 9 kg com aceleração de 7 m/s²? (F = m × a)",
+      "options": [
+        "63 N",
+        "70 N",
+        "72 N",
+        "79 N"
+      ],
+      "correct": 0,
+      "id": "1-28",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a força resultante em um corpo de 10 kg com aceleração de 8 m/s²? (F = m × a)",
+      "options": [
+        "88 N",
+        "80 N",
+        "97 N",
+        "90 N"
+      ],
+      "correct": 1,
+      "id": "1-29",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Um objeto parte do repouso com aceleração constante de 2 m/s² durante 3 s. Qual a velocidade final?",
+      "options": [
+        "6 m/s",
+        "8 m/s",
+        "4 m/s",
+        "10 m/s"
+      ],
+      "correct": 0,
+      "id": "1-30",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Um objeto parte do repouso com aceleração constante de 3 m/s² durante 4 s. Qual a velocidade final?",
+      "options": [
+        "12 m/s",
+        "14 m/s",
+        "10 m/s",
+        "16 m/s"
+      ],
+      "correct": 0,
+      "id": "1-31",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Um objeto parte do repouso com aceleração constante de 4 m/s² durante 5 s. Qual a velocidade final?",
+      "options": [
+        "20 m/s",
+        "22 m/s",
+        "18 m/s",
+        "24 m/s"
+      ],
+      "correct": 0,
+      "id": "1-32",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Um objeto parte do repouso com aceleração constante de 5 m/s² durante 6 s. Qual a velocidade final?",
+      "options": [
+        "30 m/s",
+        "32 m/s",
+        "28 m/s",
+        "34 m/s"
+      ],
+      "correct": 0,
+      "id": "1-33",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Um objeto parte do repouso com aceleração constante de 6 m/s² durante 3 s. Qual a velocidade final?",
+      "options": [
+        "18 m/s",
+        "20 m/s",
+        "16 m/s",
+        "22 m/s"
+      ],
+      "correct": 0,
+      "id": "1-34",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Um objeto parte do repouso com aceleração constante de 7 m/s² durante 4 s. Qual a velocidade final?",
+      "options": [
+        "28 m/s",
+        "30 m/s",
+        "26 m/s",
+        "32 m/s"
+      ],
+      "correct": 0,
+      "id": "1-35",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Um objeto parte do repouso com aceleração constante de 8 m/s² durante 5 s. Qual a velocidade final?",
+      "options": [
+        "40 m/s",
+        "42 m/s",
+        "38 m/s",
+        "44 m/s"
+      ],
+      "correct": 0,
+      "id": "1-36",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Um objeto parte do repouso com aceleração constante de 9 m/s² durante 6 s. Qual a velocidade final?",
+      "options": [
+        "54 m/s",
+        "56 m/s",
+        "52 m/s",
+        "58 m/s"
+      ],
+      "correct": 0,
+      "id": "1-37",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Um objeto parte do repouso com aceleração constante de 10 m/s² durante 3 s. Qual a velocidade final?",
+      "options": [
+        "30 m/s",
+        "32 m/s",
+        "28 m/s",
+        "34 m/s"
+      ],
+      "correct": 0,
+      "id": "1-38",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Um objeto parte do repouso com aceleração constante de 11 m/s² durante 4 s. Qual a velocidade final?",
+      "options": [
+        "44 m/s",
+        "46 m/s",
+        "42 m/s",
+        "48 m/s"
+      ],
+      "correct": 0,
+      "id": "1-39",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Um objeto parte do repouso com aceleração constante de 12 m/s² durante 5 s. Qual a velocidade final?",
+      "options": [
+        "60 m/s",
+        "62 m/s",
+        "58 m/s",
+        "64 m/s"
+      ],
+      "correct": 0,
+      "id": "1-40",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Um objeto parte do repouso com aceleração constante de 13 m/s² durante 6 s. Qual a velocidade final?",
+      "options": [
+        "78 m/s",
+        "80 m/s",
+        "76 m/s",
+        "82 m/s"
+      ],
+      "correct": 0,
+      "id": "1-41",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Um objeto parte do repouso com aceleração constante de 14 m/s² durante 3 s. Qual a velocidade final?",
+      "options": [
+        "42 m/s",
+        "44 m/s",
+        "40 m/s",
+        "46 m/s"
+      ],
+      "correct": 0,
+      "id": "1-42",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Um objeto parte do repouso com aceleração constante de 15 m/s² durante 4 s. Qual a velocidade final?",
+      "options": [
+        "60 m/s",
+        "62 m/s",
+        "58 m/s",
+        "64 m/s"
+      ],
+      "correct": 0,
+      "id": "1-43",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Um objeto parte do repouso com aceleração constante de 16 m/s² durante 5 s. Qual a velocidade final?",
+      "options": [
+        "80 m/s",
+        "82 m/s",
+        "78 m/s",
+        "84 m/s"
+      ],
+      "correct": 0,
+      "id": "1-44",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Um corpo de 2 kg parte do repouso e atinge 4 m/s. Qual a energia cinética final?",
+      "options": [
+        "16 J",
+        "24 J",
+        "32 J",
+        "8 J"
+      ],
+      "correct": 0,
+      "id": "1-45",
+      "difficulty": "hard"
+    },
+    {
+      "text": "Um corpo de 3 kg parte do repouso e atinge 6 m/s. Qual a energia cinética final?",
+      "options": [
+        "54 J",
+        "62 J",
+        "108 J",
+        "27 J"
+      ],
+      "correct": 0,
+      "id": "1-46",
+      "difficulty": "hard"
+    },
+    {
+      "text": "Um corpo de 4 kg parte do repouso e atinge 8 m/s. Qual a energia cinética final?",
+      "options": [
+        "128 J",
+        "136 J",
+        "256 J",
+        "64 J"
+      ],
+      "correct": 0,
+      "id": "1-47",
+      "difficulty": "hard"
+    },
+    {
+      "text": "Um corpo de 5 kg parte do repouso e atinge 10 m/s. Qual a energia cinética final?",
+      "options": [
+        "250 J",
+        "258 J",
+        "500 J",
+        "125 J"
+      ],
+      "correct": 0,
+      "id": "1-48",
+      "difficulty": "hard"
+    },
+    {
+      "text": "Um corpo de 6 kg parte do repouso e atinge 12 m/s. Qual a energia cinética final?",
+      "options": [
+        "432 J",
+        "440 J",
+        "864 J",
+        "216 J"
+      ],
+      "correct": 0,
+      "id": "1-49",
+      "difficulty": "hard"
+    }
+  ],
+  "Geografia": [
+    {
+      "text": "Qual é a capital de Brasil?",
+      "options": [
+        "Caracas",
+        "Buenos Aires",
+        "Brasília",
+        "Montevidéu"
+      ],
+      "correct": 2,
+      "id": "2-0",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a capital de Argentina?",
+      "options": [
+        "Santiago",
+        "Buenos Aires",
+        "Paris",
+        "Assunção"
+      ],
+      "correct": 1,
+      "id": "2-1",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a capital de Chile?",
+      "options": [
+        "Lima",
+        "Santiago",
+        "Berlim",
+        "Sucre"
+      ],
+      "correct": 1,
+      "id": "2-2",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a capital de Peru?",
+      "options": [
+        "Quito",
+        "Lima",
+        "Roma",
+        "Bogotá"
+      ],
+      "correct": 1,
+      "id": "2-3",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a capital de Colômbia?",
+      "options": [
+        "Montevidéu",
+        "Madri",
+        "Caracas",
+        "Bogotá"
+      ],
+      "correct": 3,
+      "id": "2-4",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a capital de Uruguai?",
+      "options": [
+        "Lisboa",
+        "Montevidéu",
+        "Assunção",
+        "Paris"
+      ],
+      "correct": 1,
+      "id": "2-5",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a capital de Paraguai?",
+      "options": [
+        "Londres",
+        "Sucre",
+        "Assunção",
+        "Berlim"
+      ],
+      "correct": 2,
+      "id": "2-6",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a capital de Bolívia?",
+      "options": [
+        "Roma",
+        "Sucre",
+        "Quito",
+        "Tóquio"
+      ],
+      "correct": 1,
+      "id": "2-7",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a capital de Equador?",
+      "options": [
+        "Pequim",
+        "Caracas",
+        "Madri",
+        "Quito"
+      ],
+      "correct": 3,
+      "id": "2-8",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a capital de Venezuela?",
+      "options": [
+        "Paris",
+        "Seul",
+        "Caracas",
+        "Lisboa"
+      ],
+      "correct": 2,
+      "id": "2-9",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a capital de França?",
+      "options": [
+        "Nova Délhi",
+        "Berlim",
+        "Paris",
+        "Londres"
+      ],
+      "correct": 2,
+      "id": "2-10",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a capital de Alemanha?",
+      "options": [
+        "Berlim",
+        "Camberra",
+        "Tóquio",
+        "Roma"
+      ],
+      "correct": 0,
+      "id": "2-11",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a capital de Itália?",
+      "options": [
+        "Madri",
+        "Roma",
+        "Pequim",
+        "Ottawa"
+      ],
+      "correct": 1,
+      "id": "2-12",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a capital de Espanha?",
+      "options": [
+        "Lisboa",
+        "Seul",
+        "Cidade do México",
+        "Madri"
+      ],
+      "correct": 3,
+      "id": "2-13",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a capital de Portugal?",
+      "options": [
+        "Nova Délhi",
+        "Cairo",
+        "Londres",
+        "Lisboa"
+      ],
+      "correct": 3,
+      "id": "2-14",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a capital de Reino Unido?",
+      "options": [
+        "Tóquio",
+        "Camberra",
+        "Londres",
+        "Nairóbi"
+      ],
+      "correct": 2,
+      "id": "2-15",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a capital de Japão?",
+      "options": [
+        "Brasília",
+        "Tóquio",
+        "Pequim",
+        "Ottawa"
+      ],
+      "correct": 1,
+      "id": "2-16",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a capital de China?",
+      "options": [
+        "Seul",
+        "Buenos Aires",
+        "Pequim",
+        "Cidade do México"
+      ],
+      "correct": 2,
+      "id": "2-17",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a capital de Coreia do Sul?",
+      "options": [
+        "Santiago",
+        "Cairo",
+        "Nova Délhi",
+        "Seul"
+      ],
+      "correct": 3,
+      "id": "2-18",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a capital de Índia?",
+      "options": [
+        "Lima",
+        "Nairóbi",
+        "Nova Délhi",
+        "Camberra"
+      ],
+      "correct": 2,
+      "id": "2-19",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a capital de Austrália?",
+      "options": [
+        "Brasília",
+        "Camberra",
+        "Bogotá",
+        "Ottawa"
+      ],
+      "correct": 1,
+      "id": "2-20",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a capital de Canadá?",
+      "options": [
+        "Ottawa",
+        "Montevidéu",
+        "Buenos Aires",
+        "Cidade do México"
+      ],
+      "correct": 0,
+      "id": "2-21",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a capital de México?",
+      "options": [
+        "Cairo",
+        "Cidade do México",
+        "Santiago",
+        "Assunção"
+      ],
+      "correct": 1,
+      "id": "2-22",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a capital de Egito?",
+      "options": [
+        "Nairóbi",
+        "Sucre",
+        "Cairo",
+        "Lima"
+      ],
+      "correct": 2,
+      "id": "2-23",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é a capital de Quênia?",
+      "options": [
+        "Bogotá",
+        "Brasília",
+        "Nairóbi",
+        "Quito"
+      ],
+      "correct": 2,
+      "id": "2-24",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Brasília é capital de qual país?",
+      "options": [
+        "Paraguai",
+        "Alemanha",
+        "Brasil",
+        "Chile"
+      ],
+      "correct": 2,
+      "id": "2-25",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Buenos Aires é capital de qual país?",
+      "options": [
+        "Itália",
+        "Argentina",
+        "Peru",
+        "Bolívia"
+      ],
+      "correct": 1,
+      "id": "2-26",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Santiago é capital de qual país?",
+      "options": [
+        "Espanha",
+        "Equador",
+        "Chile",
+        "Colômbia"
+      ],
+      "correct": 2,
+      "id": "2-27",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Lima é capital de qual país?",
+      "options": [
+        "Peru",
+        "Venezuela",
+        "Uruguai",
+        "Portugal"
+      ],
+      "correct": 0,
+      "id": "2-28",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Bogotá é capital de qual país?",
+      "options": [
+        "Reino Unido",
+        "França",
+        "Paraguai",
+        "Colômbia"
+      ],
+      "correct": 3,
+      "id": "2-29",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em um mapa de escala 1:200000, duas cidades estão separadas por 3 cm. Qual a distância real?",
+      "options": [
+        "6 km",
+        "60 km",
+        "2 km",
+        "12 km"
+      ],
+      "correct": 0,
+      "id": "2-30",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Em um mapa de escala 1:300000, duas cidades estão separadas por 3 cm. Qual a distância real?",
+      "options": [
+        "9 km",
+        "90 km",
+        "3 km",
+        "18 km"
+      ],
+      "correct": 0,
+      "id": "2-31",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Em um mapa de escala 1:400000, duas cidades estão separadas por 3 cm. Qual a distância real?",
+      "options": [
+        "12 km",
+        "120 km",
+        "4 km",
+        "24 km"
+      ],
+      "correct": 0,
+      "id": "2-32",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Em um mapa de escala 1:500000, duas cidades estão separadas por 3 cm. Qual a distância real?",
+      "options": [
+        "15 km",
+        "150 km",
+        "5 km",
+        "30 km"
+      ],
+      "correct": 0,
+      "id": "2-33",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Em um mapa de escala 1:600000, duas cidades estão separadas por 3 cm. Qual a distância real?",
+      "options": [
+        "18 km",
+        "180 km",
+        "6 km",
+        "36 km"
+      ],
+      "correct": 0,
+      "id": "2-34",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Em um mapa de escala 1:700000, duas cidades estão separadas por 3 cm. Qual a distância real?",
+      "options": [
+        "21 km",
+        "210 km",
+        "7 km",
+        "42 km"
+      ],
+      "correct": 0,
+      "id": "2-35",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Em um mapa de escala 1:800000, duas cidades estão separadas por 3 cm. Qual a distância real?",
+      "options": [
+        "24 km",
+        "240 km",
+        "8 km",
+        "48 km"
+      ],
+      "correct": 0,
+      "id": "2-36",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Em um mapa de escala 1:900000, duas cidades estão separadas por 3 cm. Qual a distância real?",
+      "options": [
+        "27 km",
+        "270 km",
+        "9 km",
+        "54 km"
+      ],
+      "correct": 0,
+      "id": "2-37",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Em um mapa de escala 1:1000000, duas cidades estão separadas por 3 cm. Qual a distância real?",
+      "options": [
+        "30 km",
+        "300 km",
+        "10 km",
+        "60 km"
+      ],
+      "correct": 0,
+      "id": "2-38",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Em um mapa de escala 1:1100000, duas cidades estão separadas por 3 cm. Qual a distância real?",
+      "options": [
+        "33 km",
+        "330 km",
+        "11 km",
+        "66 km"
+      ],
+      "correct": 0,
+      "id": "2-39",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Em um mapa de escala 1:1200000, duas cidades estão separadas por 3 cm. Qual a distância real?",
+      "options": [
+        "36 km",
+        "360 km",
+        "12 km",
+        "72 km"
+      ],
+      "correct": 0,
+      "id": "2-40",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Em um mapa de escala 1:1300000, duas cidades estão separadas por 3 cm. Qual a distância real?",
+      "options": [
+        "39 km",
+        "390 km",
+        "13 km",
+        "78 km"
+      ],
+      "correct": 0,
+      "id": "2-41",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Em um mapa de escala 1:1400000, duas cidades estão separadas por 3 cm. Qual a distância real?",
+      "options": [
+        "42 km",
+        "420 km",
+        "14 km",
+        "84 km"
+      ],
+      "correct": 0,
+      "id": "2-42",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Em um mapa de escala 1:1500000, duas cidades estão separadas por 3 cm. Qual a distância real?",
+      "options": [
+        "45 km",
+        "450 km",
+        "15 km",
+        "90 km"
+      ],
+      "correct": 0,
+      "id": "2-43",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Em um mapa de escala 1:1600000, duas cidades estão separadas por 3 cm. Qual a distância real?",
+      "options": [
+        "48 km",
+        "480 km",
+        "16 km",
+        "96 km"
+      ],
+      "correct": 0,
+      "id": "2-44",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Uma região registra 1200 mm de chuva ao ano, com 70% concentrados em 4 meses. Quantos mm caem nos outros 8 meses?",
+      "options": [
+        "360 mm",
+        "460 mm",
+        "720 mm",
+        "180 mm"
+      ],
+      "correct": 0,
+      "id": "2-45",
+      "difficulty": "hard"
+    },
+    {
+      "text": "Uma região registra 1300 mm de chuva ao ano, com 70% concentrados em 4 meses. Quantos mm caem nos outros 8 meses?",
+      "options": [
+        "390 mm",
+        "490 mm",
+        "780 mm",
+        "195 mm"
+      ],
+      "correct": 0,
+      "id": "2-46",
+      "difficulty": "hard"
+    },
+    {
+      "text": "Uma região registra 1400 mm de chuva ao ano, com 70% concentrados em 4 meses. Quantos mm caem nos outros 8 meses?",
+      "options": [
+        "420 mm",
+        "520 mm",
+        "840 mm",
+        "210 mm"
+      ],
+      "correct": 0,
+      "id": "2-47",
+      "difficulty": "hard"
+    },
+    {
+      "text": "Uma região registra 1500 mm de chuva ao ano, com 70% concentrados em 4 meses. Quantos mm caem nos outros 8 meses?",
+      "options": [
+        "450 mm",
+        "550 mm",
+        "900 mm",
+        "225 mm"
+      ],
+      "correct": 0,
+      "id": "2-48",
+      "difficulty": "hard"
+    },
+    {
+      "text": "Uma região registra 1600 mm de chuva ao ano, com 70% concentrados em 4 meses. Quantos mm caem nos outros 8 meses?",
+      "options": [
+        "480 mm",
+        "580 mm",
+        "960 mm",
+        "240 mm"
+      ],
+      "correct": 0,
+      "id": "2-49",
+      "difficulty": "hard"
+    }
+  ],
+  "Biologia": [
+    {
+      "text": "Qual é uma função de mitocôndria?",
+      "options": [
+        "produção de ATP na respiração celular",
+        "participação na coagulação",
+        "modificação e empacotamento de proteínas",
+        "síntese de proteínas"
+      ],
+      "correct": 0,
+      "id": "3-0",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é uma função de ribossomo?",
+      "options": [
+        "transmissão de impulsos nervosos",
+        "síntese de proteínas",
+        "produção e transporte de proteínas",
+        "armazenamento do DNA nuclear"
+      ],
+      "correct": 1,
+      "id": "3-1",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é uma função de núcleo celular?",
+      "options": [
+        "armazenamento do DNA nuclear",
+        "fotossíntese",
+        "trocas gasosas",
+        "síntese de lipídios"
+      ],
+      "correct": 0,
+      "id": "3-2",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é uma função de cloroplasto?",
+      "options": [
+        "armazenamento de água e manutenção do turgor vegetal",
+        "controle da entrada e saída de substâncias",
+        "filtração do sangue e formação de urina",
+        "fotossíntese"
+      ],
+      "correct": 3,
+      "id": "3-3",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é uma função de membrana plasmática?",
+      "options": [
+        "absorção da maior parte dos nutrientes",
+        "transporte de oxigênio",
+        "controle da entrada e saída de substâncias",
+        "digestão intracelular"
+      ],
+      "correct": 2,
+      "id": "3-4",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é uma função de lisossomo?",
+      "options": [
+        "modificação e empacotamento de proteínas",
+        "defesa do organismo",
+        "início da digestão intensa de proteínas",
+        "digestão intracelular"
+      ],
+      "correct": 3,
+      "id": "3-5",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é uma função de complexo golgiense?",
+      "options": [
+        "produção e transporte de proteínas",
+        "modificação e empacotamento de proteínas",
+        "participação na coagulação",
+        "produção de bile"
+      ],
+      "correct": 1,
+      "id": "3-6",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é uma função de retículo endoplasmático rugoso?",
+      "options": [
+        "transmissão de impulsos nervosos",
+        "produção e transporte de proteínas",
+        "síntese de lipídios",
+        "produção de insulina"
+      ],
+      "correct": 1,
+      "id": "3-7",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é uma função de retículo endoplasmático liso?",
+      "options": [
+        "síntese de lipídios",
+        "trocas gasosas",
+        "armazenamento de água e manutenção do turgor vegetal",
+        "bombeamento de sangue"
+      ],
+      "correct": 0,
+      "id": "3-8",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é uma função de vacúolo central?",
+      "options": [
+        "condução de ar aos brônquios",
+        "filtração do sangue e formação de urina",
+        "armazenamento de água e manutenção do turgor vegetal",
+        "transporte de oxigênio"
+      ],
+      "correct": 2,
+      "id": "3-9",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é uma função de hemácias?",
+      "options": [
+        "absorção da maior parte dos nutrientes",
+        "transporte de alimento ao estômago",
+        "defesa do organismo",
+        "transporte de oxigênio"
+      ],
+      "correct": 3,
+      "id": "3-10",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é uma função de leucócitos?",
+      "options": [
+        "defesa do organismo",
+        "absorção de água e sais minerais",
+        "início da digestão intensa de proteínas",
+        "participação na coagulação"
+      ],
+      "correct": 0,
+      "id": "3-11",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é uma função de plaquetas?",
+      "options": [
+        "transmissão de impulsos nervosos",
+        "regulação de trocas gasosas nas folhas",
+        "produção de bile",
+        "participação na coagulação"
+      ],
+      "correct": 3,
+      "id": "3-12",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é uma função de neurônios?",
+      "options": [
+        "produção de insulina",
+        "produção de ATP na respiração celular",
+        "trocas gasosas",
+        "transmissão de impulsos nervosos"
+      ],
+      "correct": 3,
+      "id": "3-13",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é uma função de alvéolos pulmonares?",
+      "options": [
+        "trocas gasosas",
+        "filtração do sangue e formação de urina",
+        "bombeamento de sangue",
+        "síntese de proteínas"
+      ],
+      "correct": 0,
+      "id": "3-14",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é uma função de néfrons?",
+      "options": [
+        "filtração do sangue e formação de urina",
+        "absorção da maior parte dos nutrientes",
+        "condução de ar aos brônquios",
+        "armazenamento do DNA nuclear"
+      ],
+      "correct": 0,
+      "id": "3-15",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é uma função de intestino delgado?",
+      "options": [
+        "transporte de alimento ao estômago",
+        "início da digestão intensa de proteínas",
+        "absorção da maior parte dos nutrientes",
+        "fotossíntese"
+      ],
+      "correct": 2,
+      "id": "3-16",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é uma função de estômago?",
+      "options": [
+        "absorção de água e sais minerais",
+        "início da digestão intensa de proteínas",
+        "produção de bile",
+        "controle da entrada e saída de substâncias"
+      ],
+      "correct": 1,
+      "id": "3-17",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é uma função de fígado?",
+      "options": [
+        "produção de bile",
+        "produção de insulina",
+        "digestão intracelular",
+        "regulação de trocas gasosas nas folhas"
+      ],
+      "correct": 0,
+      "id": "3-18",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é uma função de pâncreas?",
+      "options": [
+        "produção de insulina",
+        "produção de ATP na respiração celular",
+        "modificação e empacotamento de proteínas",
+        "bombeamento de sangue"
+      ],
+      "correct": 0,
+      "id": "3-19",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é uma função de coração?",
+      "options": [
+        "produção e transporte de proteínas",
+        "condução de ar aos brônquios",
+        "síntese de proteínas",
+        "bombeamento de sangue"
+      ],
+      "correct": 3,
+      "id": "3-20",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é uma função de traqueia?",
+      "options": [
+        "condução de ar aos brônquios",
+        "armazenamento do DNA nuclear",
+        "síntese de lipídios",
+        "transporte de alimento ao estômago"
+      ],
+      "correct": 0,
+      "id": "3-21",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é uma função de esôfago?",
+      "options": [
+        "absorção de água e sais minerais",
+        "transporte de alimento ao estômago",
+        "armazenamento de água e manutenção do turgor vegetal",
+        "fotossíntese"
+      ],
+      "correct": 1,
+      "id": "3-22",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é uma função de raízes?",
+      "options": [
+        "transporte de oxigênio",
+        "controle da entrada e saída de substâncias",
+        "absorção de água e sais minerais",
+        "regulação de trocas gasosas nas folhas"
+      ],
+      "correct": 2,
+      "id": "3-23",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual é uma função de estômatos?",
+      "options": [
+        "produção de ATP na respiração celular",
+        "regulação de trocas gasosas nas folhas",
+        "digestão intracelular",
+        "defesa do organismo"
+      ],
+      "correct": 1,
+      "id": "3-24",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual estrutura está mais diretamente associada a: produção de ATP na respiração celular?",
+      "options": [
+        "retículo endoplasmático rugoso",
+        "neurônios",
+        "mitocôndria",
+        "núcleo celular"
+      ],
+      "correct": 2,
+      "id": "3-25",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual estrutura está mais diretamente associada a: síntese de proteínas?",
+      "options": [
+        "ribossomo",
+        "retículo endoplasmático liso",
+        "cloroplasto",
+        "alvéolos pulmonares"
+      ],
+      "correct": 0,
+      "id": "3-26",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual estrutura está mais diretamente associada a: armazenamento do DNA nuclear?",
+      "options": [
+        "membrana plasmática",
+        "vacúolo central",
+        "núcleo celular",
+        "néfrons"
+      ],
+      "correct": 2,
+      "id": "3-27",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual estrutura está mais diretamente associada a: fotossíntese?",
+      "options": [
+        "hemácias",
+        "cloroplasto",
+        "lisossomo",
+        "intestino delgado"
+      ],
+      "correct": 1,
+      "id": "3-28",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual estrutura está mais diretamente associada a: controle da entrada e saída de substâncias?",
+      "options": [
+        "leucócitos",
+        "membrana plasmática",
+        "complexo golgiense",
+        "estômago"
+      ],
+      "correct": 1,
+      "id": "3-29",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em Aa × Aa, qual a chance de genótipo heterozigoto?",
+      "options": [
+        "50%",
+        "25%",
+        "75%",
+        "1/16"
+      ],
+      "correct": 0,
+      "id": "3-30",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Em Aa × aa, qual a chance de descendente aa?",
+      "options": [
+        "50%",
+        "25%",
+        "75%",
+        "1/16"
+      ],
+      "correct": 0,
+      "id": "3-31",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Em AA × aa, qual genótipo aparece em toda a prole?",
+      "options": [
+        "Aa",
+        "25%",
+        "50%",
+        "75%"
+      ],
+      "correct": 0,
+      "id": "3-32",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Em Aa × Aa, qual a proporção genotípica esperada?",
+      "options": [
+        "1 AA : 2 Aa : 1 aa",
+        "25%",
+        "50%",
+        "75%"
+      ],
+      "correct": 0,
+      "id": "3-33",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Uma célula com 2n = 8 gera gametas por meiose. Quantos cromossomos terá cada gameta?",
+      "options": [
+        "4",
+        "25%",
+        "50%",
+        "75%"
+      ],
+      "correct": 0,
+      "id": "3-34",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Uma célula com 2n = 12 realiza mitose. Quantos cromossomos cada célula-filha terá?",
+      "options": [
+        "12",
+        "25%",
+        "50%",
+        "75%"
+      ],
+      "correct": 0,
+      "id": "3-35",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Qual organela modifica e empacota proteínas para secreção?",
+      "options": [
+        "Complexo golgiense",
+        "25%",
+        "50%",
+        "75%"
+      ],
+      "correct": 0,
+      "id": "3-36",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Qual molécula leva aminoácidos até o ribossomo durante a tradução?",
+      "options": [
+        "RNA transportador",
+        "25%",
+        "50%",
+        "75%"
+      ],
+      "correct": 0,
+      "id": "3-37",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Qual etapa da respiração celular ocorre no citosol?",
+      "options": [
+        "Glicólise",
+        "25%",
+        "50%",
+        "75%"
+      ],
+      "correct": 0,
+      "id": "3-38",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Qual estrutura impede o refluxo do sangue no coração?",
+      "options": [
+        "Válvulas cardíacas",
+        "25%",
+        "50%",
+        "75%"
+      ],
+      "correct": 0,
+      "id": "3-39",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Qual relação ecológica beneficia ambas as espécies envolvidas?",
+      "options": [
+        "Mutualismo",
+        "25%",
+        "50%",
+        "75%"
+      ],
+      "correct": 0,
+      "id": "3-40",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Qual é o principal papel dos decompositores em um ecossistema?",
+      "options": [
+        "Reciclar matéria orgânica",
+        "25%",
+        "50%",
+        "75%"
+      ],
+      "correct": 0,
+      "id": "3-41",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Qual processo vegetal libera água na forma de vapor pelas folhas?",
+      "options": [
+        "Transpiração",
+        "25%",
+        "50%",
+        "75%"
+      ],
+      "correct": 0,
+      "id": "3-42",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Em uma cadeia alimentar, qual grupo converte luz em energia química?",
+      "options": [
+        "Produtores",
+        "25%",
+        "50%",
+        "75%"
+      ],
+      "correct": 0,
+      "id": "3-43",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Qual processo produz células haploides a partir de uma célula diploide?",
+      "options": [
+        "Meiose",
+        "25%",
+        "50%",
+        "75%"
+      ],
+      "correct": 0,
+      "id": "3-44",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Em AaBb × AaBb, qual a chance de aabb, com segregação independente?",
+      "options": [
+        "1/16",
+        "25%",
+        "50%",
+        "75%"
+      ],
+      "correct": 0,
+      "id": "3-45",
+      "difficulty": "hard"
+    },
+    {
+      "text": "Em AaBb × aabb, qual a chance de AaBb, com segregação independente?",
+      "options": [
+        "1/4",
+        "25%",
+        "50%",
+        "75%"
+      ],
+      "correct": 0,
+      "id": "3-46",
+      "difficulty": "hard"
+    },
+    {
+      "text": "Em Aa × Aa, qual a chance de exatamente dois filhos aa em três nascimentos independentes?",
+      "options": [
+        "9/64",
+        "25%",
+        "50%",
+        "75%"
+      ],
+      "correct": 0,
+      "id": "3-47",
+      "difficulty": "hard"
+    },
+    {
+      "text": "Em uma população em equilíbrio de Hardy-Weinberg, q² = 0,09. Qual é a frequência de heterozigotos?",
+      "options": [
+        "0,42",
+        "25%",
+        "50%",
+        "75%"
+      ],
+      "correct": 0,
+      "id": "3-48",
+      "difficulty": "hard"
+    },
+    {
+      "text": "Se 20% dos nucleotídeos de um DNA dupla fita são adenina, qual é a porcentagem de citosina?",
+      "options": [
+        "30%",
+        "25%",
+        "50%",
+        "75%"
+      ],
+      "correct": 0,
+      "id": "3-49",
+      "difficulty": "hard"
+    }
+  ],
+  "História": [
+    {
+      "text": "Em que ano ocorreu: Independência do Brasil?",
+      "options": [
+        "1822",
+        "1825",
+        "1833",
+        "1815"
+      ],
+      "correct": 0,
+      "id": "4-0",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em que ano ocorreu: Proclamação da República no Brasil?",
+      "options": [
+        "1892",
+        "1882",
+        "1889",
+        "1900"
+      ],
+      "correct": 2,
+      "id": "4-1",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em que ano ocorreu: Abolição da escravidão no Brasil (Lei Áurea)?",
+      "options": [
+        "1899",
+        "1888",
+        "1881",
+        "1891"
+      ],
+      "correct": 1,
+      "id": "4-2",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em que ano ocorreu: Chegada da corte portuguesa ao Brasil?",
+      "options": [
+        "1801",
+        "1819",
+        "1811",
+        "1808"
+      ],
+      "correct": 3,
+      "id": "4-3",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em que ano ocorreu: Início da Primeira Guerra Mundial?",
+      "options": [
+        "1917",
+        "1914",
+        "1925",
+        "1907"
+      ],
+      "correct": 1,
+      "id": "4-4",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em que ano ocorreu: Fim da Primeira Guerra Mundial?",
+      "options": [
+        "1921",
+        "1911",
+        "1929",
+        "1918"
+      ],
+      "correct": 3,
+      "id": "4-5",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em que ano ocorreu: Início da Segunda Guerra Mundial?",
+      "options": [
+        "1932",
+        "1942",
+        "1950",
+        "1939"
+      ],
+      "correct": 3,
+      "id": "4-6",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em que ano ocorreu: Fim da Segunda Guerra Mundial?",
+      "options": [
+        "1948",
+        "1938",
+        "1956",
+        "1945"
+      ],
+      "correct": 3,
+      "id": "4-7",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em que ano ocorreu: Queda do Muro de Berlim?",
+      "options": [
+        "1989",
+        "1992",
+        "1982",
+        "2000"
+      ],
+      "correct": 0,
+      "id": "4-8",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em que ano ocorreu: Revolução Francesa?",
+      "options": [
+        "1782",
+        "1792",
+        "1789",
+        "1800"
+      ],
+      "correct": 2,
+      "id": "4-9",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em que ano ocorreu: Chegada de Cabral ao Brasil?",
+      "options": [
+        "1493",
+        "1511",
+        "1503",
+        "1500"
+      ],
+      "correct": 3,
+      "id": "4-10",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em que ano ocorreu: Início da Revolução Russa?",
+      "options": [
+        "1910",
+        "1928",
+        "1920",
+        "1917"
+      ],
+      "correct": 3,
+      "id": "4-11",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em que ano ocorreu: Promulgação da Constituição brasileira atual?",
+      "options": [
+        "1991",
+        "1988",
+        "1999",
+        "1981"
+      ],
+      "correct": 1,
+      "id": "4-12",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em que ano ocorreu: Início da Era Vargas?",
+      "options": [
+        "1941",
+        "1933",
+        "1930",
+        "1923"
+      ],
+      "correct": 2,
+      "id": "4-13",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em que ano ocorreu: Inauguração de Brasília?",
+      "options": [
+        "1960",
+        "1971",
+        "1963",
+        "1953"
+      ],
+      "correct": 0,
+      "id": "4-14",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em que ano ocorreu: Primeira viagem humana à Lua?",
+      "options": [
+        "1962",
+        "1969",
+        "1972",
+        "1980"
+      ],
+      "correct": 1,
+      "id": "4-15",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em que ano ocorreu: Início da ditadura militar brasileira?",
+      "options": [
+        "1957",
+        "1975",
+        "1967",
+        "1964"
+      ],
+      "correct": 3,
+      "id": "4-16",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em que ano ocorreu: Fim do Império Romano do Ocidente?",
+      "options": [
+        "476",
+        "487",
+        "469",
+        "479"
+      ],
+      "correct": 0,
+      "id": "4-17",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em que ano ocorreu: Tomada de Constantinopla pelos otomanos?",
+      "options": [
+        "1446",
+        "1456",
+        "1453",
+        "1464"
+      ],
+      "correct": 2,
+      "id": "4-18",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em que ano ocorreu: Assinatura da Magna Carta?",
+      "options": [
+        "1208",
+        "1218",
+        "1215",
+        "1226"
+      ],
+      "correct": 2,
+      "id": "4-19",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em que ano ocorreu: Independência dos Estados Unidos?",
+      "options": [
+        "1776",
+        "1787",
+        "1769",
+        "1779"
+      ],
+      "correct": 0,
+      "id": "4-20",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em que ano ocorreu: Início da Revolução Industrial na Inglaterra (aproximadamente)?",
+      "options": [
+        "1760",
+        "1753",
+        "1763",
+        "1771"
+      ],
+      "correct": 0,
+      "id": "4-21",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em que ano ocorreu: Crise da Bolsa de Nova York?",
+      "options": [
+        "1932",
+        "1922",
+        "1940",
+        "1929"
+      ],
+      "correct": 3,
+      "id": "4-22",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em que ano ocorreu: Criação da ONU?",
+      "options": [
+        "1956",
+        "1948",
+        "1938",
+        "1945"
+      ],
+      "correct": 3,
+      "id": "4-23",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Em que ano ocorreu: Assinatura do Tratado de Versalhes?",
+      "options": [
+        "1922",
+        "1919",
+        "1930",
+        "1912"
+      ],
+      "correct": 1,
+      "id": "4-24",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual acontecimento está associado ao ano 1822 e ao tema \"Brasil\"? (Selecione o evento específico)",
+      "options": [
+        "Independência do Brasil",
+        "Proclamação da República no Brasil",
+        "Fim da Primeira Guerra Mundial",
+        "Revolução Francesa"
+      ],
+      "correct": 0,
+      "id": "4-25",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual acontecimento está associado ao ano 1889 e ao tema \"Brasil\"? (Selecione o evento específico)",
+      "options": [
+        "Abolição da escravidão no Brasil (Lei Áurea)",
+        "Início da Segunda Guerra Mundial",
+        "Proclamação da República no Brasil",
+        "Chegada de Cabral ao Brasil"
+      ],
+      "correct": 2,
+      "id": "4-26",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual acontecimento está associado ao ano 1888 e ao tema \"Brasil\"? (Selecione o evento específico)",
+      "options": [
+        "Início da Revolução Russa",
+        "Chegada da corte portuguesa ao Brasil",
+        "Abolição da escravidão no Brasil (Lei Áurea)",
+        "Fim da Segunda Guerra Mundial"
+      ],
+      "correct": 2,
+      "id": "4-27",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual acontecimento está associado ao ano 1808 e ao tema \"Brasil\"? (Selecione o evento específico)",
+      "options": [
+        "Chegada da corte portuguesa ao Brasil",
+        "Queda do Muro de Berlim",
+        "Promulgação da Constituição brasileira atual",
+        "Início da Primeira Guerra Mundial"
+      ],
+      "correct": 0,
+      "id": "4-28",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual acontecimento está associado ao ano 1914 e ao tema \"história mundial\"? (Selecione o evento específico)",
+      "options": [
+        "Início da Primeira Guerra Mundial",
+        "Fim da Primeira Guerra Mundial",
+        "Revolução Francesa",
+        "Início da Era Vargas"
+      ],
+      "correct": 0,
+      "id": "4-29",
+      "difficulty": "easy"
+    },
+    {
+      "text": "Qual foi uma consequência econômica da Revolução Industrial?",
+      "options": [
+        "Crescimento da produção fabril",
+        "Manutenção integral das estruturas anteriores",
+        "Redução imediata do comércio internacional",
+        "Fim de todas as disputas políticas"
+      ],
+      "correct": 0,
+      "id": "4-30",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Qual era uma demanda central do movimento abolicionista brasileiro?",
+      "options": [
+        "Fim da escravidão",
+        "Redução imediata do comércio internacional",
+        "Fim de todas as disputas políticas",
+        "Adoção universal do voto feminino"
+      ],
+      "correct": 0,
+      "id": "4-31",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Qual foi um efeito da Revolução Francesa na política europeia?",
+      "options": [
+        "Difusão de ideais de cidadania e igualdade jurídica",
+        "Fim de todas as disputas políticas",
+        "Adoção universal do voto feminino",
+        "Extinção dos governos nacionais"
+      ],
+      "correct": 0,
+      "id": "4-32",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Qual fator contribuiu para a crise do sistema colonial no Brasil?",
+      "options": [
+        "Restrições comerciais e demandas por autonomia",
+        "Adoção universal do voto feminino",
+        "Extinção dos governos nacionais",
+        "Desaparecimento da atividade agrícola"
+      ],
+      "correct": 0,
+      "id": "4-33",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Qual foi um objetivo da política mercantilista?",
+      "options": [
+        "Acumular metais preciosos e favorecer exportações",
+        "Extinção dos governos nacionais",
+        "Desaparecimento da atividade agrícola",
+        "Manutenção integral das estruturas anteriores"
+      ],
+      "correct": 0,
+      "id": "4-34",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Qual foi uma consequência da Primeira Guerra Mundial?",
+      "options": [
+        "Redesenho de fronteiras europeias",
+        "Desaparecimento da atividade agrícola",
+        "Manutenção integral das estruturas anteriores",
+        "Redução imediata do comércio internacional"
+      ],
+      "correct": 0,
+      "id": "4-35",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Qual foi uma característica da Guerra Fria?",
+      "options": [
+        "Disputa geopolítica entre Estados Unidos e União Soviética",
+        "Manutenção integral das estruturas anteriores",
+        "Redução imediata do comércio internacional",
+        "Fim de todas as disputas políticas"
+      ],
+      "correct": 0,
+      "id": "4-36",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Qual evento marcou o fim do Estado Novo no Brasil?",
+      "options": [
+        "Deposição de Getúlio Vargas em 1945",
+        "Redução imediata do comércio internacional",
+        "Fim de todas as disputas políticas",
+        "Adoção universal do voto feminino"
+      ],
+      "correct": 0,
+      "id": "4-37",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Qual foi uma consequência da urbanização industrial?",
+      "options": [
+        "Expansão do trabalho assalariado urbano",
+        "Fim de todas as disputas políticas",
+        "Adoção universal do voto feminino",
+        "Extinção dos governos nacionais"
+      ],
+      "correct": 0,
+      "id": "4-38",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Qual foi o papel da imprensa na Reforma Protestante?",
+      "options": [
+        "Ampliar a circulação de ideias religiosas",
+        "Adoção universal do voto feminino",
+        "Extinção dos governos nacionais",
+        "Desaparecimento da atividade agrícola"
+      ],
+      "correct": 0,
+      "id": "4-39",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Qual foi um motivo das Grandes Navegações europeias?",
+      "options": [
+        "Busca de rotas comerciais marítimas",
+        "Extinção dos governos nacionais",
+        "Desaparecimento da atividade agrícola",
+        "Manutenção integral das estruturas anteriores"
+      ],
+      "correct": 0,
+      "id": "4-40",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Qual foi uma consequência da Lei Áurea de 1888?",
+      "options": [
+        "Abolição legal da escravidão no Brasil",
+        "Desaparecimento da atividade agrícola",
+        "Manutenção integral das estruturas anteriores",
+        "Redução imediata do comércio internacional"
+      ],
+      "correct": 0,
+      "id": "4-41",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Qual característica marcou a República Oligárquica brasileira?",
+      "options": [
+        "Influência política de elites estaduais",
+        "Manutenção integral das estruturas anteriores",
+        "Redução imediata do comércio internacional",
+        "Fim de todas as disputas políticas"
+      ],
+      "correct": 0,
+      "id": "4-42",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Qual foi um objetivo da criação da ONU em 1945?",
+      "options": [
+        "Promover cooperação internacional e paz",
+        "Redução imediata do comércio internacional",
+        "Fim de todas as disputas políticas",
+        "Adoção universal do voto feminino"
+      ],
+      "correct": 0,
+      "id": "4-43",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Qual foi uma consequência da queda do Muro de Berlim?",
+      "options": [
+        "Aceleração da reunificação alemã",
+        "Fim de todas as disputas políticas",
+        "Adoção universal do voto feminino",
+        "Extinção dos governos nacionais"
+      ],
+      "correct": 0,
+      "id": "4-44",
+      "difficulty": "medium"
+    },
+    {
+      "text": "Qual contradição marcou a independência brasileira de 1822?",
+      "options": [
+        "Ruptura política com Portugal sem abolição da escravidão",
+        "Adoção universal do voto feminino",
+        "Extinção dos governos nacionais",
+        "Desaparecimento da atividade agrícola"
+      ],
+      "correct": 0,
+      "id": "4-45",
+      "difficulty": "hard"
+    },
+    {
+      "text": "Por que o Tratado de Versalhes gerou tensões após a Primeira Guerra?",
+      "options": [
+        "Impôs reparações e restrições à Alemanha",
+        "Extinção dos governos nacionais",
+        "Desaparecimento da atividade agrícola",
+        "Manutenção integral das estruturas anteriores"
+      ],
+      "correct": 0,
+      "id": "4-46",
+      "difficulty": "hard"
+    },
+    {
+      "text": "Como a industrialização alterou as relações de trabalho no século XIX?",
+      "options": [
+        "Concentrou trabalhadores assalariados nas fábricas",
+        "Desaparecimento da atividade agrícola",
+        "Manutenção integral das estruturas anteriores",
+        "Redução imediata do comércio internacional"
+      ],
+      "correct": 0,
+      "id": "4-47",
+      "difficulty": "hard"
+    },
+    {
+      "text": "Qual relação existiu entre imperialismo e industrialização no século XIX?",
+      "options": [
+        "Busca por matérias-primas, mercados e áreas de influência",
+        "Manutenção integral das estruturas anteriores",
+        "Redução imediata do comércio internacional",
+        "Fim de todas as disputas políticas"
+      ],
+      "correct": 0,
+      "id": "4-48",
+      "difficulty": "hard"
+    },
+    {
+      "text": "Por que a Guerra Fria é chamada de bipolar?",
+      "options": [
+        "Duas superpotências lideravam blocos rivais",
+        "Redução imediata do comércio internacional",
+        "Fim de todas as disputas políticas",
+        "Adoção universal do voto feminino"
+      ],
+      "correct": 0,
+      "id": "4-49",
+      "difficulty": "hard"
+    }
+  ]
+}

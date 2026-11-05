@@ -615,3 +615,15 @@ label {
     }
 
 }
+
+/* ===== CAMPOS E CONTROLES DAS NOVAS PARTYS ===== */
+.party-card select, .party-card input[type="number"] { width:100%; }
+.party-card h3 { margin-top:24px; }
+.party-card .row { gap:12px; border-bottom:1px solid var(--bd); }
+.party-card .row button { flex-shrink:0; }
+
+/* Seletor de questões para o anfitrião */
+.catalog-list { max-height: 370px; overflow-y: auto; border: 1px solid var(--bd); border-radius: 12px; margin: 12px 0; padding: 8px; }
+.catalog-option { display:flex; align-items:flex-start; gap:10px; padding:9px; border-bottom:1px solid var(--bd); cursor:pointer; }
+.catalog-option input { width:auto; margin:5px 0 0; }
+.catalog-option span { display:block; }
