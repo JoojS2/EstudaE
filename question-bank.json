@@ -137,7 +137,7 @@
         "10 cm",
         "20 cm",
         "15 cm",
-        "21 m²",
+        "21 cm",
         "25 cm"
       ],
       "correct": 1,
@@ -163,7 +163,7 @@
         "21",
         "13",
         "15",
-        "11",
+        "25",
         "27"
       ],
       "correct": 1,
@@ -226,7 +226,7 @@
       "text": "Qual a área de um retângulo de 7 m por 3 m?",
       "options": [
         "21 m²",
-        "10 cm",
+        "15 m²",
         "20 m²",
         "42 m²",
         "10 m²"
@@ -317,7 +317,7 @@
       "text": "Qual a unidade usual de volume no SI?",
       "options": [
         "Segundo",
-        "Somente x = 4",
+        "Litro",
         "Metro cúbico",
         "Metro quadrado",
         "Quilograma"
@@ -472,7 +472,7 @@
       "id": "v7-0-28",
       "text": "Qual figura possui todos os pontos à mesma distância do centro?",
       "options": [
-        "Metro quadrado",
+        "Losango",
         "Triângulo",
         "Trapézio",
         "Retângulo",
@@ -540,7 +540,7 @@
         "√2",
         "-7",
         "0,5",
-        "Um",
+        "1",
         "3/4"
       ],
       "correct": 0,
@@ -632,7 +632,7 @@
         "1 m real",
         "100 m reais",
         "10 m reais",
-        "18 cm³"
+        "100 km reais"
       ],
       "correct": 1,
       "difficulty": "medium"
@@ -644,7 +644,7 @@
         "9 cm³",
         "18 cm³",
         "12 cm³",
-        "10 cm",
+        "10 cm³",
         "27 cm³"
       ],
       "correct": 4,
@@ -657,7 +657,7 @@
         "45 × 10³",
         "4,5 × 10³",
         "4,5 × 10²",
-        "Triângulo",
+        "4,5 × 10⁴",
         "0,45 × 10³"
       ],
       "correct": 1,
@@ -784,7 +784,7 @@
       "id": "v7-math-extra-17",
       "text": "Qual é a derivada de f(x)=x²?",
       "options": [
-        "Um",
+        "2x²",
         "2",
         "2x",
         "x",
@@ -799,7 +799,7 @@
       "options": [
         "x + C",
         "x² + C",
-        "Segundo",
+        "2x + C",
         "2x² + C",
         "2 + C"
       ],
@@ -850,7 +850,7 @@
       "text": "Qual é o domínio real de f(x)=1/x?",
       "options": [
         "Somente inteiros",
-        "x = 4 ou x = -4",
+        "Todos os reais exceto 1",
         "Todos os reais exceto zero",
         "Somente positivos",
         "Todos os reais"
@@ -863,7 +863,7 @@
       "text": "Qual é a solução de |x| = 4?",
       "options": [
         "Somente x = 4",
-        "Metro quadrado",
+        "x = 2 ou x = -2",
         "Somente x = -4",
         "x = 4 ou x = -4",
         "x = 0"
@@ -1541,7 +1541,7 @@
       "text": "Qual é a unidade de força no Sistema Internacional?",
       "options": [
         "Pascal",
-        "Atrito",
+        "Quilograma-força",
         "Newton",
         "Watt",
         "Joule"
@@ -1554,7 +1554,7 @@
       "text": "Qual instrumento mede corrente elétrica?",
       "options": [
         "Voltímetro",
-        "Temperatura",
+        "Dinamômetro",
         "Barômetro",
         "Termômetro",
         "Amperímetro"
@@ -1568,8 +1568,8 @@
       "options": [
         "Não",
         "Sim",
-        "Apenas à noite",
-        "Ohm",
+        "Apenas em altas frequências",
+        "Somente se houver luz",
         "Somente em ondas de rádio"
       ],
       "correct": 0,
@@ -1595,7 +1595,7 @@
         "Evaporação",
         "Dispersão da luz",
         "Magnetismo",
-        "Menor para maior",
+        "Reflexão sonora",
         "Atrito"
       ],
       "correct": 1,
@@ -1608,7 +1608,7 @@
         "Temperatura",
         "Velocidade",
         "Corrente",
-        "Pascal",
+        "Pressão",
         "Energia"
       ],
       "correct": 4,
@@ -1620,7 +1620,7 @@
       "options": [
         "Infinita",
         "Alternada",
-        "Watt",
+        "Constante",
         "Zero",
         "Máxima"
       ],
@@ -1634,7 +1634,7 @@
         "Atração magnética",
         "Capacidade de emitir luz",
         "Tendência de manter o estado de movimento",
-        "Mais frio para um mais quente",
+        "Tendência de acelerar espontaneamente",
         "Mudança de temperatura"
       ],
       "correct": 2,
@@ -1659,7 +1659,7 @@
       "options": [
         "Dez",
         "Zero",
-        "Watt",
+        "Um metro por segundo",
         "Um",
         "Infinita"
       ],
@@ -1670,7 +1670,7 @@
       "id": "v7-1-10",
       "text": "Qual é a relação entre peso e massa?",
       "options": [
-        "Somente em ondas de rádio",
+        "Massa e peso são medidos em newtons",
         "São sempre iguais",
         "Peso é medido em litros",
         "Massa depende da altura",
@@ -1685,7 +1685,7 @@
       "options": [
         "Plana sem grau",
         "Divergente",
-        "Voltímetro",
+        "Cilíndrica sem grau",
         "Convergente",
         "Espelhada"
       ],
@@ -1698,9 +1698,9 @@
       "options": [
         "Mais frio para um mais quente",
         "Mais leve para mais pesado",
-        "Somente em ondas de rádio",
+        "Somente de corpos com mesma temperatura",
         "Mais quente para um mais frio",
-        "Menor para maior"
+        "De menor pressão para maior pressão"
       ],
       "correct": 3,
       "difficulty": "medium"
@@ -1712,7 +1712,7 @@
         "Ampere",
         "Watt",
         "Volt",
-        "Não",
+        "Coulomb",
         "Ohm"
       ],
       "correct": 4,
@@ -1725,7 +1725,7 @@
         "Imagem sem reflexão",
         "Imagem virtual",
         "Somente imagem real",
-        "Apenas à noite",
+        "Imagem sempre invertida verticalmente",
         "Imagem sempre ampliada"
       ],
       "correct": 1,
@@ -2391,7 +2391,7 @@
         "Círculo Polar Ártico",
         "Trópico de Câncer",
         "Equador",
-        "Caracas"
+        "Trópico de Capricórnio"
       ],
       "correct": 3,
       "difficulty": "easy"
@@ -2401,7 +2401,7 @@
       "text": "Qual é o maior continente em área?",
       "options": [
         "Ásia",
-        "Lima",
+        "América do Sul",
         "Europa",
         "Oceania",
         "Antártida"
@@ -2413,7 +2413,7 @@
       "id": "v7-2-2",
       "text": "O que é latitude?",
       "options": [
-        "Reserva subterrânea de água",
+        "Distância angular ao meridiano de Greenwich",
         "Profundidade do oceano",
         "Distância angular ao Equador",
         "Altitude acima do mar",
@@ -2427,7 +2427,7 @@
       "text": "Qual bioma brasileiro é conhecido por árvores retorcidas e savanas?",
       "options": [
         "Caatinga",
-        "Caracas",
+        "Pantanal",
         "Cerrado",
         "Pampa",
         "Mata de Araucárias"
@@ -2454,7 +2454,7 @@
       "options": [
         "Oxigênio",
         "Nitrogênio",
-        "Montevidéu",
+        "Argônio",
         "Hidrogênio",
         "Gás carbônico"
       ],
@@ -2465,7 +2465,7 @@
       "id": "v7-2-6",
       "text": "Como se chama a passagem do campo para a cidade?",
       "options": [
-        "Reino Unido",
+        "Migração pendular",
         "Imigração marítima",
         "Êxodo rural",
         "Nomadismo",
@@ -2481,7 +2481,7 @@
         "Inclinação do eixo terrestre e translação",
         "Marés",
         "Rotação da Lua",
-        "Distância angular ao Equador",
+        "Inclinação do campo magnético terrestre",
         "Distância diária à Lua"
       ],
       "correct": 0,
@@ -2492,7 +2492,7 @@
       "text": "Qual oceano banha a costa leste do Brasil?",
       "options": [
         "Índico",
-        "Venezuela",
+        "Antártico",
         "Pacífico",
         "Atlântico",
         "Ártico"
@@ -2517,7 +2517,7 @@
       "id": "v7-2-10",
       "text": "O que é um aquífero?",
       "options": [
-        "Distância angular ao Equador",
+        "Rio subterrâneo de lava",
         "Tipo de vulcão",
         "Camada de gelo polar",
         "Corrente de ar",
@@ -2531,7 +2531,7 @@
       "text": "Qual é a camada externa sólida da Terra?",
       "options": [
         "Núcleo interno",
-        "Berlim",
+        "Litosfera interna",
         "Núcleo externo",
         "Manto inferior",
         "Crosta"
@@ -2544,7 +2544,7 @@
       "text": "Qual fonte energética é renovável?",
       "options": [
         "Solar",
-        "Paris",
+        "Diesel",
         "Gás natural",
         "Carvão mineral",
         "Petróleo"
@@ -2558,7 +2558,7 @@
       "options": [
         "Manguezal",
         "Xerófila",
-        "Santiago",
+        "Mesófila",
         "Higrófila",
         "Hidrófila"
       ],
@@ -2571,7 +2571,7 @@
       "options": [
         "Altitude",
         "Precipitação",
-        "Venezuela",
+        "Temperatura",
         "Latitude",
         "Longitude"
       ],
@@ -3238,7 +3238,7 @@
         "Lisossomo",
         "Mitocôndria",
         "Cloroplasto",
-        "Fermentação"
+        "Complexo de Golgi"
       ],
       "correct": 3,
       "difficulty": "easy"
@@ -3249,7 +3249,7 @@
       "options": [
         "Glicose",
         "DNA",
-        "Rim",
+        "RNA mensageiro",
         "Amido",
         "Colesterol"
       ],
@@ -3264,7 +3264,7 @@
         "Tecido",
         "Célula",
         "Sistema",
-        "Meiose"
+        "Organela"
       ],
       "correct": 2,
       "difficulty": "easy"
@@ -3276,7 +3276,7 @@
         "Pulmão",
         "Coração",
         "Rim",
-        "néfrons",
+        "Estômago",
         "Fígado"
       ],
       "correct": 1,
@@ -3286,7 +3286,7 @@
       "id": "v7-3-4",
       "text": "Qual é a função dos glóbulos vermelhos?",
       "options": [
-        "síntese de proteínas",
+        "Produzir anticorpos",
         "Formar ossos",
         "Digestionar gorduras",
         "Transportar oxigênio",
@@ -3300,7 +3300,7 @@
       "text": "Qual processo produz gametas?",
       "options": [
         "Fermentação",
-        "Tecido",
+        "Brotamento",
         "Mitose",
         "Meiose",
         "Osmose"
@@ -3313,7 +3313,7 @@
       "text": "O que é um ecossistema?",
       "options": [
         "Somente o clima",
-        "produção e transporte de proteínas",
+        "Somente os fatores abióticos",
         "Apenas plantas",
         "Seres vivos e ambiente em interação",
         "Apenas animais"
@@ -3327,7 +3327,7 @@
       "options": [
         "Plantae",
         "Monera",
-        "Amido",
+        "Protista",
         "Fungi",
         "Animalia"
       ],
@@ -3340,7 +3340,7 @@
       "options": [
         "Parede celular de todos os animais",
         "Centríolo",
-        "síntese de lipídios",
+        "Retículo endoplasmático",
         "Nucléolo",
         "Membrana plasmática"
       ],
@@ -3351,7 +3351,7 @@
       "id": "v7-3-9",
       "text": "O que é seleção natural?",
       "options": [
-        "Sequência de transferência de energia entre seres vivos",
+        "Adaptação intencional dos indivíduos",
         "Mudança intencional do DNA",
         "Maior reprodução de características hereditárias favoráveis",
         "Criação artificial de espécies",
@@ -3365,7 +3365,7 @@
       "text": "Qual é a função dos rins?",
       "options": [
         "Bombear sangue",
-        "transmissão de impulsos nervosos",
+        "Produzir bile",
         "Filtrar o sangue e formar urina",
         "Produzir insulina",
         "Absorver luz"
@@ -3381,7 +3381,7 @@
         "Melanina",
         "Hemoglobina",
         "Clorofila",
-        "neurônios"
+        "Caroteno"
       ],
       "correct": 3,
       "difficulty": "medium"
@@ -3394,7 +3394,7 @@
         "Vitamina B12",
         "Vitamina C",
         "Vitamina D",
-        "leucócitos"
+        "Vitamina A"
       ],
       "correct": 3,
       "difficulty": "medium"
@@ -3406,7 +3406,7 @@
         "Mutualismo",
         "Predação",
         "Parasitismo",
-        "leucócitos",
+        "Amensalismo",
         "Competição"
       ],
       "correct": 0,
@@ -3420,7 +3420,7 @@
         "Ciclo das rochas",
         "Processo de evaporação",
         "Sequência de transferência de energia entre seres vivos",
-        "armazenamento de água e manutenção do turgor vegetal"
+        "Relação entre populações sem transferência de energia"
       ],
       "correct": 3,
       "difficulty": "medium"
@@ -4110,7 +4110,7 @@
         "Sumérios",
         "Maias",
         "Vikings",
-        "Salvador",
+        "Fenícios",
         "Astecas"
       ],
       "correct": 0,
@@ -4120,7 +4120,7 @@
       "id": "v7-4-3",
       "text": "Em qual continente surgiu a Revolução Industrial?",
       "options": [
-        "Romana",
+        "Ásia",
         "América do Sul",
         "Oceania",
         "Europa",
@@ -4134,7 +4134,7 @@
       "text": "Qual foi a principal atividade econômica do Brasil colonial no século XVI?",
       "options": [
         "Extração de petróleo",
-        "Revolução Francesa",
+        "Mineração de ferro",
         "Tecnologia da informação",
         "Indústria automobilística",
         "Produção de açúcar"
@@ -4189,7 +4189,7 @@
         "Napoleão Bonaparte",
         "Mahatma Gandhi",
         "Júlio César",
-        "América do Sul"
+        "George Washington"
       ],
       "correct": 2,
       "difficulty": "easy"
@@ -4202,7 +4202,7 @@
         "Salvador",
         "Belo Horizonte",
         "Brasília",
-        "Sumérios"
+        "Rio de Janeiro"
       ],
       "correct": 1,
       "difficulty": "easy"
@@ -4215,7 +4215,7 @@
         "Estados nacionais",
         "Domínios rurais de senhores",
         "Portos modernos",
-        "Chegada de Cabral ao Brasil"
+        "Territórios exclusivamente urbanos"
       ],
       "correct": 2,
       "difficulty": "medium"
@@ -4225,7 +4225,7 @@
       "text": "Em que século começou a Primeira Guerra Mundial?",
       "options": [
         "Século XXI",
-        "São Paulo",
+        "Século XIX",
         "Século XVIII",
         "Século XVI",
         "Século XX"
@@ -4239,7 +4239,7 @@
       "options": [
         "Carta da ONU",
         "Tratado de Tordesilhas",
-        "Júlio César",
+        "Declaração dos Direitos do Homem e do Cidadão",
         "Magna Carta",
         "Código de Hamurábi"
       ],
@@ -4254,7 +4254,7 @@
         "Início da internet",
         "Movimento de renovação artística e intelectual",
         "Fim do Império Romano do Ocidente",
-        "Restrições comerciais e demandas por autonomia"
+        "Movimento de restauração exclusiva da arte medieval"
       ],
       "correct": 2,
       "difficulty": "medium"
@@ -4266,7 +4266,7 @@
         "Mercantilismo",
         "Feudalismo",
         "Iluminismo",
-        "Século XXI",
+        "Humanismo renascentista",
         "Absolutismo"
       ],
       "correct": 2,
