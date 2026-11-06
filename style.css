@@ -842,3 +842,18 @@ body.name-modal-open { overflow:hidden; }
 @media(prefers-reduced-motion:reduce) {
   .sidebar, .sidebar-backdrop { transition:none; }
 }
+
+/* Preparação sincronizada antes da primeira pergunta da Party */
+.party-countdown-card { text-align:center; padding:clamp(24px, 6vw, 56px) 18px; }
+.party-countdown-card h2 { margin:12px 0; }
+.party-countdown-number {
+  display:grid; place-items:center; margin:20px auto; width:clamp(116px, 36vw, 174px);
+  aspect-ratio:1; border-radius:50%; font-size:clamp(4rem, 16vw, 6rem);
+  font-weight:800; line-height:1; font-variant-numeric:tabular-nums;
+  background:var(--card); color:var(--tx); border:3px solid var(--bd);
+  box-shadow:0 0 0 9px rgba(115, 159, 137, .10);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .party-countdown-number { animation: party-countdown-pulse 1s ease-in-out infinite; }
+  @keyframes party-countdown-pulse { 50% { transform:scale(1.045); } }
+}

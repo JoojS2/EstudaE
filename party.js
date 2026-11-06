@@ -36,6 +36,42 @@ let catalog = {};
 
 let partyChoice = { key: '', choice: null };
 let party = { room: null, feedback: '', publicRooms: [], name: localStorage.getItem('estudae:player-name') || '', categories: ['Matemática', 'Física', 'Geografia', 'Biologia', 'História'] };
+// O áudio só é acionado por uma mudança real para a fase de preparação.
+// Navegadores podem bloquear som automático: o contador visual sempre funciona.
+let countdownAudio = null;
+let audioUnlocked = false;
+let serverClockOffset = 0;
+let lastCountdownSoundKey = '';
+function unlockCountdownAudio() {
+  if (audioUnlocked) return;
+  try {
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContextClass) return;
+    countdownAudio = countdownAudio || new AudioContextClass();
+    if (countdownAudio.state === 'suspended') countdownAudio.resume().catch(() => {});
+    audioUnlocked = true;
+  } catch (_) { /* Som opcional */ }
+}
+document.addEventListener('pointerdown', unlockCountdownAudio, { passive: true });
+document.addEventListener('keydown', unlockCountdownAudio);
+function playCountdownAlert() {
+  try {
+    if (!audioUnlocked || !countdownAudio || countdownAudio.state !== 'running') return;
+    const now = countdownAudio.currentTime;
+    [0, 0.18].forEach((delay, i) => {
+      const osc = countdownAudio.createOscillator();
+      const gain = countdownAudio.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = i ? 740 : 590;
+      gain.gain.setValueAtTime(0.0001, now + delay);
+      gain.gain.exponentialRampToValueAtTime(0.085, now + delay + 0.015);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + delay + 0.13);
+      osc.connect(gain); gain.connect(countdownAudio.destination);
+      osc.start(now + delay); osc.stop(now + delay + 0.14);
+    });
+  } catch (_) { /* Não interromper o quiz se o som falhar */ }
+}
+
 function partyEmit(event, data = {}) {
   if (!socket?.connected) { party.feedback = 'Sem conexão com o servidor. Confira config.js e o Render.'; render(); return; }
   socket.emit(event, data);
@@ -44,7 +80,16 @@ function refreshParty() { if (V === 'party') render(); }
 if (socket) {
   socket.on('connect', () => { party.feedback = ''; partyEmit('listPublicRooms'); partyEmit('getCatalog'); partyEmit('loadSavedQuestions', { owner }); tryResumeParty(); refreshParty(); });
   socket.on('catalog', data => { catalog = data; refreshParty(); });
-  socket.on('room', room => { party.room = room; savePartySession(room.code); party.feedback = ''; refreshParty(); });
+  socket.on('room', room => {
+    if (Number.isFinite(room.serverNow)) serverClockOffset = room.serverNow - Date.now();
+    const key = room.code + ':' + room.countdownDeadline;
+    if (room.phase === 'countdown' && room.countdownDeadline && key !== lastCountdownSoundKey) {
+      lastCountdownSoundKey = key;
+      // Um participante que reconecta durante a contagem também vê o tempo correto.
+      if (!party.room || party.room.phase !== 'countdown') playCountdownAlert();
+    }
+    party.room = room; savePartySession(room.code); party.feedback = ''; refreshParty();
+  });
   socket.on('resumeFailed', message => { clearPartySession(); party.room = null; party.feedback = message; refreshParty(); });
   socket.on('sessionReplaced', () => { party.room = null; party.feedback = 'Esta Party foi aberta em outra aba. Você pode voltar por lá.'; refreshParty(); });
   socket.on('publicRooms', rooms => { party.publicRooms = rooms; refreshParty(); });
@@ -94,6 +139,9 @@ function partyView() {
       if (room.mode === 'custom') html += `<div class="card"><h2>✏️ Adicionar pergunta própria</h2><p class="mu">Ao adicionar, a pergunta também será salva na sua biblioteca para futuras salas.</p><label>Enunciado<textarea id="pq" rows="2" maxlength="300" placeholder="Digite a pergunta"></textarea></label>${[0,1,2,3,4].map(i=>`<div class="answer-row"><input type="radio" name="pc" value="${i}" ${i===0?'checked':''}><input class="pa" maxlength="150" placeholder="Alternativa ${i+1}"></div>`).join('')}<p class="mu">Marque a alternativa correta.</p><button class="pri" data-a="addPartyQuestion">Adicionar e salvar</button><button data-a="useSaved">Usar minha biblioteca (${Math.min(savedQuestions.length,room.amount)} questões)</button></div>`;
       html += `<div class="party-lobby-actions"><button class="pri" data-a="launchParty" ${room.questions.length!==room.amount?'disabled':''}>Começar quiz (${room.questions.length}/${room.amount} questões)</button><button class="party-exit-button" data-a="leaveParty">Sair da sala…</button></div>`;
     } else html += '<div class="notice">Aguardando o anfitrião iniciar o quiz...</div><div class="party-exit"><button class="party-exit-button" data-a="leaveParty">Sair da sala…</button></div>';
+  } else if (room.phase === 'countdown') {
+    const seconds = Math.max(0, Math.ceil((Number(room.countdownDeadline) - Date.now() - serverClockOffset) / 1000));
+    html += `<div class="card party-countdown-card" role="status" aria-live="polite"><div class="eyebrow">PREPARE-SE!</div><h2>O quiz vai começar</h2><div class="party-countdown-number" id="partyCountdown" data-deadline="${Number(room.countdownDeadline)||0}" aria-label="${seconds} segundos restantes">${seconds || '…'}</div><p class="mu">A primeira pergunta aparecerá automaticamente para todos os jogadores.</p></div>`;
   } else if (room.phase === 'question' && q) {
     const answered = me?.answered === room.index;
     const answeredCount = room.players.filter(p => p.answered === room.index).length;
@@ -110,7 +158,7 @@ function partyView() {
     if (host) html += '<button class="pri" data-a="partyRestart">Voltar ao lobby</button>';
   }
   // Ação de saída disponível durante toda a partida, longe das alternativas.
-  if (['question', 'reveal', 'done'].includes(room.phase)) html += '<div class="party-exit party-exit-during-quiz"><button class="party-exit-button" data-a="leaveParty">Sair da sala…</button></div>';
+  if (['countdown', 'question', 'reveal', 'done'].includes(room.phase)) html += '<div class="party-exit party-exit-during-quiz"><button class="party-exit-button" data-a="leaveParty">Sair da sala…</button></div>';
   return html;
 }
 function ranking(room) { return '<h3>Placar</h3>' + room.players.slice().sort((a,b)=>b.score-a.score).map((p,i)=>`<div class="row"><span>${i+1}º ${h(p.name)}</span><b>${p.score} pontos</b></div>`).join(''); }
@@ -238,3 +286,12 @@ setInterval(() => {
   el.textContent = `⏱ ${seconds}s`;
   el.classList.toggle('party-timer-low', seconds <= 5);
 }, 200);
+
+// Renderiza somente o número, sem reconstruir a tela ou reiniciar a contagem.
+setInterval(() => {
+  const el = document.getElementById('partyCountdown');
+  if (!el) return;
+  const remaining = Math.max(0, Math.ceil((Number(el.dataset.deadline) - Date.now() - serverClockOffset) / 1000));
+  el.textContent = remaining || '…';
+  el.setAttribute('aria-label', `${remaining} segundos restantes`);
+}, 100);

@@ -194,3 +194,8 @@ Este repositório não inclui atualmente um arquivo de licença. As condições 
 **Estudaê — um passo por dia, no seu ritmo.**
 
 </div>
+
+
+### Contagem antes das Partys
+
+Ao clicar em **Começar quiz**, o servidor inicia uma preparação sincronizada de **5 segundos** para todos os jogadores. A primeira questão e seu tempo de resposta só começam após essa preparação. O navegador tenta reproduzir um alerta sonoro curto (pode depender de interação prévia do usuário e das políticas de áudio do dispositivo). A fase é recuperada corretamente em reconexões. Para publicar esta mudança, atualize **frontend (Vercel)** e **backend (Render)**.

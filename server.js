@@ -43,6 +43,7 @@ const rooms = new Map();
 const VALID_AMOUNTS = [10, 20, 30, 45, 60];
 const MIN_SECONDS = 10;
 const MAX_SECONDS = 30;
+const START_COUNTDOWN_MS = 5000;
 const RECONNECT_GRACE_MS = 120000; // reserva a vaga por 2 minutos após queda ou atualização
 function shuffle(items) {
   const result = [...items];
@@ -88,6 +89,7 @@ function publicRoom(room) {
     players: room.players.map(({ sessionKey, disconnectTimer, ...p }) => ({ ...p, online: !!p.online })), questions: visibleQuestions(room),
     correct: room.phase === 'reveal' ? room.questions[room.index]?.correct : null,
     secondsPerQuestion: room.secondsPerQuestion, deadline: room.phase === 'question' ? room.deadline : null,
+    countdownDeadline: room.phase === 'countdown' ? room.countdownDeadline : null, serverNow: Date.now(),
     results: room.phase === 'reveal' ? room.results : []
   };
 }
@@ -104,6 +106,7 @@ function cancelTimer(room) {
   if (room.timer) clearTimeout(room.timer);
   room.timer = null;
   room.deadline = null;
+  room.countdownDeadline = null;
 }
 function revealQuestion(room) {
   if (room.phase !== 'question') return;
@@ -116,6 +119,21 @@ function revealQuestion(room) {
     return { id: player.id, name: player.name, choice, isCorrect };
   });
   room.phase = 'reveal';
+  broadcast(room);
+}
+function beginCountdown(room) {
+  cancelTimer(room);
+  room.phase = 'countdown';
+  room.answers.clear();
+  room.results = [];
+  room.countdownDeadline = Date.now() + START_COUNTDOWN_MS;
+  // O servidor é a autoridade: nenhum cliente inicia perguntas antecipadamente.
+  room.timer = setTimeout(() => {
+    if (rooms.get(room.code) !== room || room.phase !== 'countdown') return;
+    room.timer = null;
+    room.countdownDeadline = null;
+    beginQuestion(room);
+  }, START_COUNTDOWN_MS);
   broadcast(room);
 }
 function beginQuestion(room) {
@@ -272,7 +290,7 @@ io.on('connection', socket => {
   socket.on('startQuiz', () => {
     const room = current(socket);
     if (!room || room.hostId !== socket.id || room.phase !== 'lobby' || room.questions.length !== room.amount) return error(socket, `A Party precisa ter exatamente ${room.amount} questões para começar.`);
-    room.index = 0; room.players.forEach(p => { p.score = 0; p.answered = -1; }); beginQuestion(room);
+    room.index = 0; room.players.forEach(p => { p.score = 0; p.answered = -1; }); beginCountdown(room);
   });
   socket.on('answer', ({ choice } = {}) => {
     const room = current(socket);
