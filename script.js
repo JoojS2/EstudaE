@@ -130,7 +130,7 @@ function render() {
 }
 // ===== AÇÕES DO USUÁRIO =====
 const ACT = {
-    go: d => { V = d.v; if(V==='rev') R=null; RS = false; },
+    go: d => { V = d.v; if(V==='rev') R=null; RS = false; closeMobileMenu(); },
     start: () => { V='rev'; R=null; },
     newReview: () => { R=null; V='rev'; },
     startReview: () => { const selected=[...document.querySelectorAll('[data-revision-topic]:checked')].map(el=>el.dataset.revisionTopic); if(!selected.length) { alert('Selecione ao menos uma matéria.'); return; } revisionTopics=selected; revisionCount=Number(document.getElementById('revisionAmount').value); const qs=reviewPool(); if(!qs.length) { alert('Nenhuma questão disponível para os temas escolhidos.'); return; } R={qs,i:0,fb:null,selected:null,resp:[]}; V='rev'; },
@@ -170,3 +170,27 @@ document.addEventListener('click', e => { const b = e.target.closest('[data-a]')
     ACT[b.dataset.a](b.dataset); if (b.dataset.a !== 'selectPartyAnswer') render(); });
 render();
 
+
+// Navegação mobile: menu lateral completo, com foco e fechamento acessível.
+const menuToggle = document.getElementById('menuToggle');
+const mobileSidebar = document.getElementById('sidebar');
+const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+function closeMobileMenu() {
+    document.body.classList.remove('mobile-menu-open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Abrir menu');
+}
+function toggleMobileMenu() {
+    const opening = !document.body.classList.contains('mobile-menu-open');
+    document.body.classList.toggle('mobile-menu-open', opening);
+    menuToggle.setAttribute('aria-expanded', String(opening));
+    menuToggle.setAttribute('aria-label', opening ? 'Fechar menu' : 'Abrir menu');
+    if (opening) mobileSidebar.querySelector('nav button')?.focus();
+    else menuToggle.focus();
+}
+menuToggle.addEventListener('click', toggleMobileMenu);
+sidebarBackdrop.addEventListener('click', () => { closeMobileMenu(); menuToggle.focus(); });
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && document.body.classList.contains('mobile-menu-open')) { closeMobileMenu(); menuToggle.focus(); }
+});
+window.addEventListener('resize', () => { if (window.innerWidth > 850) closeMobileMenu(); });

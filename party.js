@@ -71,7 +71,6 @@ function partyView() {
   if (!room) {
     if (storedParty()) html += '<div class="card reconnect-card"><h2>↻ Voltar à sua Party</h2><p class="mu">Sua sessão foi preservada. Você pode tentar reconectar à mesma sala.</p><button class="pri" data-a="reconnectParty">Reconectar à Party</button></div>';
     html += `<div class="grid2"><div class="card party-card"><h2>🎉 Criar uma Party</h2>
-      ${input('partyName','Seu nome','Como devemos chamar você?',28)}
       ${input('partyTitle','Nome da sala','Ex.: Revisão para a prova',60)}
       <label>Privacidade<select id="partyVisibility"><option value="public">🌍 Pública — aparece na lista</option><option value="private">🔒 Privada — entra com código</option></select></label>
       <label>Tipo de questões<select id="partyMode"><option value="ready">📚 Perguntas prontas</option><option value="custom">✏️ Criar minhas perguntas</option></select></label>
@@ -79,7 +78,7 @@ function partyView() {
       <label>Quantidade de perguntas<select id="partyAmount"><option value="10">10 questões</option><option value="20" selected>20 questões</option><option value="30">30 questões</option><option value="45">45 questões</option><option value="60">60 questões</option></select></label>
       <p class="mu">Nas perguntas prontas, escolha apenas as matérias. O sistema sorteia as questões e divide a quantidade igualmente entre os temas selecionados.</p>
       <button class="pri" data-a="createParty">Criar sala</button></div>
-      <div class="card party-card"><h2>🚀 Entrar por código</h2>${input('joinName','Seu nome','Seu nome',28)}${input('joinCode','Código da Party','Ex.: A1B2C3D4',8)}<button class="pri" data-a="joinParty">Entrar na sala</button>
+      <div class="card party-card"><h2>🚀 Entrar por código</h2>${input('joinCode','Código da Party','Ex.: A1B2C3D4',8)}<button class="pri" data-a="joinParty">Entrar na sala</button>
       <h3>🌍 Salas públicas</h3>${party.publicRooms.map(r=>`<div class="row" style="margin:12px 0"><div><b>${h(r.title)}</b><div class="mu">${h(r.category)} · ${r.players} participantes · ${r.questions} questões</div></div><button data-a="joinPublic" data-code="${h(r.code)}">Entrar</button></div>`).join('') || '<p class="mu">Nenhuma sala pública aguardando jogadores.</p>'}</div></div>`;
     html += `<div class="card"><h2>💾 Minha biblioteca de perguntas</h2><p class="mu">${savedQuestions.length} questões salvas. Você pode reutilizá-las em novas Partys personalizadas.</p>${savedQuestions.slice(0, 15).map((q,i)=>`<div class="row" style="padding:6px 0"><span>${i+1}. ${h(q.text)}</span><button class="lk" data-a="removeSaved" data-i="${i}">Excluir</button></div>`).join('')}<button data-a="exportQuestions">Exportar cópia JSON</button></div>`;
     return html;
@@ -117,13 +116,64 @@ function partyView() {
 function ranking(room) { return '<h3>Placar</h3>' + room.players.slice().sort((a,b)=>b.score-a.score).map((p,i)=>`<div class="row"><span>${i+1}º ${h(p.name)}</span><b>${p.score} pontos</b></div>`).join(''); }
 function rememberName(name) { party.name = name; localStorage.setItem('estudae:player-name',name); }
 function join(code, name) { if (!name) { party.feedback='Informe seu nome para entrar.'; return; } rememberName(name); partyEmit('joinRoom',{code,name,sessionKey}); }
-ACT.createParty = () => {
-  const name = document.getElementById('partyName').value.trim();
+// O nome é solicitado em uma janela interna, sem prompt() e sem campo no lobby.
+let pendingPartyAction = null;
+const nameModal = document.getElementById('nameModal');
+const nameModalInput = document.getElementById('nameModalInput');
+const nameModalError = document.getElementById('nameModalError');
+let modalPreviousFocus = null;
+function openNameModal(action) {
+  pendingPartyAction = action;
+  modalPreviousFocus = document.activeElement;
+  nameModalInput.value = party.name || '';
+  nameModalError.textContent = '';
+  nameModal.hidden = false;
+  document.body.classList.add('name-modal-open');
+  nameModalInput.focus();
+  nameModalInput.select();
+}
+function closeNameModal() {
+  nameModal.hidden = true;
+  document.body.classList.remove('name-modal-open');
+  pendingPartyAction = null;
+  if (modalPreviousFocus?.isConnected) modalPreviousFocus.focus();
+}
+document.getElementById('nameModalCancel').addEventListener('click', closeNameModal);
+nameModal.addEventListener('click', e => { if (e.target === nameModal) closeNameModal(); });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && !nameModal.hidden) { e.preventDefault(); closeNameModal(); }
+  if (e.key === 'Tab' && !nameModal.hidden) {
+    const controls = [...nameModal.querySelectorAll('input,button')];
+    const first = controls[0], last = controls[controls.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+});
+document.getElementById('nameModalForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const name = nameModalInput.value.trim();
+  if (!name) { nameModalError.textContent = 'Informe seu nome para continuar.'; nameModalInput.focus(); return; }
+  const action = pendingPartyAction;
+  closeNameModal();
   rememberName(name);
-  partyEmit('createRoom', { name, title: document.getElementById('partyTitle').value.trim(), visibility: document.getElementById('partyVisibility').value, mode: document.getElementById('partyMode').value, category: 'Múltiplas matérias', amount: Number(document.getElementById('partyAmount').value), secondsPerQuestion: Number(document.getElementById('partySeconds').value), owner, sessionKey });
+  if (action?.type === 'create') partyEmit('createRoom', { ...action.data, name, owner, sessionKey });
+  if (action?.type === 'join') join(action.code, name);
+});
+ACT.createParty = () => {
+  const title = document.getElementById('partyTitle').value.trim();
+  if (!title) { party.feedback = 'Informe o nome da sala.'; return; }
+  const data = { title, visibility: document.getElementById('partyVisibility').value,
+    mode: document.getElementById('partyMode').value, category: 'Múltiplas matérias',
+    amount: Number(document.getElementById('partyAmount').value),
+    secondsPerQuestion: Number(document.getElementById('partySeconds').value) };
+  openNameModal({ type: 'create', data });
 };
-ACT.joinParty = () => join(document.getElementById('joinCode').value.trim().toUpperCase(),document.getElementById('joinName').value.trim());
-ACT.joinPublic = d => join(d.code, party.name || prompt('Qual é seu nome?')?.trim());
+ACT.joinParty = () => {
+  const code = document.getElementById('joinCode').value.trim().toUpperCase();
+  if (!code) { party.feedback = 'Informe o código da Party.'; return; }
+  openNameModal({ type: 'join', code });
+};
+ACT.joinPublic = d => openNameModal({ type: 'join', code: d.code });
 ACT.addPartyQuestion = () => {
   const q = { text: document.getElementById('pq').value.trim(), options: [...document.querySelectorAll('.pa')].map(x=>x.value.trim()), correct: Number(document.querySelector('input[name=pc]:checked').value) };
   if (!q.text || q.options.some(x=>!x) || savedQuestions.length>=200) { party.feedback='Preencha todas as alternativas (limite de 200 perguntas salvas).'; return; }
