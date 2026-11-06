@@ -30,19 +30,36 @@ fetch('question-bank.json').then(r => { if (!r.ok) throw Error('Banco indisponí
     render();
 }).catch(() => { console.warn('Banco de questões indisponível para revisão.'); });
 const shuffle = arr => { const a = [...arr]; for (let i=a.length-1;i>0;i--) { const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
+// Sorteio ponderado sem repetição, favorecendo matérias com maior dificuldade.
 function reviewPool() {
-    const ready = Object.entries(sharedBank).filter(([topic]) => revisionTopics.includes(topic)).flatMap(([topic,qs]) => qs.map(q => ({ id:'bank:'+q.id, a:'bank:'+topic, t:q.text, alts:q.options, c:q.correct, l:0 })));
-    const custom = S.q.filter(q => revisionTopics.includes('Minhas questões') || revisionTopics.includes(nomeA(q.a)));
     const unique = new Map();
-    for (const q of [...ready,...custom]) unique.set(q.t.trim().toLocaleLowerCase('pt-BR'),q);
-    const pool=[...unique.values()];
-    return [...shuffle(pool.filter(q=>!recentReviewIds.includes(q.id))),...shuffle(pool.filter(q=>recentReviewIds.includes(q.id)))].slice(0,revisionCount);
+    for (const [topic, qs] of Object.entries(sharedBank)) {
+        if (!revisionTopics.includes(topic)) continue;
+        for (const q of qs) {
+            const item = {id:'bank:'+q.id, a:'bank:'+topic, t:q.text, alts:q.options, c:q.correct, l:0};
+            unique.set(item.t.trim().toLocaleLowerCase('pt-BR'),item);
+        }
+    }
+    for (const q of S.q) {
+        if (revisionTopics.includes('Minhas questões') || revisionTopics.includes(nomeA(q.a))) {
+            const key=q.t.trim().toLocaleLowerCase('pt-BR');
+            if (!unique.has(key)) unique.set(key,q);
+        }
+    }
+    const available=[...unique.values()], result=[];
+    while (result.length < Math.min(revisionCount, result.length+available.length) && available.length) {
+        const weights=available.map(q=>(PESO[prio(q.a)]||2)*(recentReviewIds.includes(q.id)?0.35:1));
+        let value=Math.random()*weights.reduce((a,b)=>a+b,0), index=weights.length-1;
+        for (let i=0;i<weights.length;i++) { value-=weights[i]; if (value<0) {index=i;break;} }
+        result.push(available.splice(index,1)[0]);
+    }
+    return result;
 }
 function revisionSetup() {
     const topics = [...Object.keys(sharedBank),...(S.q.length ? ['Minhas questões'] : [])];
     return `<div class="eyebrow">REVISÃO PERSONALIZADA</div><h1 class="page-title">O que vamos estudar hoje?</h1><p class="subtitle">As questões da revisão também fazem parte das Partys. Escolha uma ou várias matérias e pratique no seu ritmo.</p>
-      <div class="card review-setup"><div class="section-head"><h2>Escolha seus temas</h2><span class="mu">${revisionTopics.length} selecionados</span></div><div class="topic-grid">${topics.map(t=>`<label class="topic-choice"><input type="checkbox" data-revision-topic="${esc(t)}" ${revisionTopics.includes(t)?'checked':''}><span><strong>${esc(t)}</strong><small>${t==='Minhas questões'?S.q.length:sharedBank[t].length} questões</small></span></label>`).join('')}</div>
-      <div class="review-controls"><label>Quantidade de questões<select id="revisionAmount">${[10,20,30,45,60].map(n=>`<option value="${n}" ${revisionCount===n?'selected':''}>${n} questões</option>`).join('')}</select></label><button class="pri" data-a="startReview" ${!topics.length?'disabled':''}>Iniciar revisão →</button></div><p class="mu">O sistema prioriza perguntas não vistas recentemente e evita repetições na mesma revisão.</p></div>`;
+      <div class="card review-setup"><div class="section-head"><h2>Escolha seus temas</h2><span class="mu">${revisionTopics.length} selecionados</span></div><div class="topic-grid">${topics.map(t=>`<label class="topic-choice"><input type="checkbox" data-revision-topic="${esc(t)}" ${revisionTopics.includes(t)?'checked':''}><span><strong>${esc(t)}</strong><small>${t==='Minhas questões'?S.q.length:sharedBank[t].length} questões · <span class="b ${prio('bank:'+t)}">${NOME[prio('bank:'+t)]}</span></small></span></label>`).join('')}</div>
+      <div class="review-controls"><label>Quantidade de questões<select id="revisionAmount">${[10,20,30,45,60].map(n=>`<option value="${n}" ${revisionCount===n?'selected':''}>${n} questões</option>`).join('')}</select></label><button class="pri" data-a="startReview" ${!topics.length?'disabled':''}>Iniciar revisão →</button></div><p class="mu">Prioridades automáticas: alta (peso 3), média (peso 2) e baixa (peso 1). Sorteio aleatório sem repetição, favorecendo perguntas não vistas recentemente.</p></div>`;
 }
 
 const prio = a => (S.des[a] && S.des[a].p) || 'media';
@@ -50,16 +67,13 @@ const nomeA = id => (S.assuntos.find(a => a.id === id) || { nome: '?' }).nome;
 /* Algoritmo: média ponderada das últimas N sessões (pesos N..1) + faixa configurável */
 // ===== REVISÃO INTELIGENTE: CÁLCULO DE PRIORIDADES =====
 function atual(aid) {
-    const r = S.res.filter(x => x.a === aid).slice(-S.cfg.jan).reverse();
-    if (r.reduce((s, x) => s + x.tot, 0) < S.cfg.min)
-        return null;
-    const w = r.map((_, i) => r.length - i), aj = r.reduce((s, x, i) => s + x.pct * w[i], 0) / w.reduce((a, b) => a + b, 0);
-    const m = S.cfg.meta, t = S.cfg.tol, p = aj < m - t ? 'alta' : aj <= m + t ? 'media' : 'baixa', ant = prio(aid);
-    S.des[aid] = { aj, p, t: Date.now() };
-    if (p !== ant) {
-        S.hist.push({ a: aid, de: ant, para: p, aj, t: Date.now() });
-        return [ant, p];
-    }
+    const r=S.res.filter(x=>x.a===aid).slice(-S.cfg.jan);
+    if (r.reduce((sum,x)=>sum+x.tot,0)<S.cfg.min) return null;
+    const w=r.map((_,i)=>i+1);
+    const aj=r.reduce((sum,x,i)=>sum+x.pct*w[i],0)/w.reduce((a,b)=>a+b,0);
+    const m=S.cfg.meta,t=S.cfg.tol,p=aj<m-t?'alta':aj<=m+t?'media':'baixa',ant=prio(aid);
+    S.des[aid]={aj,p,t:Date.now()};
+    if (p!==ant) {S.hist.push({a:aid,de:ant,para:p,aj,t:Date.now()});return [ant,p];}
     return null;
 }
 /* Seleção: cota proporcional ao peso da prioridade; alta primeiro */
@@ -86,9 +100,9 @@ function fin() {
     let h = '<h2>Resultado da revisão</h2>';
     Object.keys(g).forEach(a => {
         const x = g[a], pct = x.ac / x.tot * 100;
-        if (!a.startsWith('bank:')) S.res.push({ a, tot: x.tot, ac: x.ac, pct, t: Date.now() });
-        const ch = a.startsWith('bank:') ? null : atual(a), d = a.startsWith('bank:') ? null : S.des[a];
-        h += `<div class="card row"><div><b>${esc(a.startsWith('bank:')?a.slice(5):nomeA(a))}</b><div class="mu">${x.ac}/${x.tot} acertos (${pct.toFixed(0)}%)${d ? ' · ajustado ' + d.aj.toFixed(0) + '%' : (a.startsWith('bank:')?'':' · poucos dados para reclassificar')}</div></div><span class="b ${prio(a)}">${ch ? NOME[ch[0]] + ' → ' : ''}${a.startsWith('bank:')?'Praticado':NOME[prio(a)]}</span></div>`;
+        S.res.push({ a, tot: x.tot, ac: x.ac, pct, t: Date.now() });
+        const ch = atual(a), d = S.des[a];
+        h += `<div class="card row"><div><b>${esc(a.startsWith('bank:')?a.slice(5):nomeA(a))}</b><div class="mu">${x.ac}/${x.tot} acertos (${pct.toFixed(0)}%)${d ? ' · média ' + d.aj.toFixed(0) + '%' : ' · aguardando mais respostas'}</div></div><span class="b ${prio(a)}">${ch ? NOME[ch[0]] + ' → ' : ''}${NOME[prio(a)]}</span></div>`;
     });
     save();
     R.fim = h + '<button class="pri" data-a="newReview">Nova revisão</button>';
@@ -98,7 +112,7 @@ function fin() {
 function home() {
     const done = S.res.length, correct = S.res.reduce((n, r) => n + r.ac, 0), total = S.res.reduce((n, r) => n + r.tot, 0);
     const icons = ['📐', '📜', '🌎', '📖', '🧪'];
-    return `<div class="eyebrow">BEM-VINDO AO SEU ESPAÇO</div><h1 class="page-title">Seu aprendizado começa aqui 👋</h1><p class="subtitle">Organize seus estudos, acompanhe sua evolução e aprenda com amigos.</p><div class="hero"><div><div style="font-size:11px;letter-spacing:2px;font-weight:800">✦ EVOLUA A CADA DIA</div><h2>Pronto para aprender algo novo?</h2><p>Um pouco de dedicação hoje faz toda a diferença amanhã. Vamos começar?</p><button data-a="go" data-v="rev">Escolher temas →</button></div><div class="hero-art">📚</div></div><div class="stats"><div class="stat"><div class="stat-icon">📚</div><div class="num">${Object.keys(sharedBank).length}</div><div class="mu">Matérias para estudar</div></div><div class="stat"><div class="stat-icon">✍️</div><div class="num">${Object.values(sharedBank).reduce((sum,qs)=>sum+qs.length,0)+S.q.length}</div><div class="mu">Questões disponíveis</div></div><div class="stat"><div class="stat-icon">🎯</div><div class="num">${total ? Math.round(correct / total * 100) : 0}%</div><div class="mu">Taxa geral de acertos</div></div></div><div class="section-head"><h2>📖 Temas para revisar</h2><button class="lk" data-a="go" data-v="man">Gerenciar questões →</button></div>${Object.keys(sharedBank).map((name,i)=>({id:'bank:'+name,nome:name})).map((a, i) => { let d = S.des[a.id], p = prio(a.id), n = sharedBank[a.nome]?.length || 0; return `<div class="card row"><div class="subject-row"><span class="subject-icon">${icons[i % icons.length]}</span><div><b>${esc(a.nome)}</b><div class="mu">${n} questões · ${d ? d.aj.toFixed(0) + '% de aproveitamento' : 'Disponível para revisão'}</div></div></div><span class="b baixa">Praticar</span></div>`; }).join('')}<div class="section-head"><h2>🤝 Estude com amigos</h2></div><div class="card row"><div><b>Partys de estudo</b><div class="mu">Crie um quiz e desafie seus colegas em tempo real.</div></div><button class="pri" data-a="go" data-v="party">Explorar partys</button></div>`;
+    return `<div class="eyebrow">BEM-VINDO AO SEU ESPAÇO</div><h1 class="page-title">Seu aprendizado começa aqui 👋</h1><p class="subtitle">Organize seus estudos, acompanhe sua evolução e aprenda com amigos.</p><div class="hero"><div><div style="font-size:11px;letter-spacing:2px;font-weight:800">✦ EVOLUA A CADA DIA</div><h2>Pronto para aprender algo novo?</h2><p>Um pouco de dedicação hoje faz toda a diferença amanhã. Vamos começar?</p><button data-a="go" data-v="rev">Escolher temas →</button></div><div class="hero-art">📚</div></div><div class="stats"><div class="stat"><div class="stat-icon">📚</div><div class="num">${Object.keys(sharedBank).length}</div><div class="mu">Matérias para estudar</div></div><div class="stat"><div class="stat-icon">✍️</div><div class="num">${Object.values(sharedBank).reduce((sum,qs)=>sum+qs.length,0)+S.q.length}</div><div class="mu">Questões disponíveis</div></div><div class="stat"><div class="stat-icon">🎯</div><div class="num">${total ? Math.round(correct / total * 100) : 0}%</div><div class="mu">Taxa geral de acertos</div></div></div><div class="section-head"><h2>📖 Temas para revisar</h2><button class="lk" data-a="go" data-v="man">Gerenciar questões →</button></div>${Object.keys(sharedBank).map((name,i)=>({id:'bank:'+name,nome:name})).map((a, i) => { let d = S.des[a.id], p = prio(a.id), n = sharedBank[a.nome]?.length || 0; return `<div class="card row"><div class="subject-row"><span class="subject-icon">${icons[i % icons.length]}</span><div><b>${esc(a.nome)}</b><div class="mu">${n} questões · ${d ? d.aj.toFixed(0) + '% de aproveitamento' : 'Disponível para revisão'}</div></div></div><span class="b ${p}">${NOME[p]}</span></div>`; }).join('')}<div class="section-head"><h2>🤝 Estude com amigos</h2></div><div class="card row"><div><b>Partys de estudo</b><div class="mu">Crie um quiz e desafie seus colegas em tempo real.</div></div><button class="pri" data-a="go" data-v="party">Explorar partys</button></div>`;
 }
 function rev() {
     if (!R) return revisionSetup();
